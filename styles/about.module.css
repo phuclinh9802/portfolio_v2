@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+.aboutpage {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    justify-content: space-around;
+    padding: 5% 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/IMG_2291.JPG');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.quotesection {
+    color: #fff;
+    padding: 10px;
+    background-color: #241F1F;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+}
+
+.quotesection .quote {
+    padding: 20px;
+}
+
+.quotesection .author{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.aboutsection {
+    padding: 10px;
+    padding-left: 100px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    color: #ddd;
+}
+
+.header {
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.description {
+    padding: 0 50px;
+    padding-right: 200px;
+    line-height: 1.8em;
+}

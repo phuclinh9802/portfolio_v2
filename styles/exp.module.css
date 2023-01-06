@@ -1,0 +1,68 @@
+.expsection {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0;
+}
+
+.expheader {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+}
+
+.expheader .text {
+    background-color: #FF4D00;
+    color: #fff;
+    padding: 40px 30px;
+}
+
+.expsection .exptabs {
+    padding: 50px 100px;
+}
+
+.expsection .exptabs button {
+    margin: 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: .5s all ease;
+}
+
+.expsection .exptabs button:hover {
+    color: #FF4D00;
+}
+
+.explist {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 500px 1fr;
+}
+
+.explist .expheading div {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+.explist .expheading div p {
+    font-size: 1.75em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.expitems {
+    padding: 0 30px;
+}
+
+.projitems {
+    display: grid;
+    gap: 30px 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.tagdiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
