@@ -3,6 +3,7 @@
 import About from "./about";
 import Hero from "./hero";
 import Navbar from "./navbar";
+import Contact from "./contact";
 
 export default function Layout({ children }) {
   return (
@@ -15,7 +16,9 @@ export default function Layout({ children }) {
         <About />
       </div>
       <main id="experience">{children}</main>
-      {/* <Contact /> */}
+      <div id="contact">
+        <Contact />
+      </div>
     </div>
   );
 }
