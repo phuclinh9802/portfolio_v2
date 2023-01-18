@@ -11,10 +11,10 @@ export default function Hero() {
       </div>
       <div className={styles.heroimages}>
         <div className={styles.myimage}>
-          <Image src="/images/me.png" width={450} height={700} alt="me" />
+          <img src="/images/me.png" width={450} height={700} alt="me" />
         </div>
         <div className={styles.sunsetimage}>
-          <Image
+          <img
             src="/images/IMG_5986.png"
             width={300}
             height={250}

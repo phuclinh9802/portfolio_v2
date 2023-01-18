@@ -5,19 +5,27 @@ import Hero from "./hero";
 import Navbar from "./navbar";
 import Contact from "./contact";
 
+import styles from "../styles/layout.module.css";
+
 export default function Layout({ children }) {
   return (
-    <div className="layout">
-      <Navbar />
-      <div id="hero">
-        <Hero />
+    <div className={styles.layout}>
+      <div className="nb">
+        <Navbar />
       </div>
-      <div id="about">
-        <About />
+      <div className="content">
+        <div id="hero">
+          <Hero />
+        </div>
+        <div id="about">
+          <About />
+        </div>
+        <main id="experience">{children}</main>
       </div>
-      <main id="experience">{children}</main>
-      <div id="contact">
-        <Contact />
+      <div className={styles.footer}>
+        <div id="contact">
+          <Contact />
+        </div>
       </div>
     </div>
   );

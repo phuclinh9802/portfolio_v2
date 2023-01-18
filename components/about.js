@@ -4,6 +4,7 @@ export default function About() {
   return (
     <div className={styles.aboutpage}>
       <div className={styles.quotesection}>
+        <p className={styles.favquote}>Favorite Quote</p>
         <p className={styles.quote}>
           “If you want better results, then forget about setting goals. Focus on
           your system instead.”

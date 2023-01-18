@@ -66,3 +66,32 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
+
+@media screen and (max-width: 768px) {
+    .explist {
+        grid-template-columns: none;
+    }    
+}
+@media screen and (max-width: 425px) {
+    .expsection .exptabs {
+        padding: 0 0; 
+    }    
+    .projitems {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 1fr;
+        margin: 0 auto;
+    }
+        .expheader {
+            grid-template-columns: 1fr 200px;
+        }
+
+    .expheader .text {
+        padding: 10px 20px;
+    }
+
+    .text p {
+        text-align: center;
+        font-size: 0.85em;
+    }
+}

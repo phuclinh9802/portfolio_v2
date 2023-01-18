@@ -5,10 +5,10 @@
     grid-template-columns: 300px 1fr;
     justify-content: space-around;
     padding: 5% 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/IMG_2291.JPG');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/IMG_1896.jpeg');
     background-size:cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: bottom right;
 }
 
 .quotesection {
@@ -18,18 +18,23 @@
     font-family: 'Outfit', sans-serif;
     display: flex;
     flex-direction: column;
-    height: 250px;
+    height: 300px;
 }
 
 .quotesection .quote {
     padding: 20px;
 }
 
-.quotesection .author{
+.quotesection .author, .favquote{
     text-transform: uppercase;
     letter-spacing: 1px;
     justify-content: space-around;
     padding: 20px;
+}
+
+.favquote {
+    font-size: 0.85em;
+    margin-bottom: 0;
 }
 
 .aboutsection {
@@ -49,4 +54,25 @@
     padding: 0 50px;
     padding-right: 200px;
     line-height: 1.8em;
+}
+
+@media screen and (max-width: 768px) {
+    .quotesection {
+        display: none;
+    }
+
+    .aboutpage {
+        grid-template-columns: auto;
+    }
+
+    .description {
+        padding-right: 10px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .aboutsection {
+        padding-left: 10px;
+        grid-template-columns: 1fr;
+    }
 }

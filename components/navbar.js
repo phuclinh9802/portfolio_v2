@@ -12,6 +12,12 @@ export default function Navbar() {
         </Link>
       </div>
       <div className={styles.navsection}>
+        <input type="checkbox" name="" id=""></input>
+        <div class={styles.hamburgerlines}>
+          <span class={styles.line1}></span>
+          <span class={styles.line2}></span>
+          <span class={styles.line3}></span>
+        </div>
         <ul>
           <li>
             <Link href="#about">About</Link>

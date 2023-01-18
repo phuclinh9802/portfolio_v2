@@ -1,6 +1,7 @@
 import styles from "../styles/contact.module.css";
 import { FormControl, Input, InputLabel } from "@mui/material";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -41,10 +42,24 @@ export default function Contact() {
           <p>Reach me at</p>
         </div>
         <div className={styles.socialcontent}>
-          <img src="/images/social/facebook.png" />
-          <img src="/images/social/google.png" />
-          <img src="/images/social/linkedin.png" />
-          <img src="/images/social/twitter.png" />
+          <Link href="https://www.facebook.com/phillip.nguyen.2901/">
+            <img
+              src="/images/social/facebook.png"
+              style={{ marginTop: "-5px" }}
+            />
+          </Link>
+          <Link href="phucnguyen290198@gmail.com">
+            <img src="/images/social/google.png" />
+          </Link>
+          <Link href="https://www.linkedin.com/in/philswe/">
+            <img src="/images/social/linkedin.png" />
+          </Link>
+          <Link href="https://twitter.com/TradesPhil">
+            <img
+              src="/images/social/twitter.png"
+              style={{ marginTop: "5px" }}
+            />
+          </Link>
         </div>
       </div>
       <div className={styles.contactformsection}>
