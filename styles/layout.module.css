@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .layout { 
     display: flex;
@@ -28,6 +27,11 @@
 .navsection ul li {
     text-transform: uppercase;
     padding: 20px;
+    transition: 0.3s all;
+}
+
+.navsection ul li:hover {
+    color: #FF4D00;
 }
 
 .hero {
@@ -271,7 +275,7 @@
     }
 
     .navsection ul {
-        margin-top: 615px;
+        margin-top: 680px;
         padding-top: 100px;
         background: #fff;
         height: 100vh;

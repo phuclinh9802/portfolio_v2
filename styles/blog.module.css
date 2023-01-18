@@ -1,0 +1,115 @@
+.bloglist {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.blogitem {
+    width: 80%;
+    height: 300px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/blog1.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    padding: 0 30px;
+    cursor: pointer;
+    transition: 0.5s all;
+
+}
+
+
+.blogitem:hover {
+    transform: scale(1.05);
+}
+
+.linkblog {
+    padding-top: 200px;
+    font-size: 2em;
+    font-weight:700;
+    letter-spacing: 1px;
+}
+
+
+.blogheader {
+    width: 100%;
+    height: 80vh;
+    background-image: url('/images/blog1.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.article {
+    padding: 30px 100px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.article h1 {
+    font-size: 3em;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+.article .date {
+    padding: 10px 0;
+    font-size: 1em;
+    letter-spacing: 3px;
+}
+
+.article .content {
+    font-family: sans-serif;
+    font-size: 1em;
+    letter-spacing: 1px;
+    margin: 20px 0;
+}
+
+.imglist {
+    width: 100%;
+    padding: 0 12%;
+}
+
+.backbutton {
+    padding: 20px;
+    font-family: sans-serif;
+    font-size: 1.25em;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+
+.backbutton:hover {
+    text-decoration: underline;
+    width: 15vw;
+}
+
+
+.instagramImg img {
+    vertical-align: bottom;
+}
+@media screen and (max-width: 768px) {
+    .blogitem {
+        margin-top: 100px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .linkblog {
+        font-size: 1.5em;
+    }
+    .article {
+        padding: 30px 40px;
+    }
+
+    .article h1 {
+        font-size: 2em;
+    }
+
+    .article .date {
+        letter-spacing: 2px;
+        font-size: 0.9em;
+    }
+}
