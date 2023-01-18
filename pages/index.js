@@ -26,9 +26,6 @@ export default function Index() {
       .then((data) => setProjectData(data));
   }, []);
 
-  console.log(data);
-  console.log(projectData);
-
   return (
     <Layout>
       <div className={styles.expsection}>
