@@ -6,8 +6,8 @@ export default function Hero() {
     <div className={styles.hero}>
       <div className={styles.herotext}>
         <h1 className={styles.heroname}>Phuc Nguyen</h1>
-        <h3 className={styles.title}>// Software Developer</h3>
-        <h3 className={styles.title}>// M.I.S Graduate Student</h3>
+        <h3 className={styles.title}> Software Developer </h3>
+        <h3 className={styles.title}> M.I.S Graduate Student </h3>
       </div>
       <div className={styles.heroimages}>
         <div className={styles.myimage}>
