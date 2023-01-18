@@ -87,7 +87,6 @@ export default function Blogs({ data }) {
                       {...srcset(item.url, 121, 1, 1)}
                       alt={item.img}
                       loading="lazy"
-                      alt={item.img}
                     />
                   </ImageListItem>
                 ))}
