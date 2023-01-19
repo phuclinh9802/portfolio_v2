@@ -9,7 +9,8 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log("Sending");
     let data = {
       name,
@@ -87,7 +88,7 @@ export default function Contact() {
           <input
             type="submit"
             onClick={(e) => {
-              handleSubmit();
+              handleSubmit(e);
             }}
             value="Submit"
           />
