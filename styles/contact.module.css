@@ -52,7 +52,7 @@
     color: white;
 }
 
-.contactform button {
+.contactform input[type="submit"] {
     background-color: #FF4D00;
     height: 40px;
     width: 100px;
@@ -65,7 +65,7 @@
     transition: 0.3s all;
 }
 
-.contactform button:hover {
+.contactform input[type="submit"]:hover {
     background-color: #d74100;
 }
 

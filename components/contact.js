@@ -84,14 +84,13 @@ export default function Contact() {
               setMessage(e.target.value);
             }}
           />
-          <button
+          <input
             type="submit"
             onClick={(e) => {
               handleSubmit();
             }}
-          >
-            Submit
-          </button>
+            value="Submit"
+          />
         </form>
       </div>
     </div>
