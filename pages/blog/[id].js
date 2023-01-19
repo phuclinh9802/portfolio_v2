@@ -222,6 +222,12 @@ export async function getStaticProps({ params }) {
           img: "/images/songs/letmeloveyou.png",
           link: "https://open.spotify.com/track/0lYBSQXN6rCTvUZvg9S0lU?si=b7479e32c785404f",
         },
+        {
+          title: "Way U Are",
+          singers: "Jiselle, BIG Naughty",
+          img: "/images/songs/wayuare.png",
+          link: "https://open.spotify.com/track/1cHwmkEYWHstlT9hRF0EeP?si=212ea56e2b644d52",
+        },
       ],
     },
   ];
