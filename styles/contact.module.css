@@ -60,6 +60,13 @@
     color: white;
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: 0.3s all;
+}
+
+.contactform button:hover {
+    background-color: #d74100;
 }
 
 @media screen and (max-width: 768px) {
