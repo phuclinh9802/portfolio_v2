@@ -166,7 +166,7 @@ export async function getStaticProps({ params }) {
       author: "Phillip Nguyen",
       imgURL: "/images/spotify.png",
       content:
-        "These are my favorite songs between 2022-2023, hopefully we have the same taste of music :)",
+        "These are my favorite songs between 2022-2023, hopefully we have the same taste of music :) Click on any of the songs below to listen with me on Spotify <3",
       songList: [
         {
           title: "When I Get Old",
