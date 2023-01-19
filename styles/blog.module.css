@@ -6,7 +6,9 @@
     align-items: center;
     gap: 20px;
     margin: 0;
+    margin-bottom: 20px;
     padding: 0;
+
 }
 
 .blogitem {
@@ -84,16 +86,98 @@
 
 .backbutton:hover {
     text-decoration: underline;
-    width: 15vw;
 }
 
 
 .instagramImg img {
     vertical-align: bottom;
 }
+
+.songList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    list-style-type: none;
+    padding: 50px;
+}
+
+.songList img {
+    width: 80%;
+}
+
+.songItem {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.songTitle {
+    font-size: 1.25em;
+}
+
+.songSingers {
+    letter-spacing: 2px;
+    font-size: 0.85em;
+}
+
+
+.songContent {
+    display: flex;
+    padding: 10px 0;
+}
+
+.imgButton {
+    position: relative;
+}
+
+.songImg {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.songPlayButton {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 45%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(86, 225, 86);
+}
+
+.imgButton:hover .songImg {
+    opacity: 0.5
+}
+
+.imgButton:hover .songPlayButton {
+    opacity: 1;
+    transform: scale(1.5);
+}
+
 @media screen and (max-width: 768px) {
     .blogitem {
         margin-top: 100px;
+    }
+
+    .songPlayButton {
+        top: 43%;
+        left: 34%;
+    }
+
+    .songList {
+        padding: 5px 0;
+    }
+
+    .songTitle {
+        font-size: 1em;
+    }
+
+    .songSingers {
+        font-size: 0.7em;
     }
 }
 
@@ -112,5 +196,9 @@
     .article .date {
         letter-spacing: 2px;
         font-size: 0.9em;
+    }
+
+    .songList {
+        grid-template-columns: 1fr 1fr;
     }
 }
