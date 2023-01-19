@@ -19,9 +19,15 @@ export default function Blog() {
       <ul className={styles.bloglist}>
         {blogData ? (
           <>
-            {blogData.map(({ id, date, title }) => (
+            {blogData.map(({ id, date, title, imgURL }) => (
               <>
-                <li className={styles.blogitem} key={id}>
+                <li
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
+                  }}
+                  className={styles.blogitem}
+                  key={id}
+                >
                   <Link href={`/blog/${id}`}>
                     <div className={styles.linkblog}>{title}</div>
                     <br />
