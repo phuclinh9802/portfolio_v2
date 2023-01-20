@@ -38,7 +38,7 @@ export default function Blogs({ data }) {
 
   const disqusConfig = {
     url: process.env.NEXT_PUBLIC_PROD_URL,
-    identifier: "Testing",
+    identifier: data.title,
     title: data.title,
     language: "en",
     ssr: "false",
@@ -457,7 +457,10 @@ export default function Blogs({ data }) {
           </div>
         </>
       ) : null}
-      <div className={styles.commentsection}>
+      <div
+        style={{ color: colorMode == "dark" ? "#ddd" : "" }}
+        className={styles.commentsection}
+      >
         <DiscussionEmbed shortname={shortName} config={disqusConfig} />
       </div>
       <div className={styles.backbutton}>
