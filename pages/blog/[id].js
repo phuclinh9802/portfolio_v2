@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageList from "@mui/material/ImageList";
-import { useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import Date from "../../components/date";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
@@ -11,6 +11,8 @@ import styles from "../../styles/blog.module.css";
 import Link from "next/link";
 import Checkbox from "@mui/material/Checkbox";
 import { KeyboardBackspace, PlayCircleFilled } from "@mui/icons-material";
+import Tab from "@mui/material/Tab";
+import { TabList, TabPanel, TabContext } from "@mui/lab";
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -26,7 +28,7 @@ export default function Blogs({ data }) {
   const [checked, setChecked] = useState(true);
   const [checkedEnglish, setCheckedEnglish] = useState(true);
   const [checkedVietnamese, setCheckedVietnamese] = useState(true);
-  const [filter, setFilter] = useState("");
+  const [isAlbum, setIsAlbum] = useState("1");
 
   let songData = data.songList ? data.songList : null;
 
@@ -42,7 +44,11 @@ export default function Blogs({ data }) {
     setCheckedVietnamese(e.target.checked);
   };
 
-  const matchDownSm = useMediaQuery("(max-width:425px)");
+  const handleAlbum = (e, newValue) => {
+    setIsAlbum(newValue);
+  };
+
+  const matchDownSm = useMediaQuery("(max-width:500px)");
   const matchDownMd = useMediaQuery("(max-width:768px)");
   const matchDownLg = useMediaQuery("(max-width:1024px)");
 
@@ -78,262 +84,286 @@ export default function Blogs({ data }) {
             ></div>
             {data.songList ? (
               <>
-                <Checkbox
-                  checked={checked}
-                  onChange={handleChange}
-                  inputProps={{ "aria-label": "controlled" }}
-                />{" "}
-                K-POP
-                <Checkbox
-                  checked={checkedEnglish}
-                  onChange={handleChangeEnglish}
-                  inputProps={{ "aria-label": "controlled" }}
-                />{" "}
-                US-UK
-                <Checkbox
-                  checked={checkedVietnamese}
-                  onChange={handleChangeVietnamese}
-                  inputProps={{ "aria-label": "controlled" }}
-                />{" "}
-                V-Music
-                <ul className={styles.songList}>
-                  {((checked && checkedEnglish && checkedVietnamese) ||
-                    (!checked && !checkedEnglish && !checkedVietnamese)) && (
-                    <>
-                      {data.songList.map((item, i) => (
-                        <li key={i} className={styles.songItem}>
-                          <div className={styles.imgButton}>
-                            <img
-                              src={item.img}
-                              alt={item.title}
-                              className={styles.songImg}
-                            />
-                            <div className={styles.songPlayButton}>
-                              <Link href={item.link}>
-                                <PlayCircleFilled />
-                              </Link>
-                            </div>
-                          </div>
-                          <div className={styles.songContent}>
-                            <div className={styles.songTitleSinger}>
-                              <div className={styles.songTitle}>
-                                {item.title}
-                              </div>
-                              <div className={styles.songSingers}>
-                                {item.singers}
-                              </div>
-                            </div>
-                            <div></div>
-                          </div>
+                <TabContext value={isAlbum}>
+                  <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                    <TabList onChange={handleAlbum} aria-label="Album or Song?">
+                      <Tab label="Albums" value="1" />
+                      <Tab label="Songs" value="2" />
+                    </TabList>
+                  </Box>
+                  <TabPanel value="1">
+                    <ul className={styles.playList}>
+                      {data.playList.map((item, i) => (
+                        <li key={i} className={styles.playItem}>
+                          <div
+                            dangerouslySetInnerHTML={{ __html: item.html }}
+                            className={styles.embedPlaylist}
+                          ></div>
                         </li>
                       ))}
-                    </>
-                  )}
+                    </ul>
+                  </TabPanel>
+                  <TabPanel value="2">
+                    <Checkbox
+                      checked={checked}
+                      onChange={handleChange}
+                      inputProps={{ "aria-label": "controlled" }}
+                    />{" "}
+                    K-POP
+                    <Checkbox
+                      checked={checkedEnglish}
+                      onChange={handleChangeEnglish}
+                      inputProps={{ "aria-label": "controlled" }}
+                    />{" "}
+                    US-UK
+                    <Checkbox
+                      checked={checkedVietnamese}
+                      onChange={handleChangeVietnamese}
+                      inputProps={{ "aria-label": "controlled" }}
+                    />{" "}
+                    V-Music
+                    <ul className={styles.songList}>
+                      {((checked && checkedEnglish && checkedVietnamese) ||
+                        (!checked &&
+                          !checkedEnglish &&
+                          !checkedVietnamese)) && (
+                        <>
+                          {data.songList.map((item, i) => (
+                            <li key={i} className={styles.songItem}>
+                              <div className={styles.imgButton}>
+                                <img
+                                  src={item.img}
+                                  alt={item.title}
+                                  className={styles.songImg}
+                                />
+                                <div className={styles.songPlayButton}>
+                                  <Link href={item.link}>
+                                    <PlayCircleFilled />
+                                  </Link>
+                                </div>
+                              </div>
+                              <div className={styles.songContent}>
+                                <div className={styles.songTitleSinger}>
+                                  <div className={styles.songTitle}>
+                                    {item.title}
+                                  </div>
+                                  <div className={styles.songSingers}>
+                                    {item.singers}
+                                  </div>
+                                </div>
+                                <div></div>
+                              </div>
+                            </li>
+                          ))}
+                        </>
+                      )}
 
-                  {!checked && checkedEnglish && !checkedVietnamese && (
-                    <>
-                      {data.songList
-                        .filter((item) => item.category == "English")
-                        .map((item, i) => (
-                          <li key={i} className={styles.songItem}>
-                            <div className={styles.imgButton}>
-                              <img
-                                src={item.img}
-                                alt={item.title}
-                                className={styles.songImg}
-                              />
-                              <div className={styles.songPlayButton}>
-                                <Link href={item.link}>
-                                  <PlayCircleFilled />
-                                </Link>
-                              </div>
-                            </div>
-                            <div className={styles.songContent}>
-                              <div className={styles.songTitleSinger}>
-                                <div className={styles.songTitle}>
-                                  {item.title}
+                      {!checked && checkedEnglish && !checkedVietnamese && (
+                        <>
+                          {data.songList
+                            .filter((item) => item.category == "English")
+                            .map((item, i) => (
+                              <li key={i} className={styles.songItem}>
+                                <div className={styles.imgButton}>
+                                  <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    className={styles.songImg}
+                                  />
+                                  <div className={styles.songPlayButton}>
+                                    <Link href={item.link}>
+                                      <PlayCircleFilled />
+                                    </Link>
+                                  </div>
                                 </div>
-                                <div className={styles.songSingers}>
-                                  {item.singers}
+                                <div className={styles.songContent}>
+                                  <div className={styles.songTitleSinger}>
+                                    <div className={styles.songTitle}>
+                                      {item.title}
+                                    </div>
+                                    <div className={styles.songSingers}>
+                                      {item.singers}
+                                    </div>
+                                  </div>
+                                  <div></div>
                                 </div>
-                              </div>
-                              <div></div>
-                            </div>
-                          </li>
-                        ))}
-                    </>
-                  )}
+                              </li>
+                            ))}
+                        </>
+                      )}
 
-                  {checked && !checkedEnglish && !checkedVietnamese && (
-                    <>
-                      {data.songList
-                        .filter((item) => item.category == "Korean")
-                        .map((item, i) => (
-                          <li key={i} className={styles.songItem}>
-                            <div className={styles.imgButton}>
-                              <img
-                                src={item.img}
-                                alt={item.title}
-                                className={styles.songImg}
-                              />
-                              <div className={styles.songPlayButton}>
-                                <Link href={item.link}>
-                                  <PlayCircleFilled />
-                                </Link>
-                              </div>
-                            </div>
-                            <div className={styles.songContent}>
-                              <div className={styles.songTitleSinger}>
-                                <div className={styles.songTitle}>
-                                  {item.title}
+                      {checked && !checkedEnglish && !checkedVietnamese && (
+                        <>
+                          {data.songList
+                            .filter((item) => item.category == "Korean")
+                            .map((item, i) => (
+                              <li key={i} className={styles.songItem}>
+                                <div className={styles.imgButton}>
+                                  <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    className={styles.songImg}
+                                  />
+                                  <div className={styles.songPlayButton}>
+                                    <Link href={item.link}>
+                                      <PlayCircleFilled />
+                                    </Link>
+                                  </div>
                                 </div>
-                                <div className={styles.songSingers}>
-                                  {item.singers}
+                                <div className={styles.songContent}>
+                                  <div className={styles.songTitleSinger}>
+                                    <div className={styles.songTitle}>
+                                      {item.title}
+                                    </div>
+                                    <div className={styles.songSingers}>
+                                      {item.singers}
+                                    </div>
+                                  </div>
+                                  <div></div>
                                 </div>
-                              </div>
-                              <div></div>
-                            </div>
-                          </li>
-                        ))}
-                    </>
-                  )}
+                              </li>
+                            ))}
+                        </>
+                      )}
 
-                  {!checked && !checkedEnglish && checkedVietnamese && (
-                    <>
-                      {data.songList
-                        .filter((item) => item.category == "Vietnamese")
-                        .map((item, i) => (
-                          <li key={i} className={styles.songItem}>
-                            <div className={styles.imgButton}>
-                              <img
-                                src={item.img}
-                                alt={item.title}
-                                className={styles.songImg}
-                              />
-                              <div className={styles.songPlayButton}>
-                                <Link href={item.link}>
-                                  <PlayCircleFilled />
-                                </Link>
-                              </div>
-                            </div>
-                            <div className={styles.songContent}>
-                              <div className={styles.songTitleSinger}>
-                                <div className={styles.songTitle}>
-                                  {item.title}
+                      {!checked && !checkedEnglish && checkedVietnamese && (
+                        <>
+                          {data.songList
+                            .filter((item) => item.category == "Vietnamese")
+                            .map((item, i) => (
+                              <li key={i} className={styles.songItem}>
+                                <div className={styles.imgButton}>
+                                  <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    className={styles.songImg}
+                                  />
+                                  <div className={styles.songPlayButton}>
+                                    <Link href={item.link}>
+                                      <PlayCircleFilled />
+                                    </Link>
+                                  </div>
                                 </div>
-                                <div className={styles.songSingers}>
-                                  {item.singers}
+                                <div className={styles.songContent}>
+                                  <div className={styles.songTitleSinger}>
+                                    <div className={styles.songTitle}>
+                                      {item.title}
+                                    </div>
+                                    <div className={styles.songSingers}>
+                                      {item.singers}
+                                    </div>
+                                  </div>
+                                  <div></div>
                                 </div>
-                              </div>
-                              <div></div>
-                            </div>
-                          </li>
-                        ))}
-                    </>
-                  )}
+                              </li>
+                            ))}
+                        </>
+                      )}
 
-                  {!checked && checkedEnglish && checkedVietnamese && (
-                    <>
-                      {data.songList
-                        .filter((item) => item.category != "Korean")
-                        .map((item, i) => (
-                          <li key={i} className={styles.songItem}>
-                            <div className={styles.imgButton}>
-                              <img
-                                src={item.img}
-                                alt={item.title}
-                                className={styles.songImg}
-                              />
-                              <div className={styles.songPlayButton}>
-                                <Link href={item.link}>
-                                  <PlayCircleFilled />
-                                </Link>
-                              </div>
-                            </div>
-                            <div className={styles.songContent}>
-                              <div className={styles.songTitleSinger}>
-                                <div className={styles.songTitle}>
-                                  {item.title}
+                      {!checked && checkedEnglish && checkedVietnamese && (
+                        <>
+                          {data.songList
+                            .filter((item) => item.category != "Korean")
+                            .map((item, i) => (
+                              <li key={i} className={styles.songItem}>
+                                <div className={styles.imgButton}>
+                                  <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    className={styles.songImg}
+                                  />
+                                  <div className={styles.songPlayButton}>
+                                    <Link href={item.link}>
+                                      <PlayCircleFilled />
+                                    </Link>
+                                  </div>
                                 </div>
-                                <div className={styles.songSingers}>
-                                  {item.singers}
+                                <div className={styles.songContent}>
+                                  <div className={styles.songTitleSinger}>
+                                    <div className={styles.songTitle}>
+                                      {item.title}
+                                    </div>
+                                    <div className={styles.songSingers}>
+                                      {item.singers}
+                                    </div>
+                                  </div>
+                                  <div></div>
                                 </div>
-                              </div>
-                              <div></div>
-                            </div>
-                          </li>
-                        ))}
-                    </>
-                  )}
+                              </li>
+                            ))}
+                        </>
+                      )}
 
-                  {checked && checkedEnglish && !checkedVietnamese && (
-                    <>
-                      {data.songList
-                        .filter((item) => item.category != "Vietnamese")
-                        .map((item, i) => (
-                          <li key={i} className={styles.songItem}>
-                            <div className={styles.imgButton}>
-                              <img
-                                src={item.img}
-                                alt={item.title}
-                                className={styles.songImg}
-                              />
-                              <div className={styles.songPlayButton}>
-                                <Link href={item.link}>
-                                  <PlayCircleFilled />
-                                </Link>
-                              </div>
-                            </div>
-                            <div className={styles.songContent}>
-                              <div className={styles.songTitleSinger}>
-                                <div className={styles.songTitle}>
-                                  {item.title}
+                      {checked && checkedEnglish && !checkedVietnamese && (
+                        <>
+                          {data.songList
+                            .filter((item) => item.category != "Vietnamese")
+                            .map((item, i) => (
+                              <li key={i} className={styles.songItem}>
+                                <div className={styles.imgButton}>
+                                  <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    className={styles.songImg}
+                                  />
+                                  <div className={styles.songPlayButton}>
+                                    <Link href={item.link}>
+                                      <PlayCircleFilled />
+                                    </Link>
+                                  </div>
                                 </div>
-                                <div className={styles.songSingers}>
-                                  {item.singers}
+                                <div className={styles.songContent}>
+                                  <div className={styles.songTitleSinger}>
+                                    <div className={styles.songTitle}>
+                                      {item.title}
+                                    </div>
+                                    <div className={styles.songSingers}>
+                                      {item.singers}
+                                    </div>
+                                  </div>
+                                  <div></div>
                                 </div>
-                              </div>
-                              <div></div>
-                            </div>
-                          </li>
-                        ))}
-                    </>
-                  )}
+                              </li>
+                            ))}
+                        </>
+                      )}
 
-                  {checked && !checkedEnglish && checkedVietnamese && (
-                    <>
-                      {data.songList
-                        .filter((item) => item.category != "English")
-                        .map((item, i) => (
-                          <li key={i} className={styles.songItem}>
-                            <div className={styles.imgButton}>
-                              <img
-                                src={item.img}
-                                alt={item.title}
-                                className={styles.songImg}
-                              />
-                              <div className={styles.songPlayButton}>
-                                <Link href={item.link}>
-                                  <PlayCircleFilled />
-                                </Link>
-                              </div>
-                            </div>
-                            <div className={styles.songContent}>
-                              <div className={styles.songTitleSinger}>
-                                <div className={styles.songTitle}>
-                                  {item.title}
+                      {checked && !checkedEnglish && checkedVietnamese && (
+                        <>
+                          {data.songList
+                            .filter((item) => item.category != "English")
+                            .map((item, i) => (
+                              <li key={i} className={styles.songItem}>
+                                <div className={styles.imgButton}>
+                                  <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    className={styles.songImg}
+                                  />
+                                  <div className={styles.songPlayButton}>
+                                    <Link href={item.link}>
+                                      <PlayCircleFilled />
+                                    </Link>
+                                  </div>
                                 </div>
-                                <div className={styles.songSingers}>
-                                  {item.singers}
+                                <div className={styles.songContent}>
+                                  <div className={styles.songTitleSinger}>
+                                    <div className={styles.songTitle}>
+                                      {item.title}
+                                    </div>
+                                    <div className={styles.songSingers}>
+                                      {item.singers}
+                                    </div>
+                                  </div>
+                                  <div></div>
                                 </div>
-                              </div>
-                              <div></div>
-                            </div>
-                          </li>
-                        ))}
-                    </>
-                  )}
-                </ul>
+                              </li>
+                            ))}
+                        </>
+                      )}
+                    </ul>
+                  </TabPanel>
+                </TabContext>
               </>
             ) : null}
 
@@ -419,6 +449,27 @@ export async function getStaticProps({ params }) {
       imgURL: "/images/spotify.png",
       content:
         "These are my favorite songs between 2022-2023, hopefully we have the same taste of music :) Click on any of the songs below to listen with me on Spotify <3",
+      playList: [
+        {
+          title: "K-Pop Duets (러블리 듀엣)",
+          img: "/images/albums/kpopduet.png",
+          link: "https://open.spotify.com/playlist/37i9dQZF1DWZYjbSZYSpu6?si=e6168fc7bf9e464e",
+          html: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZYjbSZYSpu6?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
+        },
+
+        {
+          title: "Songs to Sing in the Car",
+          img: "/images/albums/songstosinginthecar.png",
+          link: "https://open.spotify.com/playlist/37i9dQZF1DWWMOmoXKqHTD?si=402856f47f114878",
+          html: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWWMOmoXKqHTD?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
+        },
+        {
+          title: "Your Top Songs 2022",
+          img: "/images/albums/2022.png",
+          link: "https://open.spotify.com/playlist/37i9dQZF1F0sijgNaJdgit?si=1efc579380604a7b",
+          html: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1F0sijgNaJdgit?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
+        },
+      ],
       songList: [
         {
           title: "When I Get Old",

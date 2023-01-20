@@ -166,6 +166,20 @@
     transform: scale(1.5);
 }
 
+.playList {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.playItem {
+    border-bottom: 1;
+    border-color: 'divider';
+}
+
+
+
 @media screen and (max-width: 768px) {
     .blogitem {
         margin-top: 100px;
@@ -214,5 +228,9 @@
     .songList {
         grid-template-columns: 1fr 1fr;
         gap: 5px;
+    }
+    .playList {
+        padding: 0;
+        grid-template-columns: 1fr;
     }
 }
