@@ -5,6 +5,8 @@ import Contact from "../components/contact";
 import Layout from "../components/layout";
 import styles from "../styles/blog.module.css";
 import Navbar from "../components/navbar";
+import { Alert } from "@mui/material";
+import { Celebration, EmojiEmotions } from "@mui/icons-material";
 
 export default function Blog() {
   const [blogData, setBlogData] = useState(null);
@@ -15,6 +17,17 @@ export default function Blog() {
   }, []);
   return (
     <div>
+      <Alert
+        icon={<EmojiEmotions />}
+        variant="filled"
+        severity="info"
+        style={{ textAlign: "center" }}
+      >
+        Happy Lunar New Year 2023!! Hope you all have a good day!{" "}
+        <Celebration style={{ color: "orange", paddingTop: "2px" }} />
+        <Celebration style={{ color: "orange", paddingTop: "2px" }} />
+        <Celebration style={{ color: "orange", paddingTop: "2px" }} />
+      </Alert>
       <Navbar />
       <ul className={styles.bloglist}>
         {blogData ? (

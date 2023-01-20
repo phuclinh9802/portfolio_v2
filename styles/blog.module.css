@@ -11,6 +11,10 @@
 
 }
 
+.MuiAlert-icon {
+    padding: 0;
+}
+
 .blogitem {
     width: 80%;
     height: 300px;
