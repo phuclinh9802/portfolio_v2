@@ -581,6 +581,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/4PsD3XlOcE6ML0YhSCN80p?si=3f18ff53c0904f12",
           category: "English",
         },
+        {
+          title: "Tay To",
+          singers: "Rapital",
+          img: "/images/songs/tayto.png",
+          link: "https://open.spotify.com/track/3wNvWpjcNED10BStY9A4l3?si=6e72ffcda69e4b1d",
+          category: "Vietnamese",
+        },
       ],
     },
   ];
