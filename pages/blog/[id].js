@@ -112,7 +112,7 @@ export default function Blogs({ data }) {
                     <TabList onChange={handleAlbum} aria-label="Album or Song?">
                       <Tab
                         style={{ color: colorMode == "dark" ? "#ddd" : "" }}
-                        label="Albums"
+                        label="Playlists"
                         value="1"
                       />
                       <Tab
