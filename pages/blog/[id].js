@@ -457,11 +457,12 @@ export default function Blogs({ data }) {
           </div>
         </>
       ) : null}
-      <div
-        style={{ color: colorMode == "dark" ? "#ddd" : "" }}
-        className={styles.commentsection}
-      >
-        <DiscussionEmbed shortname={shortName} config={disqusConfig} />
+      <div className={styles.commentsection}>
+        <DiscussionEmbed
+          style={{ color: colorMode == "dark" ? "#ddd" : "#1a1a1a" }}
+          shortname={shortName}
+          config={disqusConfig}
+        />
       </div>
       <div className={styles.backbutton}>
         <Link href="/blog">
