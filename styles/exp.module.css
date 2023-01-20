@@ -60,12 +60,18 @@
 .projitems {
     display: grid;
     gap: 30px 10px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .tagdiv {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media screen and (max-width: 1440px) {
+    .projitems {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media screen and (max-width: 768px) {
