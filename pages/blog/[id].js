@@ -525,6 +525,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/5GXCpnyiCviIiAiZn13tzn?si=6c6822c20f524966",
           category: "Vietnamese",
         },
+        {
+          title: "Alone, Pt. II",
+          singers: "Alan Walker, Ava Max",
+          img: "/images/songs/alonept2.png",
+          link: "https://open.spotify.com/track/28VbwtsYnj85UEODGpQRem?si=95c42c923b8f4338",
+          category: "English",
+        },
       ],
     },
   ];
