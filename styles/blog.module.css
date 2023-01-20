@@ -103,7 +103,7 @@
 
 .songList {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
     list-style-type: none;
     padding: 50px;
@@ -212,6 +212,7 @@
     }
 
     .songList {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 5px;
     }
 }

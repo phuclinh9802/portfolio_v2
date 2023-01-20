@@ -26,7 +26,7 @@ export default function Navbar() {
             <Link href="/#experience">Experience</Link>
           </li>
           <li>
-            <Link href="https://drive.google.com/file/d/1JrD4EseMpYIjgUjZYDLjQaNiu8uKujPi/view?usp=sharing">
+            <Link href="https://drive.google.com/file/d/1hjn00LFXi1UIY-T6fhzBW5eOcFARwSjg/view?usp=sharing">
               Resume
             </Link>
           </li>
