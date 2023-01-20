@@ -29,6 +29,7 @@ export default function Blogs({ data }) {
   const [checkedEnglish, setCheckedEnglish] = useState(true);
   const [checkedVietnamese, setCheckedVietnamese] = useState(true);
   const [isAlbum, setIsAlbum] = useState("1");
+  const [colorMode, setColorMode] = useState("light");
 
   let songData = data.songList ? data.songList : null;
 
@@ -47,6 +48,9 @@ export default function Blogs({ data }) {
   const handleAlbum = (e, newValue) => {
     setIsAlbum(newValue);
   };
+  const handleColor = (e, newValue) => {
+    setColorMode(newValue);
+  };
 
   const matchDownSm = useMediaQuery("(max-width:500px)");
   const matchDownMd = useMediaQuery("(max-width:768px)");
@@ -60,7 +64,12 @@ export default function Blogs({ data }) {
     }
   }, []);
   return (
-    <div>
+    <div
+      style={{
+        background: colorMode == "dark" ? "#1a1a1a" : "",
+        color: colorMode == "dark" ? "#ddd" : "",
+      }}
+    >
       {data ? (
         <>
           <div className={styles.blogsection}>
@@ -74,6 +83,20 @@ export default function Blogs({ data }) {
             </div>
           </div>
           <article className={styles.article}>
+            <TabContext value={colorMode}>
+              <TabList onChange={handleColor}>
+                <Tab
+                  style={{ color: colorMode == "dark" ? "#ddd" : "" }}
+                  label="Light"
+                  value="light"
+                />
+                <Tab
+                  style={{ color: colorMode == "dark" ? "#ddd" : "" }}
+                  label="Dark"
+                  value="dark"
+                />
+              </TabList>
+            </TabContext>
             <h1>{data.title}</h1>
             <div className={styles.date}>
               Updated on {data.date} by {data.author}
@@ -85,10 +108,18 @@ export default function Blogs({ data }) {
             {data.songList ? (
               <>
                 <TabContext value={isAlbum}>
-                  <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                  <Box sx={{ borderBottom: 1, borderColor: "#aaa" }}>
                     <TabList onChange={handleAlbum} aria-label="Album or Song?">
-                      <Tab label="Albums" value="1" />
-                      <Tab label="Songs" value="2" />
+                      <Tab
+                        style={{ color: colorMode == "dark" ? "#ddd" : "" }}
+                        label="Albums"
+                        value="1"
+                      />
+                      <Tab
+                        style={{ color: colorMode == "dark" ? "#ddd" : "" }}
+                        label="Songs"
+                        value="2"
+                      />
                     </TabList>
                   </Box>
                   <TabPanel value="1">
