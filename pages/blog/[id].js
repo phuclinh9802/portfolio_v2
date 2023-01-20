@@ -95,7 +95,7 @@ export default function Blogs({ data }) {
                   onChange={handleChangeVietnamese}
                   inputProps={{ "aria-label": "controlled" }}
                 />{" "}
-                Vietnamese
+                V-Music
                 <ul className={styles.songList}>
                   {((checked && checkedEnglish && checkedVietnamese) ||
                     (!checked && !checkedEnglish && !checkedVietnamese)) && (
