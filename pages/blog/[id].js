@@ -25,6 +25,7 @@ export default function Blogs({ data }) {
   const [img, setImg] = useState(null);
   const [checked, setChecked] = useState(true);
   const [checkedEnglish, setCheckedEnglish] = useState(true);
+  const [checkedVietnamese, setCheckedVietnamese] = useState(true);
   const [filter, setFilter] = useState("");
 
   let songData = data.songList ? data.songList : null;
@@ -37,44 +38,9 @@ export default function Blogs({ data }) {
     setCheckedEnglish(e.target.checked);
   };
 
-  console.log("checked: " + checked);
-  console.log("checkedEnglish: " + checkedEnglish);
-
-  console.log(data.songList);
-
-  // const toggleFunction = () => {
-  //   if (data.songList) {
-  //     console.log("here");
-  //     if (checked == false && checkedEnglish == true) {
-  //       console.log("English");
-  //       data.songList = data.songList.filter(
-  //         (item) => item.category == "English"
-  //       );
-  //     } else if (checked == true && checkedEnglish == false) {
-  //       console.log("Korean");
-  //       data.songList = data.songList.filter(
-  //         (item) => item.category == "Korean"
-  //       );
-  //     }
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (data.songList) {
-  //     console.log("here");
-  //     if (checked == false && checkedEnglish == true) {
-  //       console.log("English");
-  //       data.songList = data.songList.filter(
-  //         (item) => item.category == "English"
-  //       );
-  //     } else if (checked == true && checkedEnglish == false) {
-  //       console.log("Korean");
-  //       data.songList = data.songList.filter(
-  //         (item) => item.category == "Korean"
-  //       );
-  //     }
-  //   }
-  // }, [data, checked, checkedEnglish]);
+  const handleChangeVietnamese = (e) => {
+    setCheckedVietnamese(e.target.checked);
+  };
 
   const matchDownSm = useMediaQuery("(max-width:425px)");
   const matchDownMd = useMediaQuery("(max-width:768px)");
@@ -124,9 +90,15 @@ export default function Blogs({ data }) {
                   inputProps={{ "aria-label": "controlled" }}
                 />{" "}
                 US-UK
+                <Checkbox
+                  checked={checkedVietnamese}
+                  onChange={handleChangeVietnamese}
+                  inputProps={{ "aria-label": "controlled" }}
+                />{" "}
+                Vietnamese
                 <ul className={styles.songList}>
-                  {((checked && checkedEnglish) ||
-                    (!checked && !checkedEnglish)) && (
+                  {((checked && checkedEnglish && checkedVietnamese) ||
+                    (!checked && !checkedEnglish && !checkedVietnamese)) && (
                     <>
                       {data.songList.map((item, i) => (
                         <li key={i} className={styles.songItem}>
@@ -158,7 +130,7 @@ export default function Blogs({ data }) {
                     </>
                   )}
 
-                  {!checked && checkedEnglish && (
+                  {!checked && checkedEnglish && !checkedVietnamese && (
                     <>
                       {data.songList
                         .filter((item) => item.category == "English")
@@ -192,10 +164,146 @@ export default function Blogs({ data }) {
                     </>
                   )}
 
-                  {checked && !checkedEnglish && (
+                  {checked && !checkedEnglish && !checkedVietnamese && (
                     <>
                       {data.songList
                         .filter((item) => item.category == "Korean")
+                        .map((item, i) => (
+                          <li key={i} className={styles.songItem}>
+                            <div className={styles.imgButton}>
+                              <img
+                                src={item.img}
+                                alt={item.title}
+                                className={styles.songImg}
+                              />
+                              <div className={styles.songPlayButton}>
+                                <Link href={item.link}>
+                                  <PlayCircleFilled />
+                                </Link>
+                              </div>
+                            </div>
+                            <div className={styles.songContent}>
+                              <div className={styles.songTitleSinger}>
+                                <div className={styles.songTitle}>
+                                  {item.title}
+                                </div>
+                                <div className={styles.songSingers}>
+                                  {item.singers}
+                                </div>
+                              </div>
+                              <div></div>
+                            </div>
+                          </li>
+                        ))}
+                    </>
+                  )}
+
+                  {!checked && !checkedEnglish && checkedVietnamese && (
+                    <>
+                      {data.songList
+                        .filter((item) => item.category == "Vietnamese")
+                        .map((item, i) => (
+                          <li key={i} className={styles.songItem}>
+                            <div className={styles.imgButton}>
+                              <img
+                                src={item.img}
+                                alt={item.title}
+                                className={styles.songImg}
+                              />
+                              <div className={styles.songPlayButton}>
+                                <Link href={item.link}>
+                                  <PlayCircleFilled />
+                                </Link>
+                              </div>
+                            </div>
+                            <div className={styles.songContent}>
+                              <div className={styles.songTitleSinger}>
+                                <div className={styles.songTitle}>
+                                  {item.title}
+                                </div>
+                                <div className={styles.songSingers}>
+                                  {item.singers}
+                                </div>
+                              </div>
+                              <div></div>
+                            </div>
+                          </li>
+                        ))}
+                    </>
+                  )}
+
+                  {!checked && checkedEnglish && checkedVietnamese && (
+                    <>
+                      {data.songList
+                        .filter((item) => item.category != "Korean")
+                        .map((item, i) => (
+                          <li key={i} className={styles.songItem}>
+                            <div className={styles.imgButton}>
+                              <img
+                                src={item.img}
+                                alt={item.title}
+                                className={styles.songImg}
+                              />
+                              <div className={styles.songPlayButton}>
+                                <Link href={item.link}>
+                                  <PlayCircleFilled />
+                                </Link>
+                              </div>
+                            </div>
+                            <div className={styles.songContent}>
+                              <div className={styles.songTitleSinger}>
+                                <div className={styles.songTitle}>
+                                  {item.title}
+                                </div>
+                                <div className={styles.songSingers}>
+                                  {item.singers}
+                                </div>
+                              </div>
+                              <div></div>
+                            </div>
+                          </li>
+                        ))}
+                    </>
+                  )}
+
+                  {checked && checkedEnglish && !checkedVietnamese && (
+                    <>
+                      {data.songList
+                        .filter((item) => item.category != "Vietnamese")
+                        .map((item, i) => (
+                          <li key={i} className={styles.songItem}>
+                            <div className={styles.imgButton}>
+                              <img
+                                src={item.img}
+                                alt={item.title}
+                                className={styles.songImg}
+                              />
+                              <div className={styles.songPlayButton}>
+                                <Link href={item.link}>
+                                  <PlayCircleFilled />
+                                </Link>
+                              </div>
+                            </div>
+                            <div className={styles.songContent}>
+                              <div className={styles.songTitleSinger}>
+                                <div className={styles.songTitle}>
+                                  {item.title}
+                                </div>
+                                <div className={styles.songSingers}>
+                                  {item.singers}
+                                </div>
+                              </div>
+                              <div></div>
+                            </div>
+                          </li>
+                        ))}
+                    </>
+                  )}
+
+                  {checked && !checkedEnglish && checkedVietnamese && (
+                    <>
+                      {data.songList
+                        .filter((item) => item.category != "English")
                         .map((item, i) => (
                           <li key={i} className={styles.songItem}>
                             <div className={styles.imgButton}>
@@ -381,6 +489,41 @@ export async function getStaticProps({ params }) {
           img: "/images/songs/wayuare.png",
           link: "https://open.spotify.com/track/1cHwmkEYWHstlT9hRF0EeP?si=212ea56e2b644d52",
           category: "Korean",
+        },
+        {
+          title: "Okeokeoke",
+          singers: "Low G",
+          img: "/images/songs/okeokeoke.png",
+          link: "https://open.spotify.com/track/3nw5vYaH4qVx8joq3qhtNx?si=a31fe9f3b7034ca4",
+          category: "Vietnamese",
+        },
+        {
+          title: "CLME",
+          singers: "Andree Right Hand, Hoang Ton, TINLE",
+          img: "/images/songs/clme.png",
+          link: "https://open.spotify.com/track/1VBJ2QBJjgbcGgsXJbHslR?si=64e011d7ffa542a8",
+          category: "Vietnamese",
+        },
+        {
+          title: "Yêu Một Người Có Lẽ",
+          singers: "Lou Hoang, Miu Lê",
+          img: "/images/songs/yeumotnguoicole.png",
+          link: "https://open.spotify.com/track/2o4dDfLK6NVI7TjBm5VoMv?si=8f766b0903124a8a",
+          category: "Vietnamese",
+        },
+        {
+          title: "Yêu 5",
+          singers: "Rhymastic",
+          img: "/images/songs/yeu5.png",
+          link: "https://open.spotify.com/track/5U30iZBlmxkpHqzb1OSnBS?si=8b4139f5975e4d8b",
+          category: "Vietnamese",
+        },
+        {
+          title: "SO FAR",
+          singers: "Binz",
+          img: "/images/songs/sofar.png",
+          link: "https://open.spotify.com/track/5GXCpnyiCviIiAiZn13tzn?si=6c6822c20f524966",
+          category: "Vietnamese",
         },
       ],
     },
