@@ -16,6 +16,7 @@
     "@mui/material": "^5.11.3",
     "@next/font": "^13.1.1",
     "date-fns": "^2.29.3",
+    "disqus-react": "^1.1.5",
     "dotenv": "^16.0.3",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",

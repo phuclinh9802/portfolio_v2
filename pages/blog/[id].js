@@ -13,6 +13,7 @@ import Checkbox from "@mui/material/Checkbox";
 import { KeyboardBackspace, PlayCircleFilled } from "@mui/icons-material";
 import Tab from "@mui/material/Tab";
 import { TabList, TabPanel, TabContext } from "@mui/lab";
+import { DiscussionEmbed } from "disqus-react";
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -32,6 +33,16 @@ export default function Blogs({ data }) {
   const [colorMode, setColorMode] = useState("light");
 
   let songData = data.songList ? data.songList : null;
+
+  const shortName = "portfolio";
+
+  const disqusConfig = {
+    url: process.env.NEXT_PUBLIC_PROD_URL,
+    identifier: "Testing",
+    title: data.title,
+    language: "en",
+    ssr: "false",
+  };
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -446,6 +457,9 @@ export default function Blogs({ data }) {
           </div>
         </>
       ) : null}
+      <div className={styles.commentsection}>
+        <DiscussionEmbed shortname={shortName} config={disqusConfig} />
+      </div>
       <div className={styles.backbutton}>
         <Link href="/blog">
           <KeyboardBackspace style={{ paddingTop: "5px" }} /> Back to Blogs
