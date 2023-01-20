@@ -139,18 +139,21 @@ export default function Blogs({ data }) {
                       checked={checked}
                       onChange={handleChange}
                       inputProps={{ "aria-label": "controlled" }}
+                      style={{ color: colorMode == "dark" ? "#ddd" : "" }}
                     />{" "}
                     K-POP
                     <Checkbox
                       checked={checkedEnglish}
                       onChange={handleChangeEnglish}
                       inputProps={{ "aria-label": "controlled" }}
+                      style={{ color: colorMode == "dark" ? "#ddd" : "" }}
                     />{" "}
                     US-UK
                     <Checkbox
                       checked={checkedVietnamese}
                       onChange={handleChangeVietnamese}
                       inputProps={{ "aria-label": "controlled" }}
+                      style={{ color: colorMode == "dark" ? "#ddd" : "" }}
                     />{" "}
                     V-Music
                     <ul className={styles.songList}>
