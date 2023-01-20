@@ -464,11 +464,17 @@ export async function getStaticProps({ params }) {
           html: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWWMOmoXKqHTD?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
         },
         {
-          title: "Your Top Songs 2022",
-          img: "/images/albums/2022.png",
-          link: "https://open.spotify.com/playlist/37i9dQZF1F0sijgNaJdgit?si=1efc579380604a7b",
-          html: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1F0sijgNaJdgit?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
+          title: "Chill Out Music Mix",
+          img: "/images/albums/chillout.png",
+          link: "https://open.spotify.com/playlist/5ePOuw8KEjqHc8meYrz3D4?si=988979b1b7f34542",
+          html: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3Xmow32IqkqlTD0ziFqSrR?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
         },
+        // {
+        //   title: "Your Top Songs 2022",
+        //   img: "/images/albums/2022.png",
+        //   link: "https://open.spotify.com/playlist/37i9dQZF1F0sijgNaJdgit?si=1efc579380604a7b",
+        //   html: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1F0sijgNaJdgit?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
+        // },
       ],
       songList: [
         {
