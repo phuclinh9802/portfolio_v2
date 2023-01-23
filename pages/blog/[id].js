@@ -14,6 +14,7 @@ import { KeyboardBackspace, PlayCircleFilled } from "@mui/icons-material";
 import Tab from "@mui/material/Tab";
 import { TabList, TabPanel, TabContext } from "@mui/lab";
 import { DiscussionEmbed } from "disqus-react";
+import { style } from "@mui/system";
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -116,6 +117,7 @@ export default function Blogs({ data }) {
               dangerouslySetInnerHTML={{ __html: data.content }}
               className={styles.content}
             ></div>
+            {data.threeJS && <div className={styles.threeJS}></div>}
             {data.songList ? (
               <>
                 <TabContext value={isAlbum}>
@@ -477,7 +479,12 @@ export const getStaticPaths = () => {
   // Specifying all the routes to be
   // pre-rendered by next js
   return {
-    paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
+    paths: [
+      { params: { id: "1" } },
+      { params: { id: "2" } },
+      { params: { id: "3" } },
+      { params: { id: "4" } },
+    ],
     fallback: false,
   };
 };
@@ -697,7 +704,32 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/3wNvWpjcNED10BStY9A4l3?si=6e72ffcda69e4b1d",
           category: "Vietnamese",
         },
+        {
+          title: "Forget About Her",
+          singers: "Justatee",
+          img: "/images/songs/forgetabouther.png",
+          link: "https://open.spotify.com/track/5kJMW3pK49PvQDtpVryHf5?si=88f82668b29441f5",
+          category: "Vietnamese",
+        },
       ],
+    },
+    {
+      id: 3,
+      title: "How I learned ThreeJS",
+      date: "1/22/2023",
+      author: "Phillip Nguyen",
+      imgURL: "/images/threejs.png",
+      content: "Coming Soon...",
+      threeJS: true,
+    },
+    {
+      id: 4,
+      title: "My Eighth Tet Holiday in the U.S.",
+      date: "1/22/2023",
+      author: "Phillip Nguyen",
+      imgURL: "/images/tet2023/IMG_0209.jpeg",
+      content:
+        "<img style='width: 182px; float: left; margin: 0 10px 10px 10px; border: 5px solid white; border-radius: 2px' src='https://i.imgur.com/ppowji3.jpg' /><p>January 22, 2023 @ Omaha, NE</p><p> I am sitting here in my room, thinking about how I felt about this 8th Tet holiday in Nebraska, and how I missed being home, in which at those times, I loved helping my parents prepare for a Vietnamese New Year’s meal back in Vietnam.</p><p>Tet holiday, or Lunar New Year, came sooner than most years in the past. Even I couldn’t believe how fast a new year was coming and how I thought about my 2022. It was a difficult year for most people, because of the global economy’s hardship (and seems to be worse in 2023, so watch out). For me, I can say that 2022 was a success in both academics and work. Especially, my biggest wish for 2022 was accomplished – getting an internship for 2023. I’ve got to shout out to my family, friends, and my girlfriend for being such supportive factors last year.</p><p>Now, pondering the 8th Tet Holiday in the U.S., I imagined it would feel the same from the past 7 years, since I got to taste the traditional food for this event every year: bánh chưng, nem, phồng tôm, canh sườn măng, etc. Not this year though. I was lucky to meet new people from my girlfriend’s relatives and friends. They brought such fun and energetic environment, which was almost exactly what I remembered from my childhood’s experience. Plus, one of the most important traditions, li xi, was brought into the party. I was lucky enough to get one even though I was not supposed to get it in my age haha! Anyway, hopefully this lucky money brings me luck this year. </p><p>However, even all of these, I still missed Tet in Vietnam. It is just so unique that nowhere in the world can replicate the authentic atmosphere when everyone buys peach branch before the New Year’s Eve, cleans up the whole house to “invite their ancestors” to enjoy the food with the family, or goes to each other’s home to wish a Happy New Year. In the future, I hope I have some time to go back to completely enjoy Tet in Vietnam once again. </p>",
     },
   ];
 
