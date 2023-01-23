@@ -10,7 +10,12 @@ import Navbar from "../../components/navbar";
 import styles from "../../styles/blog.module.css";
 import Link from "next/link";
 import Checkbox from "@mui/material/Checkbox";
-import { KeyboardBackspace, PlayCircleFilled } from "@mui/icons-material";
+import {
+  DarkMode,
+  KeyboardBackspace,
+  LightMode,
+  PlayCircleFilled,
+} from "@mui/icons-material";
 import Tab from "@mui/material/Tab";
 import { TabList, TabPanel, TabContext } from "@mui/lab";
 import { DiscussionEmbed } from "disqus-react";
@@ -99,12 +104,12 @@ export default function Blogs({ data }) {
               <TabList onChange={handleColor}>
                 <Tab
                   style={{ color: colorMode == "dark" ? "#ddd" : "" }}
-                  label="Light"
+                  label={<LightMode />}
                   value="light"
                 />
                 <Tab
                   style={{ color: colorMode == "dark" ? "#ddd" : "" }}
-                  label="Dark"
+                  label={<DarkMode />}
                   value="dark"
                 />
               </TabList>
