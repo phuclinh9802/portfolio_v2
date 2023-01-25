@@ -15,6 +15,8 @@
     "@mui/lab": "^5.0.0-alpha.116",
     "@mui/material": "^5.11.3",
     "@next/font": "^13.1.1",
+    "@react-three/drei": "^9.54.2",
+    "@react-three/fiber": "^8.10.1",
     "date-fns": "^2.29.3",
     "disqus-react": "^1.1.5",
     "dotenv": "^16.0.3",
@@ -25,6 +27,7 @@
     "nodemailer": "^6.8.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "styled-components": "^5.3.6",
     "three": "^0.148.0"
   }
 }

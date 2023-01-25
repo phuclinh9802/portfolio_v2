@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageList from "@mui/material/ImageList";
 import { Box, useMediaQuery } from "@mui/material";
@@ -10,6 +10,7 @@ import Navbar from "../../components/navbar";
 import styles from "../../styles/blog.module.css";
 import Link from "next/link";
 import Checkbox from "@mui/material/Checkbox";
+import * as THREE from "three";
 import {
   DarkMode,
   KeyboardBackspace,
@@ -17,9 +18,12 @@ import {
   PlayCircleFilled,
 } from "@mui/icons-material";
 import Tab from "@mui/material/Tab";
+import Earth from "../../components/earth";
 import { TabList, TabPanel, TabContext } from "@mui/lab";
 import { DiscussionEmbed } from "disqus-react";
 import { style } from "@mui/system";
+import { Canvas } from "@react-three/fiber";
+import Overlay from "../../components/overlay";
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -80,6 +84,7 @@ export default function Blogs({ data }) {
         .then((data) => setImg(data));
     }
   }, []);
+
   return (
     <div
       style={{
@@ -90,15 +95,38 @@ export default function Blogs({ data }) {
       {data ? (
         <>
           <div className={styles.blogsection}>
-            <div
-              style={{
-                backgroundImage: `url('${data.imgURL}')`,
-              }}
-              className={styles.blogheader}
-            >
-              <title>{data.title}</title>
-            </div>
+            {data.threeJS ? (
+              <div
+                style={{
+                  background: "#111",
+                  width: "100vw",
+                  height: "100vh",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Overlay />
+                {data.threeJS && (
+                  <Canvas>
+                    <Suspense fallback={null}>
+                      <Earth />
+                    </Suspense>
+                  </Canvas>
+                )}
+                <title>{data.title}</title>
+              </div>
+            ) : (
+              <div
+                style={{
+                  backgroundImage: `url('${data.imgURL}')`,
+                }}
+                className={styles.blogheader}
+              >
+                <title>{data.title}</title>
+              </div>
+            )}
           </div>
+
           <article className={styles.article}>
             <TabContext value={colorMode}>
               <TabList onChange={handleColor}>
