@@ -38,7 +38,7 @@ export default function Earth({ props }) {
 
   return (
     <>
-      <pointLight color="#fff" intensity={1.2} position={[2, 0, 4]} />
+      <pointLight color="#fff" intensity={2} position={[2, 0, 4]} />
       <Stars radius={400} depth={50} count={20000} factor={5} fade={true} />
       <mesh ref={cloudRef}>
         <sphereGeometry args={[2.05, 64, 64]} />

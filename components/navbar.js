@@ -36,9 +36,6 @@ export default function Navbar() {
           <li>
             <Link href="/blog">Blog</Link>
           </li>
-          <li>
-            <Link href="/earth">Earth</Link>
-          </li>
         </ul>
       </div>
     </div>
