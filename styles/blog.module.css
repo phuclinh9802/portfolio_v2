@@ -72,9 +72,9 @@
 }
 
 .article .content {
-    font-family: sans-serif;
-    font-size: 1em;
-    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    /* letter-spacing: 1px; */
     margin: 20px 0;
 }
 
@@ -227,6 +227,10 @@
     .article .date {
         letter-spacing: 2px;
         font-size: 0.9em;
+    }
+
+    .article .content {
+        font-size: 1em;
     }
 
     .songList {
