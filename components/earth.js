@@ -1,17 +1,10 @@
-import React, { Suspense, useRef } from "react";
-import styled from "styled-components";
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import React, { useRef } from "react";
+import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 
 import { OrbitControls, Stars } from "@react-three/drei";
 
-// import EarthDayMap from "../public/images/threejs/8k_earth_daymap.jpeg";
-// import EarthCloudMap from "../public/images/threejs/8k_earth_clouds.jpeg";
-import EarthNormalMap from "../public/images/threejs/8k_earth_normal_map.jpg";
-// import EarthSpecularMap from "../public/images/threejs/8k_earth_specular_map.jpg";
 import { TextureLoader } from "three";
-import Image from "next/image";
-import { useTexture } from "@react-three/drei";
 
 // do not use div for canvas threejs since it is using WebGL - use mesh
 export default function Earth({ props }) {

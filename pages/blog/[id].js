@@ -4,13 +4,14 @@ import { Suspense, useEffect, useState } from "react";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageList from "@mui/material/ImageList";
 import { Box, useMediaQuery } from "@mui/material";
-import Date from "../../components/date";
-import Layout from "../../components/layout";
-import Navbar from "../../components/navbar";
-import styles from "../../styles/blog.module.css";
+import { TabList, TabPanel, TabContext } from "@mui/lab";
+import { DiscussionEmbed } from "disqus-react";
+import { style } from "@mui/system";
+import { Canvas } from "@react-three/fiber";
 import Link from "next/link";
 import Checkbox from "@mui/material/Checkbox";
-import * as THREE from "three";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import {
   DarkMode,
   KeyboardBackspace,
@@ -18,12 +19,10 @@ import {
   PlayCircleFilled,
 } from "@mui/icons-material";
 import Tab from "@mui/material/Tab";
+
 import Earth from "../../components/earth";
-import { TabList, TabPanel, TabContext } from "@mui/lab";
-import { DiscussionEmbed } from "disqus-react";
-import { style } from "@mui/system";
-import { Canvas } from "@react-three/fiber";
 import Overlay from "../../components/overlay";
+import styles from "../../styles/blog.module.css";
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -33,6 +32,8 @@ function srcset(image, size, rows = 1, cols = 1) {
     }&fit=crop&auto=format&dpr=2 2x`,
   };
 }
+
+const code = `console.log("hello world")`;
 
 export default function Blogs({ data }) {
   const [img, setImg] = useState(null);
@@ -146,10 +147,80 @@ export default function Blogs({ data }) {
             <div className={styles.date}>
               Updated on {data.date} by {data.author}
             </div>
-            <div
-              dangerouslySetInnerHTML={{ __html: data.content }}
-              className={styles.content}
-            ></div>
+            {data.content != "" && (
+              <div
+                dangerouslySetInnerHTML={{ __html: data.content }}
+                className={styles.content}
+              ></div>
+            )}
+
+            {data.content == "" && (
+              <div className={styles.content}>
+                <p>
+                  For this blog, I can show you how I created the Earth like
+                  above using ThreeJS. First, according to ThreeJS
+                  documentation, Three.js is a 3D library that tries to make it
+                  as easy as possible to get 3D content on a webpage. Three.js
+                  is often confused with WebGL since more often than not, but
+                  not always, three.js uses WebGL to draw 3D. WebGL is a very
+                  low-level system that only draws points, lines, and triangles.
+                  To do anything useful with WebGL generally requires quite a
+                  bit of code and that is where three.js comes in. It handles
+                  stuff like scenes, lights, shadows, materials, textures, 3d
+                  math, all things that you would d have to write yourself if
+                  you were to use WebGL directly.
+                </p>
+                <p>
+                  First, I installed the necessary libraries to support this
+                  small project:{" "}
+                </p>
+                <ul>
+                  <li>three</li>
+                  <li>@react-three/fiber</li>
+                  <li>@react-three/drei</li>
+                </ul>
+
+                <p>
+                  You can use yarn or npm to install. I will use npm to install
+                  these packages
+                </p>
+
+                <div className={styles.highligher}>
+                  <SyntaxHighlighter
+                    children={` npm i -D three \n npm i -D @react-three/fiber \n npm i -D @react-three/drei`}
+                    language="javascript"
+                    style={dracula}
+                  />
+
+                  <p>
+                    So, every ThreeJS project needs a Canvas component as a
+                    container. Luckily, @react-three/fiber package supports
+                    this. All we have to do is to import{" "}
+                    <code>{"<Canvas />"}</code> component, then wrap around the
+                    code like below:
+                  </p>
+
+                  <SyntaxHighlighter
+                    children={` <Canvas> \n  <Suspense fallback={null}> \n    <div /> \n  </Suspense> \n </Canvas>`}
+                    language="javascript"
+                    style={dracula}
+                  />
+
+                  <p>
+                    You can see that I added {"<Suspense />"} component, because
+                    we want to wait for the components inside the canvas to
+                    render properly, since the time to render might be slow.
+                  </p>
+                  <p>
+                    Next, we want to create a new component called "earth"
+                    inside the <code>/components</code> folder.
+                  </p>
+                </div>
+
+                <h2>References</h2>
+                <p>https://threejs.org/manual/#en/fundamentals</p>
+              </div>
+            )}
             {data.threeJS && <div className={styles.threeJS}></div>}
             {data.songList ? (
               <>
@@ -752,7 +823,7 @@ export async function getStaticProps({ params }) {
       date: "1/22/2023",
       author: "Phillip Nguyen",
       imgURL: "/images/threejs.png",
-      content: "Coming Soon...",
+      content: "",
       threeJS: true,
     },
     {
