@@ -1,12 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Suspense, useEffect, useState } from "react";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageList from "@mui/material/ImageList";
 import { Box, useMediaQuery } from "@mui/material";
 import { TabList, TabPanel, TabContext } from "@mui/lab";
 import { DiscussionEmbed } from "disqus-react";
-import { style } from "@mui/system";
 import { Canvas } from "@react-three/fiber";
 import Link from "next/link";
 import Checkbox from "@mui/material/Checkbox";
@@ -33,8 +31,6 @@ function srcset(image, size, rows = 1, cols = 1) {
   };
 }
 
-const code = `console.log("hello world")`;
-
 export default function Blogs({ data }) {
   const [img, setImg] = useState(null);
   const [checked, setChecked] = useState(true);
@@ -42,8 +38,6 @@ export default function Blogs({ data }) {
   const [checkedVietnamese, setCheckedVietnamese] = useState(true);
   const [isAlbum, setIsAlbum] = useState("1");
   const [colorMode, setColorMode] = useState("light");
-
-  let songData = data.songList ? data.songList : null;
 
   const shortName = "portfolio";
 
