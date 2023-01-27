@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import Head from "next/head";
 import { Suspense, useEffect, useState } from "react";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -185,7 +186,11 @@ export default function Blogs({ data }) {
                     language="javascript"
                     style={dracula}
                   />
-
+                  <p>
+                    Now, since this is a combination of ThreeJS and NextJS, we
+                    can manipulate the code inside <code>/pages/index.js</code>{" "}
+                    file
+                  </p>
                   <p>
                     So, every ThreeJS project needs a Canvas component as a
                     container. Luckily, @react-three/fiber package supports
@@ -206,8 +211,9 @@ export default function Blogs({ data }) {
                     render properly, since the time to render might be slow.
                   </p>
                   <p>
-                    Next, we want to create a new component called "earth"
-                    inside the <code>/components</code> folder.
+                    Next, we want to create a new component called {'"'}Earth
+                    {'"'} inside the <code>/components</code> folder, so we will
+                    create a file called <code>earth.js</code>.
                   </p>
                 </div>
 
