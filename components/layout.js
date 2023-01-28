@@ -30,12 +30,12 @@ export default function Layout({ children }) {
   };
   return (
     <div className={styles.layout}>
-      <Alert variant="filled" severity="info" style={{ textAlign: "center" }}>
+      {/* <Alert variant="filled" severity="info" style={{ textAlign: "center" }}>
         Happy Lunar New Year 2023!! Hope you all have a good day!{" "}
         <Celebration style={{ color: "orange", paddingTop: "4px" }} />
         <Celebration style={{ color: "orange", paddingTop: "4px" }} />
         <Celebration style={{ color: "orange", paddingTop: "4px" }} />
-      </Alert>
+      </Alert> */}
 
       <div className="nb">
         <Navbar />

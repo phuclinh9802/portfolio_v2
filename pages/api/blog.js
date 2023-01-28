@@ -31,8 +31,8 @@ export default function Blog(req, res) {
     },
     {
       id: 3,
-      title: "How I learned ThreeJS (Coming Soon...)",
-      date: "1/22/2023",
+      title: "How I Created the Earth using ThreeJS & NextJS",
+      date: "1/28/2023",
       author: "Phillip Nguyen",
       imgURL: "/images/threejs.png",
       content: "",
