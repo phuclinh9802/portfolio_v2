@@ -206,9 +206,10 @@ export default function Blogs({ data }) {
                   />
 
                   <p>
-                    You can see that I added {"<Suspense />"} component, because
-                    we want to wait for the components inside the canvas to
-                    render properly, since the time to render might be slow.
+                    You can see that I added {"<Suspense />"} component from
+                    React library, because we want to wait for the components
+                    inside the canvas to render properly, since the time to
+                    render might be slow.
                   </p>
                   <p>
                     Next, we want to create a new component called {'"'}Earth
@@ -876,7 +877,7 @@ export async function getStaticProps({ params }) {
     },
     {
       id: 3,
-      title: "How I learned ThreeJS",
+      title: "How I Created the Earth using ThreeJS & NextJS",
       date: "1/28/2023",
       author: "Phillip Nguyen",
       imgURL: "/images/threejs.png",
