@@ -17,7 +17,7 @@ export default function Blog() {
   }, []);
   return (
     <div>
-      <Alert
+      {/* <Alert
         icon={<EmojiEmotions />}
         variant="filled"
         severity="info"
@@ -27,7 +27,7 @@ export default function Blog() {
         <Celebration style={{ color: "orange", paddingTop: "2px" }} />
         <Celebration style={{ color: "orange", paddingTop: "2px" }} />
         <Celebration style={{ color: "orange", paddingTop: "2px" }} />
-      </Alert>
+      </Alert> */}
       <Navbar />
       <ul className={styles.bloglist}>
         {blogData ? (
