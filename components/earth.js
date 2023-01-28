@@ -4,6 +4,7 @@ import * as THREE from "three";
 import { OrbitControls, Stars } from "@react-three/drei";
 
 import { TextureLoader } from "three";
+import { useMediaQuery } from "@mui/material";
 
 // do not use div for canvas threejs since it is using WebGL - use mesh
 export default function Earth({ props }) {
@@ -17,6 +18,7 @@ export default function Earth({ props }) {
 
   const earthRef = useRef();
   const cloudRef = useRef();
+  const matchDownSm = useMediaQuery("(max-width:500px)");
 
   useFrame(({ clock }) => {
     const elapsedTime = clock.getElapsedTime();
@@ -30,7 +32,7 @@ export default function Earth({ props }) {
       <pointLight color="#fff" intensity={2} position={[2, 0, 4]} />
       <Stars radius={400} depth={50} count={20000} factor={5} fade={true} />
       <mesh ref={cloudRef}>
-        <sphereGeometry args={[2.05, 64, 64]} />
+        <sphereGeometry args={matchDownSm ? [1.51, 40, 40] : [2, 64, 64]} />
         <meshPhongMaterial
           map={cloud}
           opacity={0.4}
@@ -40,7 +42,7 @@ export default function Earth({ props }) {
         />
       </mesh>
       <mesh ref={earthRef}>
-        <sphereGeometry args={[2, 64, 64]} />
+        <sphereGeometry args={matchDownSm ? [1.5, 40, 40] : [2, 64, 64]} />
         <meshPhongMaterial specularMap={specular} />
         <meshStandardMaterial
           map={texture}
@@ -48,7 +50,7 @@ export default function Earth({ props }) {
           metalness={0.4}
           roughness={0.7}
         />
-        <OrbitControls enableZoom={false} enableRotate={false} />
+        {/* <OrbitControls enableZoom={false} enableRotate={true} /> */}
       </mesh>
     </>
   );
