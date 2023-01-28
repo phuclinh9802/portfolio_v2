@@ -876,7 +876,7 @@ export async function getStaticProps({ params }) {
     {
       id: 3,
       title: "How I learned ThreeJS",
-      date: "1/22/2023",
+      date: "1/28/2023",
       author: "Phillip Nguyen",
       imgURL: "/images/threejs.png",
       content: "",
