@@ -101,7 +101,7 @@ export default function Blogs({ data }) {
                   flexDirection: "column",
                 }}
               >
-                <Overlay />
+                {/* <Overlay /> */}
                 {data.threeJS && (
                   <Canvas>
                     <Suspense fallback={null}>
