@@ -252,6 +252,10 @@ export default function Blogs({ data }) {
                     by changing the value of the denominator.) Same for the{" "}
                     <code>cloudRef</code>.
                   </p>
+                  <p>
+                    For more information, please visit the references below for
+                    further details.
+                  </p>
                 </div>
 
                 <h2>References</h2>
