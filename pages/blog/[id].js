@@ -19,8 +19,8 @@ import {
 } from "@mui/icons-material";
 import Tab from "@mui/material/Tab";
 
-import Earth from "../../components/earth";
 import Overlay from "../../components/overlay";
+import Earth from "../../components/earth";
 import styles from "../../styles/blog.module.css";
 
 function srcset(image, size, rows = 1, cols = 1) {
@@ -213,12 +213,64 @@ export default function Blogs({ data }) {
                   <p>
                     Next, we want to create a new component called {'"'}Earth
                     {'"'} inside the <code>/components</code> folder, so we will
-                    create a file called <code>earth.js</code>.
+                    create a file called <code>earth.js</code>. Since we will
+                    work with the Earth as the texture of the object, we can
+                    download the texture online through{" "}
+                    <Link
+                      className={styles.solarlink}
+                      href="https://www.solarsystemscope.com/textures/"
+                    >
+                      Solar System Scope
+                    </Link>
+                  </p>
+
+                  <p>
+                    To continue, follow the code below inside{" "}
+                    <code>/components/earth.js</code> :
+                  </p>
+                  <SyntaxHighlighter
+                    children={` import React, { useRef } from "react"; \n import { useFrame, useLoader } from "@react-three/fiber"; \n import * as THREE from "three"; \n import { OrbitControls, Stars } from "@react-three/drei"; \n import { TextureLoader } from "three" \n export default function Earth() { \n  const [texture, specular, cloud, normal] = useLoader(TextureLoader, ["/images/threejs/8k_earth_daymap.jpeg", "/images/threejs/8k_earth_specular_map.jpg", "/images/threejs/8k_earth_clouds.jpeg", "/images/threejs/8k_earth_normal_map.jpg", ]); \n  const earthRef = useRef(); \n  const cloudRef = useRef(); 
+                    \n  useFrame(({ clock }) => { \n   const elapsedTime = clock.getElapsedTime(); \n   earthRef.current.rotation.y = elapsedTime / 8; \n   cloudRef.current.rotation.y = elapsedTime / 6; \n  });
+                    \n  return ( \n   <> \n      <pointLight color="#fff" intensity={2} position={[2, 0, 4]} /> \n      <Stars radius={400} depth={50} count={20000} factor={5} fade={true} /> \n      <mesh ref={cloudRef}> \n       <sphereGeometry args={2.05, 64, 64} /> \n       <meshPhongMaterial \n        map={cloud} opacity={0.4} depthWrite={true} transparent={true} side={THREE.DoubleSide} \n       /> \n      </mesh> \n      <mesh ref={earthRef}> \n       <spehereGeometry args={[2, 64, 64]} /> \n       <meshPhongMaterial specularMap={specular} /> \n       <meshStandardMaterial \n        map={texture} \n        normalMap={normal} \n        metalness={0.4} \n        roughness={0.7} \n       /> \n       <OrbitControls enableZoom={false} enableRotate={true} /> \n      </mesh> \n    </> \n  ); \n }`}
+                    language="javascript"
+                    style={dracula}
+                  />
+                  <p></p>
+                  <p>
+                    As you can see, we need to use several components for our{" "}
+                    {'"'}Earth{'"'} to work. First, we need to download and put
+                    the .jpg and .jpeg files for the earth{"'"}s textures inside{" "}
+                    <code>/public/images</code> folder. Then, we use{" "}
+                    <code>useLoader</code> hook from{" "}
+                    <code>@react-three/fiber</code> to load the textures. Next,
+                    we can see that I used the <code>useFrame</code> hook to
+                    render on every frame (we want the earth to spin infinitely,
+                    correct?) The code inside <code>useFrame</code> hook will
+                    execute the code which helps our Earth rotate in the
+                    horizontal direction with the speed of{" "}
+                    <code>elapsedTime / 8</code> (You can play around with this
+                    by changing the value of the denominator.) Same for the{" "}
+                    <code>cloudRef</code>.
                   </p>
                 </div>
 
                 <h2>References</h2>
-                <p>https://threejs.org/manual/#en/fundamentals</p>
+                <p>
+                  <Link
+                    className={styles.solarlink}
+                    href="https://threejs.org/manual/#en/fundamentals"
+                  >
+                    ThreeJS Fundamentals
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    className={styles.solarlink}
+                    href="https://www.youtube.com/watch?v=ymavtyRpT0E"
+                  >
+                    ThreeJS Tutorial
+                  </Link>
+                </p>
               </div>
             )}
             {data.threeJS && <div className={styles.threeJS}></div>}

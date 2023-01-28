@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
-
 import { OrbitControls, Stars } from "@react-three/drei";
 
 import { TextureLoader } from "three";
@@ -25,9 +24,6 @@ export default function Earth({ props }) {
     earthRef.current.rotation.y = elapsedTime / 8;
     cloudRef.current.rotation.y = elapsedTime / 6;
   });
-
-  // const texture = useTexture("/images/threejs/8k_earth_daymap.jpeg");
-  // console.log(texture);
 
   return (
     <>

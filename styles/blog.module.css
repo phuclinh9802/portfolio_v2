@@ -182,6 +182,15 @@
     padding: 20px;
 }
 
+.solarlink {
+    color: rgb(94, 94, 240);
+    transition: 0.2s all;
+}
+
+.solarlink:hover {
+    text-decoration: underline;
+}
+
 
 
 @media screen and (max-width: 768px) {
