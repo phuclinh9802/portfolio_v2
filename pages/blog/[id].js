@@ -200,7 +200,7 @@ export default function Blogs({ data }) {
                   </p>
 
                   <SyntaxHighlighter
-                    children={` <Canvas> \n  <Suspense fallback={null}> \n    <div /> \n  </Suspense> \n </Canvas>`}
+                    children={` <Canvas> \n  <Suspense fallback={null}> \n    <Earth /> \n  </Suspense> \n </Canvas>`}
                     language="javascript"
                     style={dracula}
                   />
@@ -254,7 +254,8 @@ export default function Blogs({ data }) {
                   </p>
                   <p>
                     For more information, please visit the references below for
-                    further details.
+                    further details. Now, we can import our Earth component
+                    inside <code>index.js</code> file. Well done!!! It works.
                   </p>
                 </div>
 

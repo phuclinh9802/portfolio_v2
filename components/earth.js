@@ -48,7 +48,7 @@ export default function Earth({ props }) {
           metalness={0.4}
           roughness={0.7}
         />
-        <OrbitControls enableZoom={false} enableRotate={true} />
+        <OrbitControls enableZoom={false} enableRotate={false} />
       </mesh>
     </>
   );
