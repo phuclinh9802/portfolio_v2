@@ -32,7 +32,7 @@ export default function Earth({ props }) {
       <pointLight color="#fff" intensity={2} position={[2, 0, 4]} />
       <Stars radius={400} depth={50} count={20000} factor={5} fade={true} />
       <mesh ref={cloudRef}>
-        <sphereGeometry args={matchDownSm ? [1.51, 40, 40] : [2, 64, 64]} />
+        <sphereGeometry args={matchDownSm ? [1.51, 40, 40] : [2.05, 64, 64]} />
         <meshPhongMaterial
           map={cloud}
           opacity={0.4}
