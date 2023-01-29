@@ -84,8 +84,8 @@ export default function Blogs({ data }) {
   return (
     <div
       style={{
-        background: colorMode == "dark" ? "#1a1a1a" : "",
-        color: colorMode == "dark" ? "#ddd" : "",
+        background: colorMode == "dark" ? "#121212" : "",
+        color: colorMode == "dark" ? "rgba(255, 255, 255, 0.87)" : "",
       }}
     >
       {data ? (
