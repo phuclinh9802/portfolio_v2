@@ -873,6 +873,20 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/5kJMW3pK49PvQDtpVryHf5?si=88f82668b29441f5",
           category: "Vietnamese",
         },
+        {
+          title: "Tình Yêu Ngủ Quên",
+          singers: "Hoàng Tôn, LyHan",
+          img: "/images/songs/tinhyeunguquen.png",
+          link: "https://open.spotify.com/track/2MjpqyEA73TzenhDmj0RFN?si=99679d68eb414341",
+          category: "Vietnamese",
+        },
+        {
+          title: "Buồn Thì Cứ Khóc Đi",
+          singers: "Lynk Lee",
+          img: "/images/songs/buonthicukhocdi.png",
+          link: "https://open.spotify.com/track/6iXGivPFpsqKmrINhIbPvx?si=e1e417ef50074436",
+          category: "Vietnamese",
+        },
       ],
     },
     {
