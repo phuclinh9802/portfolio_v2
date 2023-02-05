@@ -696,6 +696,12 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/embed/playlist/37i9dQZF1E4wXMtaoAbs52?utm_source=generator",
           html: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1E4wXMtaoAbs52?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
         },
+        {
+          title: "Millenium K-Pop",
+          img: "/images/albums/2022.png",
+          link: "https://open.spotify.com/playlist/37i9dQZF1DWUoY6Ih7vsxr?si=3df6d8656aac4a43",
+          html: '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWUoY6Ih7vsxr?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
+        },
       ],
       songList: [
         {
