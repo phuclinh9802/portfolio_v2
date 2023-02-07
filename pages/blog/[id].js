@@ -931,6 +931,27 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/1mxTCArq9EhSg4QPGqhjhT?si=b3f084fb6fcc4b67",
           category: "English",
         },
+        {
+          title: "It's You",
+          singers: "SUPER JUNIOR",
+          img: "/images/songs/itsyou.png",
+          link: "https://open.spotify.com/track/2TG8kKgwsyyZU8lZIH6SZ1?si=bb6a4447af50400c",
+          category: "Korean",
+        },
+        {
+          title: "View",
+          singers: "SHINee",
+          img: "/images/songs/view.png",
+          link: "https://open.spotify.com/track/46E1ic6n099e76t5J1TbHn?si=d4125a37637045bd",
+          category: "Korean",
+        },
+        {
+          title: "Thu Cuối",
+          singers: "YanBi, Mr T, Hang BingBoong",
+          img: "/images/songs/thucuoi.png",
+          link: "https://open.spotify.com/track/5ZMDJIYgsZWHXw2ILFblva?si=53a373b58e984f9a",
+          category: "Vietnamese",
+        },
       ],
     },
     {
