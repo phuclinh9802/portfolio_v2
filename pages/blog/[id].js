@@ -88,6 +88,9 @@ export default function Blogs({ data }) {
         color: colorMode == "dark" ? "rgba(255, 255, 255, 0.87)" : "",
       }}
     >
+      <Head>
+        <title>{data.title}</title>
+      </Head>
       {data ? (
         <>
           <div className={styles.blogsection}>

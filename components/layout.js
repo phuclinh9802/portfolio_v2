@@ -9,6 +9,7 @@ import styles from "../styles/layout.module.css";
 import { Alert, Snackbar, Button } from "@mui/material";
 import { forwardRef, useState } from "react";
 import { Celebration } from "@mui/icons-material";
+import Head from "next/head";
 
 // const Alert = forwardRef(function Alert(props, ref) {
 //   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -36,6 +37,9 @@ export default function Layout({ children }) {
         <Celebration style={{ color: "orange", paddingTop: "4px" }} />
         <Celebration style={{ color: "orange", paddingTop: "4px" }} />
       </Alert> */}
+      <Head>
+        <title>Phuc{"'"}s Portfolio</title>
+      </Head>
 
       <div className="nb">
         <Navbar />

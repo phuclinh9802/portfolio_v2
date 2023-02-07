@@ -7,6 +7,7 @@ import styles from "../styles/blog.module.css";
 import Navbar from "../components/navbar";
 import { Alert } from "@mui/material";
 import { Celebration, EmojiEmotions } from "@mui/icons-material";
+import Head from "next/head";
 
 export default function Blog() {
   const [blogData, setBlogData] = useState(null);
@@ -17,6 +18,9 @@ export default function Blog() {
   }, []);
   return (
     <div>
+      <Head>
+        <title>Phuc{"'"}s Blog Posts</title>
+      </Head>
       {/* <Alert
         icon={<EmojiEmotions />}
         variant="filled"
@@ -29,6 +33,7 @@ export default function Blog() {
         <Celebration style={{ color: "orange", paddingTop: "2px" }} />
       </Alert> */}
       <Navbar />
+
       <ul className={styles.bloglist}>
         {blogData ? (
           <>
