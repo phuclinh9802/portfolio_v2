@@ -668,7 +668,7 @@ export async function getStaticProps({ params }) {
     {
       id: 2,
       title: "My Favorite Songs for 2023",
-      date: "02/05/2023",
+      date: "02/08/2023",
       author: "Phillip Nguyen",
       imgURL: "/images/spotify.png",
       content:
@@ -950,6 +950,13 @@ export async function getStaticProps({ params }) {
           singers: "YanBi, Mr T, Hang BingBoong",
           img: "/images/songs/thucuoi.png",
           link: "https://open.spotify.com/track/5ZMDJIYgsZWHXw2ILFblva?si=53a373b58e984f9a",
+          category: "Vietnamese",
+        },
+        {
+          title: "vaicaunoicokhiennguoithaydoi",
+          singers: "GREY D, tlinh",
+          img: "/images/songs/vaicaunoicokhiennguoithaydoi.png",
+          link: "https://open.spotify.com/track/25h0TqC9H3BcMA7KjK5nHK?si=acc0e1fb2bcd48b2",
           category: "Vietnamese",
         },
       ],
