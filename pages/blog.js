@@ -1,16 +1,13 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Contact from "../components/contact";
-// import Date from "../components/date";
-import Layout from "../components/layout";
 import styles from "../styles/blog.module.css";
 import Navbar from "../components/navbar";
-import { Alert } from "@mui/material";
-import { Celebration, EmojiEmotions } from "@mui/icons-material";
 import Head from "next/head";
+import { Chip } from "@mui/material";
 
 export default function Blog() {
   const [blogData, setBlogData] = useState(null);
+  const [toggleTab, setToggleTab] = useState(true);
   useEffect(() => {
     fetch("api/blog")
       .then((res) => res.json())
@@ -33,11 +30,66 @@ export default function Blog() {
         <Celebration style={{ color: "orange", paddingTop: "2px" }} />
       </Alert> */}
       <Navbar />
+      <div className={styles.hashtaglist}>
+        <Chip onClick={() => setToggleTab(true)} label={"#general"}></Chip>
+        <Chip
+          onClick={() => setToggleTab(false)}
+          label={"#interviewprep"}
+        ></Chip>
+      </div>
 
       <ul className={styles.bloglist}>
         {blogData ? (
           <>
-            {blogData.map(({ id, date, title, imgURL, bgPos }) => (
+            {blogData.map(({ type, blogs }) => (
+              <>
+                {toggleTab == true && type == "general" && (
+                  <>
+                    {blogs.map(({ id, date, title, imgURL, bgPos }) => (
+                      <>
+                        <li
+                          style={{
+                            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
+                            backgroundPosition: `${bgPos}`,
+                          }}
+                          className={styles.blogitem}
+                          key={id}
+                        >
+                          <Link href={`/blog/${id}`}>
+                            <div className={styles.linkblog}>{title}</div>
+                            <br />
+                            <small className={styles.linkdate}>{date}</small>
+                          </Link>
+                        </li>
+                      </>
+                    ))}
+                  </>
+                )}
+                {toggleTab == false && type == "interview" && (
+                  <>
+                    {blogs.map(({ id, date, title, imgURL, bgPos }) => (
+                      <>
+                        <li
+                          style={{
+                            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
+                            backgroundPosition: `${bgPos}`,
+                          }}
+                          className={styles.blogitem}
+                          key={id}
+                        >
+                          <Link href={`/blog/${id}`}>
+                            <div className={styles.linkblog}>{title}</div>
+                            <br />
+                            <small className={styles.linkdate}>{date}</small>
+                          </Link>
+                        </li>
+                      </>
+                    ))}
+                  </>
+                )}
+              </>
+            ))}
+            {/* {blogData.map(({ id, date, title, imgURL, bgPos }) => (
               <>
                 <li
                   style={{
@@ -54,10 +106,16 @@ export default function Blog() {
                   </Link>
                 </li>
               </>
-            ))}
+            ))} */}
           </>
         ) : null}
       </ul>
     </div>
   );
 }
+
+/**
+ *  tab -> press #interview -> toggle = false => when type = general => display blogs attribute with type general
+ *
+ *
+ */

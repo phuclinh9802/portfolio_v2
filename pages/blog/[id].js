@@ -664,6 +664,7 @@ export async function getStaticProps({ params }) {
       content:
         "<p>This is my first blog ever! I am glad I finally decided to create one, due to my laziness, lol. Anyway, I and Nguyet, my girlfriend, just had a blast in one of the most beautiful and intelligent cities in the United States, Seattle, Washington. There is a myriad of attraction such as Space Needle, Museum of Pop Culture (MoPOP), Chihuly Garden and Glass (a must-see IMO), Pike Place Market, Seattle Great Wheel, and so on. Especially, Pike Place Market is famous in Seattle because it's one of the oldest continually running markets in the country, according to travelleming.com. Here, we tried the clam chowder, which is awarded the best clam chowder in the nation. A fun experience in this attraction indeed, not only was because of the food, but also was the people and the environment they brought to the visitors. I remembered when we are offered to try samples of three types of cooked salmon and were amazed at how unique and delicious they were. “Have you ever tried Salmon Candy?”, asked the fisherman. We were confused: “Wait, Salmon Candy? What do you mean? Do they taste sweet?”. Indeed, they were meaty but sweet at the same time, thus our new favorite dessert was introduced. You must try it once when coming to the market. </p><p>We also visited the Space Needle, one of the most famous attractions of the country, if not of the world. Because we travelled either when people were working, or when COVID-19 still spread, not many people were there with us. Therefore, Nguyet and I could enjoy fully the experience of capturing the sunny day (which was rare) in Seattle City from the observatory deck (Like the image above). There are so many pictures we took from the deck that I will create a gallery right here so people can see how beautiful the scene looks like when Seattle weather is nice and peaceful. </p><p>Speaking about Seattle, we could not miss the first Starbucks ever, Starbucks Reserve Roastery, located in 1124 Pike St, Seattle, WA 98101. From the first look outside, the store seemed to be more modern than I imagined. However, the coffee makers, and the roasting process were displayed like it was in the past. We got ourselves our favorite drinks: Peppermint Oatmilk Mocha and Hazelnut Bianco Latte. </p><p>We visited many more attractions, and like I said, I have created a gallery for you to follow and see what they looked like. Oh, and I guess this is the most important thing to consider when traveling to Seattle: You do not even need to rent a vehicle, since Seattle contains tons of public transportation, such as Link Light Rail, Metro Public Bus, Monorail, etc. The transportation is also cheap if you are not planning to stay here long, which only ranges around $3-$8 per trip based on your need. </p><p>Finally, for the budget, we spent the total of around $1000, including round-trip plane tickets, AirBnB, CityPass (you might want to visit this before considering to visit Seattle), and miscellaneous things (food, traveling place to place, shopping,…). </p><p>In conclusion, writing this for the first time was really fun, since I could feel reminiscent about how fun we spent our time in Seattle and ingrain in my memory. I will try to write more of this in the future! Please stay tuned. </p>",
       songList: null,
+      type: "general",
     },
     {
       id: 2,
@@ -673,6 +674,7 @@ export async function getStaticProps({ params }) {
       imgURL: "/images/spotify.png",
       content:
         "These are my favorite songs between 2022-2023, hopefully we have the same taste of music :) Click on any of the songs below to listen with me on Spotify <3",
+      type: "general",
       playList: [
         {
           title: "K-Pop Duets (러블리 듀엣)",
@@ -969,6 +971,7 @@ export async function getStaticProps({ params }) {
       imgURL: "/images/threejs.png",
       content: "",
       threeJS: true,
+      type: "general",
     },
     {
       id: 4,
@@ -978,6 +981,7 @@ export async function getStaticProps({ params }) {
       imgURL: "/images/tet2023/IMG_0209.jpeg",
       content:
         "<img style='width: 182px; float: left; margin: 0 10px 10px 10px; border: 5px solid white; border-radius: 2px' src='https://i.imgur.com/ppowji3.jpg' /><p>January 22, 2023 @ Omaha, NE</p><p> I am sitting here in my room, thinking about how I felt about this 8th Tet holiday in Nebraska, and how I missed being home, in which at those times, I loved helping my parents prepare for a Vietnamese New Year’s meal back in Vietnam.</p><p>Tet holiday, or Lunar New Year, came sooner than most years in the past. Even I couldn’t believe how fast a new year was coming and how I thought about my 2022. It was a difficult year for most people, because of the global economy’s hardship (and seems to be worse in 2023, so watch out). For me, I can say that 2022 was a success in both academics and work. Especially, my biggest wish for 2022 was accomplished – getting an internship for 2023. I’ve got to shout out to my family, friends, and my girlfriend for being such supportive factors last year.</p><p>Now, pondering the 8th Tet Holiday in the U.S., I imagined it would feel the same from the past 7 years, since I got to taste the traditional food for this event every year: bánh chưng, nem, phồng tôm, canh sườn măng, etc. Not this year though. I was lucky to meet new people from my girlfriend’s relatives and friends. They brought such fun and energetic environment, which was almost exactly what I remembered from my childhood’s experience. Plus, one of the most important traditions, li xi, was brought into the party. I was lucky enough to get one even though I was not supposed to get it in my age haha! Anyway, hopefully this lucky money brings me luck this year. </p><p>However, even all of these, I still missed Tet in Vietnam. It is just so unique that nowhere in the world can replicate the authentic atmosphere when everyone buys peach branch before the New Year’s Eve, cleans up the whole house to “invite their ancestors” to enjoy the food with the family, or goes to each other’s home to wish a Happy New Year. In the future, I hope I have some time to go back to completely enjoy Tet in Vietnam once again. </p>",
+      type: "general",
     },
   ];
 
