@@ -255,6 +255,9 @@
 }
 
 @media screen and (max-width: 500px) {
+    .bloglist {
+        grid-template-columns: 1fr;
+    }
     .linkblog {
         font-size: 1.35em;
     }
