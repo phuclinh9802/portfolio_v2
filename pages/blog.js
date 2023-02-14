@@ -29,87 +29,91 @@ export default function Blog() {
         <Celebration style={{ color: "orange", paddingTop: "2px" }} />
         <Celebration style={{ color: "orange", paddingTop: "2px" }} />
       </Alert> */}
-      <Navbar />
-      <div className={styles.hashtaglist}>
-        <Chip onClick={() => setToggleTab(true)} label={"#general"}></Chip>
-        <Chip
-          onClick={() => setToggleTab(false)}
-          label={"#interviewprep"}
-        ></Chip>
+      <div>
+        <Navbar />
       </div>
 
-      <ul className={styles.bloglist}>
-        {blogData ? (
-          <>
-            {blogData.map(({ type, blogs }) => (
+      <div className={styles.blogsection}>
+        <div className={styles.hashtaglist}>
+          <Chip onClick={() => setToggleTab(true)} label={"#general"}></Chip>
+          <Chip
+            onClick={() => setToggleTab(false)}
+            label={"#interviewprep"}
+          ></Chip>
+        </div>
+        <ul className={styles.bloglist}>
+          {blogData ? (
+            <>
+              {blogData.map(({ type, blogs }) => (
+                <>
+                  {toggleTab == true && type == "general" && (
+                    <>
+                      {blogs.map(({ id, date, title, imgURL, bgPos }) => (
+                        <>
+                          <li
+                            style={{
+                              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
+                              backgroundPosition: `${bgPos}`,
+                            }}
+                            className={styles.blogitem}
+                            key={id}
+                          >
+                            <Link href={`/blog/${id}`}>
+                              <div className={styles.linkblog}>{title}</div>
+                              <br />
+                              <small className={styles.linkdate}>{date}</small>
+                            </Link>
+                          </li>
+                        </>
+                      ))}
+                    </>
+                  )}
+                  {toggleTab == false && type == "interview" && (
+                    <>
+                      {blogs.map(({ id, date, title, imgURL, bgPos }) => (
+                        <>
+                          <li
+                            style={{
+                              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
+                              backgroundPosition: `${bgPos}`,
+                            }}
+                            className={styles.blogitem}
+                            key={id}
+                          >
+                            <Link href={`/blog/${id}`}>
+                              <div className={styles.linkblog}>{title}</div>
+                              <br />
+                              <small className={styles.linkdate}>{date}</small>
+                            </Link>
+                          </li>
+                        </>
+                      ))}
+                    </>
+                  )}
+                </>
+              ))}
+              {/* {blogData.map(({ id, date, title, imgURL, bgPos }) => (
               <>
-                {toggleTab == true && type == "general" && (
-                  <>
-                    {blogs.map(({ id, date, title, imgURL, bgPos }) => (
-                      <>
-                        <li
-                          style={{
-                            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
-                            backgroundPosition: `${bgPos}`,
-                          }}
-                          className={styles.blogitem}
-                          key={id}
-                        >
-                          <Link href={`/blog/${id}`}>
-                            <div className={styles.linkblog}>{title}</div>
-                            <br />
-                            <small className={styles.linkdate}>{date}</small>
-                          </Link>
-                        </li>
-                      </>
-                    ))}
-                  </>
-                )}
-                {toggleTab == false && type == "interview" && (
-                  <>
-                    {blogs.map(({ id, date, title, imgURL, bgPos }) => (
-                      <>
-                        <li
-                          style={{
-                            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
-                            backgroundPosition: `${bgPos}`,
-                          }}
-                          className={styles.blogitem}
-                          key={id}
-                        >
-                          <Link href={`/blog/${id}`}>
-                            <div className={styles.linkblog}>{title}</div>
-                            <br />
-                            <small className={styles.linkdate}>{date}</small>
-                          </Link>
-                        </li>
-                      </>
-                    ))}
-                  </>
-                )}
-              </>
-            ))}
-            {/* {blogData.map(({ id, date, title, imgURL, bgPos }) => (
-              <>
-                <li
-                  style={{
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
-                    backgroundPosition: `${bgPos}`,
-                  }}
-                  className={styles.blogitem}
-                  key={id}
-                >
-                  <Link href={`/blog/${id}`}>
-                    <div className={styles.linkblog}>{title}</div>
-                    <br />
-                    <small className={styles.linkdate}>{date}</small>
-                  </Link>
-                </li>
+              <li
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
+                backgroundPosition: `${bgPos}`,
+              }}
+              className={styles.blogitem}
+              key={id}
+              >
+              <Link href={`/blog/${id}`}>
+              <div className={styles.linkblog}>{title}</div>
+              <br />
+              <small className={styles.linkdate}>{date}</small>
+              </Link>
+              </li>
               </>
             ))} */}
-          </>
-        ) : null}
-      </ul>
+            </>
+          ) : null}
+        </ul>
+      </div>
     </div>
   );
 }

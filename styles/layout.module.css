@@ -221,7 +221,7 @@
 
     .navbar {
         position: fixed;
-        z-index: 12;
+        z-index: 1;
         height: 100px;
         width: 100%;
         background-color: #fff;

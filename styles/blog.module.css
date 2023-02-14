@@ -1,4 +1,4 @@
-.bloglist {
+/* .bloglist {
     width: 100%;
     list-style-type: none;
     display: flex;
@@ -8,6 +8,17 @@
     margin: 0;
     margin-bottom: 20px;
     padding: 0;
+
+} */
+.bloglist {
+    width: 100%;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 0;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 30px;
 
 }
 
@@ -29,7 +40,14 @@
     padding: 0 30px;
     cursor: pointer;
     transition: 0.5s all;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 8px;
 
+}
+
+.blogitem:nth-child(1) {
+    grid-row-end: 1;
+    grid-column-end: 2;
 }
 
 
@@ -39,7 +57,7 @@
 
 .linkblog {
     padding-top: 200px;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight:700;
     letter-spacing: 1px;
 }
@@ -199,8 +217,18 @@
 
 
 @media screen and (max-width: 768px) {
-    .blogitem {
+    /* .hashtaglist {
         margin-top: 100px;
+    } */
+    .bloglist {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .blogitem {
+        margin-top: 20px;
+    }
+
+    .linkblog {
+        font-size: 1.25em;
     }
 
     .songPlayButton {
@@ -219,6 +247,11 @@
     .songSingers {
         font-size: 0.7em;
     }
+
+    .blogsection {
+        padding-top: 110px;
+    }
+
 }
 
 @media screen and (max-width: 500px) {
