@@ -35,11 +35,7 @@ export default function Blog() {
 
       <div className={styles.blogsection}>
         <div className={styles.hashtaglist}>
-          <Chip
-            style={{ pointerEvents: "all" }}
-            onClick={() => setToggleTab(true)}
-            label={"#general"}
-          ></Chip>
+          <Chip onClick={() => setToggleTab(true)} label={"#general"}></Chip>
           <Chip
             onClick={() => setToggleTab(false)}
             label={"#interviewprep"}
