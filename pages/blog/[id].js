@@ -988,9 +988,11 @@ export async function getStaticProps({ params }) {
     {
       id: 5,
       title: "Two Sum",
-      date: "2/14/2023",
+      date: "2/15/2023",
       author: "Phillip Nguyen",
       imgURL: "https://miro.medium.com/max/1400/1*2x-CAwfeui5YM4148VxgRA.jpeg",
+      content:
+        "<p>First, we have the input, for instance, <code> nums = [2, 7, 9, 10]</code>, and <code>target = 9 </code>. We want to output the two distinct index of elements that sum up to the target. For this problem, we can use brute force approach, by using nested loops <code>for i=0:len(nums) for j=1:len(nums)</code> to compare with the condition <code>if nums[i] + nums[j] == target: return [i, j]</code>. However, this approach is ineefficient since the time complexity for this approach is <code>O(n^2)</code>, since we need to compare 1 element by n - 1 elements.</p><p>Other approach is to use hash map. We can initialize the hash map <code>hash_map = {}</code>, then populate the hash map by one for loop with <code>(key, value) = (nums[i], i)</code>, where i is the index of current element in 'nums' list. Then, we can go through another for loop to check if the difference between target and current num is inside the hash map, and do not forget to make sure the indexes are not the same. If so, we can return both indexes of 2 elements. We solved the first problem on Leetcode! </p><p><img width='700' height='350' src='/images/leetcode/twosums.png' alt='two sums' /></p></p>",
     },
     {
       id: 6,

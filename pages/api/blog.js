@@ -50,7 +50,7 @@ export default function Blog(req, res) {
         {
           id: 5,
           title: "Two Sum",
-          date: "2/14/2023",
+          date: "2/15/2023",
           imgURL:
             "https://miro.medium.com/max/1400/1*2x-CAwfeui5YM4148VxgRA.jpeg",
           author: "Phillip Nguyen",
