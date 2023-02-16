@@ -997,9 +997,11 @@ export async function getStaticProps({ params }) {
     {
       id: 6,
       title: "Valid Anagrams",
-      date: "2/14/2023",
+      date: "2/16/2023",
       author: "Phillip Nguyen",
       imgURL: "https://i.ytimg.com/vi/51RUl4xe8AE/maxresdefault.jpg",
+      content:
+        "<p>Welcome to Valid Anagram problem. But first, we need to understand: What is Anagram? Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.We now know what it is, let's solve this problem.</p><p>For this problem, we can use brute force approach to check for every count of every character in each string. However, this solution is not efficient. We will use hash map to solve this problem. That way, even though we increase the space complexity by <code style='font-size: 1.15em'>O(n)</code>, we have <code style='font-size: 1.15em'>O(n)</code> in time complexity also. We will initialize 2 hash maps to compare 2 strings. Then, we handle the edge case where if lengths of both strings are not equal, we just return false. After that, we proceed to the algorithm through a for loop. Increment the character by 1 whenever a character is reached. Return the condition: if hash map string 1 equates hash map string 2, then return true, else return false. Below is the solution:</p><img width='700' height='350' src='/images/leetcode/validanagram.png' alt='valid anagram' />",
     },
   ];
 

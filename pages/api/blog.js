@@ -58,7 +58,7 @@ export default function Blog(req, res) {
         {
           id: 6,
           title: "Valid Anagrams",
-          date: "2/14/2023",
+          date: "2/16/2023",
           imgURL: "https://i.ytimg.com/vi/51RUl4xe8AE/maxresdefault.jpg",
           author: "Phillip Nguyen",
         },
