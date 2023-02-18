@@ -62,6 +62,13 @@ export default function Blog(req, res) {
           imgURL: "https://i.ytimg.com/vi/51RUl4xe8AE/maxresdefault.jpg",
           author: "Phillip Nguyen",
         },
+        {
+          id: 7,
+          title: "Contains Duplicate",
+          date: "2/17/2023",
+          imgURL: "/images/leetcode/containsduplicate.png",
+          author: "Phillip Nguyen",
+        },
       ],
     },
   ]);
