@@ -3,16 +3,25 @@ import { useEffect, useState } from "react";
 import styles from "../styles/blog.module.css";
 import Navbar from "../components/navbar";
 import Head from "next/head";
-import { Chip } from "@mui/material";
+import { Chip, Skeleton } from "@mui/material";
 
 export default function Blog() {
   const [blogData, setBlogData] = useState(null);
   const [toggleTab, setToggleTab] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     fetch("api/blog")
       .then((res) => res.json())
       .then((data) => setBlogData(data));
   }, []);
+
+  useEffect(() => {
+    if (blogData) {
+      setTimeout(() => {
+        setIsLoaded(true);
+      }, 2000);
+    }
+  }, [blogData]);
   return (
     <div>
       <Head>
@@ -55,20 +64,30 @@ export default function Blog() {
                     <>
                       {blogs.map(({ id, date, title, imgURL, bgPos }) => (
                         <>
-                          <li
-                            style={{
-                              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
-                              backgroundPosition: `${bgPos}`,
-                            }}
-                            className={styles.blogitem}
-                            key={id}
-                          >
-                            <Link href={`/blog/${id}`}>
-                              <div className={styles.linkblog}>{title}</div>
-                              <br />
-                              <small className={styles.linkdate}>{date}</small>
-                            </Link>
-                          </li>
+                          {isLoaded ? (
+                            <li
+                              style={{
+                                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
+                                backgroundPosition: `${bgPos}`,
+                              }}
+                              className={styles.blogitem}
+                              key={id}
+                            >
+                              <Link href={`/blog/${id}`}>
+                                <div className={styles.linkblog}>{title}</div>
+                                <br />
+                                <small className={styles.linkdate}>
+                                  {date}
+                                </small>
+                              </Link>
+                            </li>
+                          ) : (
+                            <Skeleton
+                              variant="rectangular"
+                              width={400}
+                              height={300}
+                            />
+                          )}
                         </>
                       ))}
                     </>
@@ -77,20 +96,30 @@ export default function Blog() {
                     <>
                       {blogs.map(({ id, date, title, imgURL, bgPos }) => (
                         <>
-                          <li
-                            style={{
-                              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
-                              backgroundPosition: `${bgPos}`,
-                            }}
-                            className={styles.blogitem}
-                            key={id}
-                          >
-                            <Link href={`/blog/${id}`}>
-                              <div className={styles.linkblog}>{title}</div>
-                              <br />
-                              <small className={styles.linkdate}>{date}</small>
-                            </Link>
-                          </li>
+                          {isLoaded ? (
+                            <li
+                              style={{
+                                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
+                                backgroundPosition: `${bgPos}`,
+                              }}
+                              className={styles.blogitem}
+                              key={id}
+                            >
+                              <Link href={`/blog/${id}`}>
+                                <div className={styles.linkblog}>{title}</div>
+                                <br />
+                                <small className={styles.linkdate}>
+                                  {date}
+                                </small>
+                              </Link>
+                            </li>
+                          ) : (
+                            <Skeleton
+                              variant="rectangular"
+                              width={400}
+                              height={300}
+                            />
+                          )}
                         </>
                       ))}
                     </>
