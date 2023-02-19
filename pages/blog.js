@@ -126,24 +126,6 @@ export default function Blog() {
                   )}
                 </>
               ))}
-              {/* {blogData.map(({ id, date, title, imgURL, bgPos }) => (
-              <>
-              <li
-              style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
-                backgroundPosition: `${bgPos}`,
-              }}
-              className={styles.blogitem}
-              key={id}
-              >
-              <Link href={`/blog/${id}`}>
-              <div className={styles.linkblog}>{title}</div>
-              <br />
-              <small className={styles.linkdate}>{date}</small>
-              </Link>
-              </li>
-              </>
-            ))} */}
             </>
           ) : null}
         </ul>

@@ -26,6 +26,9 @@
     padding: 20px 5%;
 }
 
+.hashtaglist div {
+    margin: 5px;
+}
 
 .MuiAlert-icon {
     padding: 0;
@@ -217,9 +220,13 @@
 
 
 @media screen and (max-width: 768px) {
-    /* .hashtaglist {
-        margin-top: 100px;
-    } */
+    .hashtaglist {
+        display: flex;
+        justify-content: center;
+    }
+
+ 
+
     .bloglist {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -257,6 +264,11 @@
 @media screen and (max-width: 500px) {
     .bloglist {
         grid-template-columns: 1fr;
+        place-items: center;
+    }
+
+    .hashtaglist {
+        justify-content: end;
     }
     .linkblog {
         font-size: 1.35em;
