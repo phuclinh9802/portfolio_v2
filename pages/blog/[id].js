@@ -1007,9 +1007,11 @@ export async function getStaticProps({ params }) {
     {
       id: 7,
       title: "Contains Duplicate",
-      date: "2/17/2023",
+      date: "2/20/2023",
       imgURL: "/images/leetcode/containsduplicate.png",
       author: "Phillip Nguyen",
+      content:
+        "<p>Welcome to Contains Duplicate problem! This time, we are going to solve this easy problem from Leetcode. The problem is simple: Given an integer array nums, return <code style='font-size: 1.15em'>true</code> if any value appears at least twice in the array, meaning duplicate happens, and return <code style='font-size: 1.15em'>false</code> if every element is distinct.</p><p>For this problem, we can use hash map to complete it. Then, we can go through for loop, then check if current num element is in the hash map. If so, we return True. Else, we add that element to the hash map. Overall, this is a pretty easy problem for starters. The time complexity is <code style='font-size: 1.15em'>O(n)</code>, and space complexity is <code style='font-size: 1.15em'>O(n)</code>, since we potentially add every element inside nums array to hash map. The solution is below: <p><img width='700' height='350' src='/images/leetcode/containsduplicatesolution.png' alt='contains duplicate' /></p></p>",
     },
   ];
 

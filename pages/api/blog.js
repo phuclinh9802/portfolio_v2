@@ -65,7 +65,7 @@ export default function Blog(req, res) {
         {
           id: 7,
           title: "Contains Duplicate",
-          date: "2/17/2023",
+          date: "2/20/2023",
           imgURL: "/images/leetcode/containsduplicate.png",
           author: "Phillip Nguyen",
         },
