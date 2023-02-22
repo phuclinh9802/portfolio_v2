@@ -84,8 +84,8 @@ export default function Blogs({ data }) {
   return (
     <div
       style={{
-        background: colorMode == "dark" ? "#121212" : "",
-        color: colorMode == "dark" ? "rgba(255, 255, 255, 0.87)" : "",
+        background: colorMode == "dark" ? "#171B26" : "",
+        color: colorMode == "dark" ? "#ccc" : "",
       }}
     >
       <Head>
@@ -652,6 +652,7 @@ export const getStaticPaths = () => {
       { params: { id: "5" } },
       { params: { id: "6" } },
       { params: { id: "7" } },
+      { params: { id: "8" } },
     ],
     fallback: false,
   };
@@ -1012,6 +1013,15 @@ export async function getStaticProps({ params }) {
       author: "Phillip Nguyen",
       content:
         "<p>Welcome to Contains Duplicate problem! This time, we are going to solve this easy problem from Leetcode. The problem is simple: Given an integer array nums, return <code style='font-size: 1.15em'>true</code> if any value appears at least twice in the array, meaning duplicate happens, and return <code style='font-size: 1.15em'>false</code> if every element is distinct.</p><p>For this problem, we can use hash map to complete it. Then, we can go through for loop, then check if current num element is in the hash map. If so, we return True. Else, we add that element to the hash map. Overall, this is a pretty easy problem for starters. The time complexity is <code style='font-size: 1.15em'>O(n)</code>, and space complexity is <code style='font-size: 1.15em'>O(n)</code>, since we potentially add every element inside nums array to hash map. The solution is below: <p><img width='700' height='350' src='/images/leetcode/containsduplicatesolution.png' alt='contains duplicate' /></p></p>",
+    },
+    {
+      id: 8,
+      title: "Group Anagrams",
+      date: "2/22/2023",
+      imgURL: "https://miro.medium.com/max/1200/1*EsgoZCXJp7PlMetgT3vJVg.png",
+      author: "Phillip Nguyen",
+      content:
+        "<p>Welcome to Group Anagrams Problem! In this problem, we are trying to group the anagrams together. For example: given input being a string list: <code style='font-size: 1.15em'>['eat', 'tea', 'tan', 'ate', 'nat', 'bat']</code>, the output should be <code style='font-size: 1.15em'>[['bat'], ['nat', 'tan'], ['ate', 'eat', 'tea']]</code>. First, let's review the definition of an anagram. An anagram is word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p><p>So, we know the requirements for this problem. We can now dive into the solution. We can use a hash map for this problem, with key being tuple of count list which represents the list of 0's with length of 26, representing count of each character in each string element. We can then proceed to the for loop. Then, initialize count list inside the for loop so that every time we are done with the iteration, we reset the count list. Then, for nested loop, we loop through each character of current string, and increment each character's count inside the count list. After done with the iteration of characters, we can exit that for loop, and append the string according to the tuple of current count list. We should be able to return the values of the hashmap, which consists of list elements with grouped anagrams.</p><img width='700' height='350' src='/images/leetcode/groupanagrams.png' alt='group anagrams' />",
     },
   ];
 

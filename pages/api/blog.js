@@ -69,6 +69,14 @@ export default function Blog(req, res) {
           imgURL: "/images/leetcode/containsduplicate.png",
           author: "Phillip Nguyen",
         },
+        {
+          id: 8,
+          title: "Group Anagrams",
+          date: "2/22/2023",
+          imgURL:
+            "https://miro.medium.com/max/1200/1*EsgoZCXJp7PlMetgT3vJVg.png",
+          author: "Phillip Nguyen",
+        },
       ],
     },
   ]);
