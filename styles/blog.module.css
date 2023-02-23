@@ -59,7 +59,7 @@
 }
 
 .linkblog {
-    padding-top: 200px;
+    padding-top: 140px;
     font-size: 1.5em;
     font-weight:700;
     letter-spacing: 1px;
@@ -217,6 +217,17 @@
     text-decoration: underline;
 }
 
+
+.blogchip {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    padding: 10px 0;
+}
+
+.chip {
+    background-color: #ddd;
+}
 
 
 @media screen and (max-width: 768px) {

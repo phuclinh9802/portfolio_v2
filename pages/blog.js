@@ -73,6 +73,12 @@ export default function Blog() {
                               className={styles.blogitem}
                               key={id}
                             >
+                              <div className={styles.blogchip}>
+                                <Chip
+                                  style={{ backgroundColor: "#a2a8d3" }}
+                                  label={`#${type}`}
+                                />
+                              </div>
                               <Link href={`/blog/${id}`}>
                                 <div className={styles.linkblog}>{title}</div>
                                 <br />
@@ -105,6 +111,12 @@ export default function Blog() {
                               className={styles.blogitem}
                               key={id}
                             >
+                              <div className={styles.blogchip}>
+                                <Chip
+                                  style={{ backgroundColor: "#ffcab0" }}
+                                  label={`#${type}`}
+                                />
+                              </div>
                               <Link href={`/blog/${id}`}>
                                 <div className={styles.linkblog}>{title}</div>
                                 <br />
