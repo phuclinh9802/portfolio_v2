@@ -21,8 +21,8 @@ export default function Projects(req, res) {
       url: "/images/projects/oldport.png",
       projectName: "Portfolio (1st version)",
       projectLink: "https://philsde.com/",
-      desc: "This is my first portfolio created with ReactJS",
-      tags: ["React"],
+      desc: "This is my first portfolio created with ReactJS, and also my first React Project ever. ",
+      tags: ["React", "HTML", "CSS"],
     },
     {
       id: 4,

@@ -91,12 +91,12 @@ export default function Index() {
               <>
                 {projectData.map((item, i) => {
                   return (
-                    <Card key={i} sx={{ maxWidth: 345 }}>
+                    <Card key={i} sx={{ maxWidth: 345, height: 420 }}>
                       <Link href={item.projectLink}>
                         <CardMedia
                           component="img"
                           alt={item.projectName}
-                          height="140"
+                          sx={{ height: 180 }}
                           image={item.url}
                         />
                       </Link>
