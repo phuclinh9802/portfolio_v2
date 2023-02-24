@@ -17,6 +17,7 @@
 
 .expsection .exptabs {
     padding: 50px 100px;
+    
 }
 
 .expsection .exptabs button {
@@ -36,8 +37,8 @@
 
 .explist {
     padding: 20px;
-    display: grid;
-    grid-template-columns: 500px 1fr;
+    display: flex;
+    flex-direction: column;
 }
 
 .explist .expheading div {
@@ -49,30 +50,39 @@
 
 .explist .expheading div p {
     font-size: 1.75em;
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: 1px;
 }
 
 .expitems {
-    padding: 0 30px;
+}
+
+.exppaper {
+    padding: 30px 40px;
+    margin: 0 15%;
+    background: linear-gradient(rgba(162, 159, 159, 0.545), rgba(255, 255, 255, 0.846));
+    box-shadow: rgba(255, 77, 0, 0.35) 5px 15px 25px;
 }
 
 .projitems {
     display: grid;
-    gap: 30px 10px;
-    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
 }
+
+
 
 .tagdiv {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-@media screen and (max-width: 1440px) {
+/* @media screen and (max-width: 1440px) {
     .projitems {
         grid-template-columns: 1fr 1fr;
     }
-}
+} */
 
 @media screen and (max-width: 768px) {
     .explist {
@@ -81,17 +91,29 @@
 }
 @media screen and (max-width: 425px) {
     .expsection .exptabs {
-        padding: 0 0; 
+        padding: 10px 0; 
+        display: flex;
+        justify-content: flex-end;
     }    
+
+    .explist .expheading div p {
+        font-size: 1.25em;
+    }
+
+    .exppaper {
+        padding: 10px 20px;
+        margin: 0 5%;
+        font-size: 0.95em;
+    }
     .projitems {
         display: grid;
         gap: 30px;
         grid-template-columns: 1fr;
         margin: 0 auto;
     }
-        .expheader {
-            grid-template-columns: 1fr 200px;
-        }
+    .expheader {
+        grid-template-columns: 1fr 200px;
+    }
 
     .expheader .text {
         padding: 10px 20px;

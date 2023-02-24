@@ -61,7 +61,12 @@
 
 @media screen and (max-width: 1440px) {
     .aboutpage {
+        grid-template-columns: 300px 1fr;
         padding: 5% 0;
+    }
+
+    .aboutsection {
+        grid-template-columns: 200px 1fr;
     }
 }
 

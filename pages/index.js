@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Chip from "@mui/material/Chip";
 import Link from "next/link";
-import { Stack } from "@mui/material";
+import { Paper, Stack } from "@mui/material";
 
 export default function Index() {
   const [data, setData] = useState([]);
@@ -47,36 +47,38 @@ export default function Index() {
           <div className={styles.explist}>
             <div className={styles.expheading}>
               <div>
-                <p>Experience</p>
+                <p>What I Have Done So Far</p>
               </div>
             </div>
-            <div className={styles.expitems}>
-              <>
-                {data.map((item, i) => {
-                  return (
-                    <div key={i} className={styles.expitem}>
-                      <div className={styles.expcomplocation}>
-                        <h3 className={styles.company}>
-                          {item.companyName} | {item.location}
-                        </h3>
+            <Paper className={styles.exppaper}>
+              <div className={styles.expitems}>
+                <>
+                  {data.map((item, i) => {
+                    return (
+                      <div key={i} className={styles.expitem}>
+                        <div className={styles.expcomplocation}>
+                          <h3 className={styles.company}>
+                            {item.companyName} | {item.location}
+                          </h3>
+                        </div>
+                        <div className={styles.titledate}>
+                          <p>
+                            {item.title} | {item.startDate} - {item.endDate}
+                          </p>
+                        </div>
+                        <div className={styles.expdescription}>
+                          <ul>
+                            {item.exp.map((subitem, i) => {
+                              return <li key={i}>{subitem.desc}</li>;
+                            })}
+                          </ul>
+                        </div>
                       </div>
-                      <div className={styles.titledate}>
-                        <p>
-                          {item.title} | {item.startDate} - {item.endDate}
-                        </p>
-                      </div>
-                      <div className={styles.expdescription}>
-                        <ul>
-                          {item.exp.map((subitem, i) => {
-                            return <li key={i}>{subitem.desc}</li>;
-                          })}
-                        </ul>
-                      </div>
-                    </div>
-                  );
-                })}
-              </>
-            </div>
+                    );
+                  })}
+                </>
+              </div>
+            </Paper>
           </div>
         ) : (
           <div className={styles.explist}>
