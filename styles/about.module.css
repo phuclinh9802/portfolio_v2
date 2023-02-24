@@ -2,10 +2,10 @@
 
 .aboutpage {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 350px 1fr;
     justify-content: space-around;
-    padding: 5% 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/IMG_1896.jpeg');
+    padding: 6% 0;
+    background-image: linear-gradient(rgba(231, 115, 20, 0.887), rgba(223, 111, 20, 0.846)), url('/images/IMG_1896.jpeg');
     background-size:cover;
     background-repeat: no-repeat;
     background-position: bottom right;
@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     height: 300px;
+    margin-top: -50%;
 }
 
 .quotesection .quote {
@@ -41,19 +42,27 @@
     padding: 10px;
     padding-left: 100px;
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 300px 1fr;
     color: #ddd;
 }
 
 .header {
     font-size: 2em;
     text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
 }
 
 .description {
     padding: 0 50px;
     padding-right: 200px;
     line-height: 1.8em;
+}
+
+@media screen and (max-width: 1440px) {
+    .aboutpage {
+        padding: 5% 0;
+    }
 }
 
 @media screen and (max-width: 768px) {

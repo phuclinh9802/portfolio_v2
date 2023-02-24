@@ -39,6 +39,7 @@
     padding: 25px 50px;
     justify-content: space-around;
     gap: 50px;
+    margin-bottom: 5%;
    
 }
 
@@ -206,6 +207,12 @@
 }
 
 
+@media screen and (max-width: 1440px) {
+    .hero {
+        margin-bottom: 2%;
+    }
+
+}
 @media screen and (max-width: 1024px) {
     .heroimages .myimage img{
         width: 300px;
