@@ -50,7 +50,7 @@ export default function Index() {
                 <p>What I Have Done So Far</p>
               </div>
             </div>
-            <Paper className={styles.exppaper}>
+            {/* <Paper className={styles.exppaper}>
               <div className={styles.expitems}>
                 <>
                   {data.map((item, i) => {
@@ -78,7 +78,97 @@ export default function Index() {
                   })}
                 </>
               </div>
-            </Paper>
+            </Paper> */}
+            <section class={styles.resumesection}>
+              <h2 class={styles.sectiontitle}>Experience</h2>
+              <div class={styles.resumeitem}>
+                <h3 class={styles.resumetitle}>
+                  Software Engineering Intern, PortalX
+                </h3>
+                <p class={styles.resumesubtitle}>
+                  May 2022 - Oct 2022 | VinAI, Hanoi, Vietnam
+                </p>
+                <ul class={styles.resumedetails}>
+                  <li>
+                    Built a feature for PortalX dashboard to allow customer,
+                    admin, and annotators to manage and annotate using different
+                    versions of guidelines depending on roles with Keycloak,
+                    React Redux
+                  </li>
+                  <li>
+                    Designed and built a RemoTasks-like training portal to
+                    assist annotators in understanding the concepts and
+                    application of labeling 2D/3D images.
+                  </li>
+                  <li>Leveraged Knowledge: React, Redux, Python, PostgreSQL</li>
+                </ul>
+              </div>
+              <div class={styles.resumeitem}>
+                <h3 class={styles.resumetitle}>Graduate Research Assistant</h3>
+                <p class={styles.resumesubtitle}>
+                  March 2020 - May 2022 | University of Nebraska-Lincoln,
+                  Lincoln, NE
+                </p>
+                <ul class={styles.resumedetails}>
+                  <li>
+                    Lead the team to create software to help automate into Excel
+                    by comparing points among different biological conditions at
+                    the same time using T-test and ANOVA and posthoc test using
+                    Python
+                  </li>
+                  <li>
+                    Built a simple application using Python and Tkinter to
+                    automatically delete cell contents when the appearance of
+                    the data is less than 65% and to empty cells when the data
+                    reaches 0.01
+                  </li>
+                  <li>Improved the Metabolomic team’s performance by 240%</li>
+                  <li>
+                    Assisted with development of scientific software for data
+                    analysis and pathway modeling and improved the HelikarLab’s
+                    team performance by 5%
+                  </li>
+                  <li>
+                    Implemented PDF generator to create and send remote
+                    certificate of completion for students who subscribed and
+                    upgraded the premium educational plan.
+                  </li>
+                  <li>
+                    Built automated unit tests to test features that run on
+                    cellcollective.org using Cypress.io
+                  </li>
+                  <li>
+                    Leveraged Knowledge: Python, Selenium, Tkinter, Microsoft
+                    Excel, ReactJS, PassportJS, NodeJS, PostgreSQL, Cypress
+                  </li>
+                </ul>
+              </div>
+              <div class={styles.resumeitem}>
+                <h3 class={styles.resumetitle}>.NET Engineering Intern</h3>
+                <p class={styles.resumesubtitle}>
+                  May 2019 - Aug 2019 | SAVIS Technology Group, Hanoi, Vietnam
+                </p>
+                <ul class={styles.resumedetails}>
+                  <li>
+                    Built an API to generate PDF file of the Business e-Invoice
+                    from the company’s client.
+                  </li>
+                  <li>
+                    Accomplished the development of e-Invoice application faster
+                    and more efficiently by 5% of the plan
+                  </li>
+                  <li>
+                    Created a .NET Core project to manage vacation request from
+                    multiple users in a company and connected to Linux
+                    environment
+                  </li>
+                  <li>
+                    Leveraged knowledge: MVC, ASP.NET Core, Entity Framework 6,
+                    C#, HTML {"&"} CSS, Node.js
+                  </li>
+                </ul>
+              </div>
+            </section>
           </div>
         ) : (
           <div className={styles.explist}>

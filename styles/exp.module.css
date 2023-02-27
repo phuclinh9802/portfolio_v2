@@ -78,6 +78,71 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+
+.resumesection {
+    background-color: #fff;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #555;
+    background-color: #f7f7f7;
+    line-height: 1.6;
+    scroll-snap-type: y mandatory;
+}
+
+.sectiontitle {
+    margin-top: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000;
+}
+
+/* Resume item styling */
+.resumeitem {
+    margin-bottom: 30px;
+    scroll-snap-align: start;
+}
+
+.resumetitle {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #000;
+}
+
+.resumesubtitle {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #777;
+}
+
+.resumedetails {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.resumedetails li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.resumedetails li:before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: #7fad39;
+}
+
+.resumedetails li:last-child {
+    margin-bottom: 0;
+}
+
 /* @media screen and (max-width: 1440px) {
     .projitems {
         grid-template-columns: 1fr 1fr;

@@ -5,7 +5,7 @@
     grid-template-columns: 350px 1fr;
     justify-content: space-around;
     padding: 6% 0;
-    background-image: linear-gradient(rgba(231, 115, 20, 0.887), rgba(223, 111, 20, 0.846)), url('/images/IMG_1896.jpeg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), url('/images/IMG_1896.jpeg');
     background-size:cover;
     background-repeat: no-repeat;
     background-position: bottom right;
