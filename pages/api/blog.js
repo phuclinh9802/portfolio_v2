@@ -53,6 +53,7 @@ export default function Blog(req, res) {
           imgURL:
             "https://miro.medium.com/max/1400/1*2x-CAwfeui5YM4148VxgRA.jpeg",
           author: "Phillip Nguyen",
+          type: ["array", "hashing"],
         },
         {
           id: 6,
@@ -60,6 +61,7 @@ export default function Blog(req, res) {
           date: "2/16/2023",
           imgURL: "https://i.ytimg.com/vi/51RUl4xe8AE/maxresdefault.jpg",
           author: "Phillip Nguyen",
+          type: ["array", "hashing"],
         },
         {
           id: 7,
@@ -67,6 +69,7 @@ export default function Blog(req, res) {
           date: "2/20/2023",
           imgURL: "/images/leetcode/containsduplicate.png",
           author: "Phillip Nguyen",
+          type: ["array", "hashing"],
         },
         {
           id: 8,
@@ -75,6 +78,15 @@ export default function Blog(req, res) {
           imgURL:
             "https://miro.medium.com/max/1200/1*EsgoZCXJp7PlMetgT3vJVg.png",
           author: "Phillip Nguyen",
+          type: ["array", "hashing"],
+        },
+        {
+          id: 9,
+          title: "Valid Palindrome",
+          date: "3/10/2023",
+          imgURL: "/images/leetcode/validpalindrome.png",
+          author: "Phillip Nguyen",
+          type: ["twopointers"],
         },
       ],
     },

@@ -225,9 +225,6 @@
     padding: 10px 0;
 }
 
-.chip {
-    background-color: #ddd;
-}
 
 
 @media screen and (max-width: 768px) {

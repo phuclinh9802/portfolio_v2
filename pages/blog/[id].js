@@ -653,6 +653,7 @@ export const getStaticPaths = () => {
       { params: { id: "6" } },
       { params: { id: "7" } },
       { params: { id: "8" } },
+      { params: { id: "9" } },
     ],
     fallback: false,
   };
@@ -1026,6 +1027,15 @@ export async function getStaticProps({ params }) {
       author: "Phillip Nguyen",
       content:
         "<p>Welcome to Group Anagrams Problem! In this problem, we are trying to group the anagrams together. For example: given input being a string list: <code style='font-size: 1.15em'>['eat', 'tea', 'tan', 'ate', 'nat', 'bat']</code>, the output should be <code style='font-size: 1.15em'>[['bat'], ['nat', 'tan'], ['ate', 'eat', 'tea']]</code>. First, let's review the definition of an anagram. An anagram is word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p><p>So, we know the requirements for this problem. We can now dive into the solution. We can use a hash map for this problem, with key being tuple of count list which represents the list of 0's with length of 26, representing count of each character in each string element. We can then proceed to the for loop. Then, initialize count list inside the for loop so that every time we are done with the iteration, we reset the count list. Then, for nested loop, we loop through each character of current string, and increment each character's count inside the count list. After done with the iteration of characters, we can exit that for loop, and append the string according to the tuple of current count list. We should be able to return the values of the hashmap, which consists of list elements with grouped anagrams.</p><img width='700' height='350' src='/images/leetcode/groupanagrams.png' alt='group anagrams' />",
+    },
+    {
+      id: 9,
+      title: "Valid Palindrome",
+      date: "3/10/2023",
+      imgURL: "/images/leetcode/validpalindrome.png",
+      author: "Phillip Nguyen",
+      content:
+        "<p>Welcome to Valid Palindrome Problem! In this problem, we are going to return the condition if the reverse of current string is exactly the same as original string. But first, we need to understand, what is 'palindrome'? A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers. Now, let's get started.</p><p>For Python, it is not difficult, since we have the convenient manipulation of a list, e.g.: <code style='font-size: 1.15em'>nums[::-1]</code> will give us the reversed of that list, and the same applies to strings. Therefore, we can just create a new empty string, go through each character in original string by using for loop, then check for alphanumeric characters by using the built-in function <code style='font-size: 1.15em'>.isalnum()</code> which returns true if the character is alphanumeric character. Then, we can add to the end of the newly initialized string. We then should be able to return the boolean value if original string = reversed string. We are now done!</p><img width='700' height='350' src='/images/leetcode/validpalindromesolution.png' alt='valid palindrome' />",
     },
   ];
 
