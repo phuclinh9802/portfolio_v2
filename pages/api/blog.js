@@ -88,6 +88,14 @@ export default function Blog(req, res) {
           author: "Phillip Nguyen",
           type: ["twopointers"],
         },
+        {
+          id: 10,
+          title: "Valid Palindrome",
+          date: "3/13/2023",
+          imgURL: "/images/leetcode/twosumsorted.png",
+          author: "Phillip Nguyen",
+          type: ["twopointers"],
+        },
       ],
     },
   ]);

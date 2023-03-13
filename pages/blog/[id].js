@@ -654,6 +654,7 @@ export const getStaticPaths = () => {
       { params: { id: "7" } },
       { params: { id: "8" } },
       { params: { id: "9" } },
+      { params: { id: "10" } },
     ],
     fallback: false,
   };
@@ -1036,6 +1037,15 @@ export async function getStaticProps({ params }) {
       author: "Phillip Nguyen",
       content:
         "<p>Welcome to Valid Palindrome Problem! In this problem, we are going to return the condition if the reverse of current string is exactly the same as original string. But first, we need to understand, what is 'palindrome'? A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers. Now, let's get started.</p><p>For Python, it is not difficult, since we have the convenient manipulation of a list, e.g.: <code style='font-size: 1.15em'>nums[::-1]</code> will give us the reversed of that list, and the same applies to strings. Therefore, we can just create a new empty string, go through each character in original string by using for loop, then check for alphanumeric characters by using the built-in function <code style='font-size: 1.15em'>.isalnum()</code> which returns true if the character is alphanumeric character. Then, we can add to the end of the newly initialized string. We then should be able to return the boolean value if original string = reversed string. We are now done!</p><img width='700' height='350' src='/images/leetcode/validpalindromesolution.png' alt='valid palindrome' />",
+    },
+    {
+      id: 10,
+      title: "Two Sum II - Input Array Is Sorted",
+      date: "3/13/2023",
+      imgURL: "/images/leetcode/twosumsorted.png",
+      author: "Phillip Nguyen",
+      content:
+        "<p>Welcome to Two Sum II problem! This problem is basically the special version from Two Sum problem, where elements in the original list/array are sorted. Let us solve this problem!</p><p>First, we can use two pointers, one from the start of the list, and one at the end of the list. The reason why is that we can move the pointers according to the current sum of 2 elements at current pointers. If the value exceeds target, we move the right pointer to the left by 1. If the value is less than the target, we shift the left pointer to the right by 1. When we found the value of 2 pointers which equates to the target, we return the indexes of 2 pointers (remember to increment the indexes by 1 because of the requirement). Here is the solution:</p><img width='700' height='350' src='/images/leetcode/twosumsorted.png' alt='two sum ii' />",
     },
   ];
 
