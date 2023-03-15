@@ -656,6 +656,7 @@ export const getStaticPaths = () => {
       { params: { id: "9" } },
       { params: { id: "10" } },
       { params: { id: "11" } },
+      { params: { id: "12" } },
     ],
     fallback: false,
   };
@@ -1056,6 +1057,15 @@ export async function getStaticProps({ params }) {
       author: "Phillip Nguyen",
       content:
         "<p>Welcome to Top K Frequent Elements problem! This problem is a Medium array/hashing problem from Leetcode. For this problem, given an integer array nums and an integer k, we need to return the k most frequent elements. You may return the answer in any order. We have multiple approaches for this problem. For me, I use Bucket Sort and hash maps. We initialize 2 hash maps; one is to count the frequency of an element (in [1,1,1,2,2,3], we have {1: 3, 2: 2, 3: 1}), and one is to store the element with the same frequency (in the mentioned list, we have 3 separated key - val: {1: [3], 2: [2], 3: [1]}). Then, we go from right to left for the second hash map to find the elements with highest k frequencies. We are done with the problem! Below is the solution.</p><img width='700' height='450' src='/images/leetcode/topksolution.png' alt='top k freq el' />",
+    },
+    {
+      id: 12,
+      title: "3Sum",
+      date: "3/15/2023",
+      imgURL: "/images/leetcode/3sum.png",
+      author: "Phillip Nguyen",
+      content:
+        "<p>Welcome to 3Sum problem! In this problem, we are given an integer array 'nums', and we need to return all the triplets such that three indexes of those triplets are different, and they sum up to 0. Also, note that the solution does not contain duplicates.</p><p>For this problem, we will apply Two Sum II problem that we solved in my previous blog, where we have 2 pointers to check for current sum. First, we need to sort the array to apply Two Sum II. Then, we proceed to the for loop. We need to check for duplicates as well: if the current element is the same as the adjacent and previous element, skip it. Else, we can go to the nested while loop with condition being the same as Two Sum: j and k. if the temporary sum < 0 or > 0, we can move left pointer to the right or right pointer to the left. If the current sum = 0, then we add to the output list, then increment the left pointer by 1. There is one catch to this. To optimize the problem, we can check immediately for the duplicates by using while loop, and continually move the left pointer to the right when current element in j has the same value as the previous one. We are done with this problem!</p><img width='700' height='600' src='/images/leetcode/3sumsolution.png' alt='3Sum' />",
     },
   ];
 

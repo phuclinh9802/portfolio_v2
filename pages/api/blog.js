@@ -104,6 +104,14 @@ export default function Blog(req, res) {
           author: "Phillip Nguyen",
           type: ["array", "hashing"],
         },
+        {
+          id: 12,
+          title: "3Sum",
+          date: "3/15/2023",
+          imgURL: "/images/leetcode/3sum.png",
+          author: "Phillip Nguyen",
+          type: ["twopointers"],
+        },
       ],
     },
   ]);
