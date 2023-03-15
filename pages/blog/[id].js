@@ -655,6 +655,7 @@ export const getStaticPaths = () => {
       { params: { id: "8" } },
       { params: { id: "9" } },
       { params: { id: "10" } },
+      { params: { id: "11" } },
     ],
     fallback: false,
   };
@@ -1046,6 +1047,15 @@ export async function getStaticProps({ params }) {
       author: "Phillip Nguyen",
       content:
         "<p>Welcome to Two Sum II problem! This problem is basically the special version from Two Sum problem, where elements in the original list/array are sorted. Let us solve this problem!</p><p>First, we can use two pointers, one from the start of the list, and one at the end of the list. The reason why is that we can move the pointers according to the current sum of 2 elements at current pointers. If the value exceeds target, we move the right pointer to the left by 1. If the value is less than the target, we shift the left pointer to the right by 1. When we found the value of 2 pointers which equates to the target, we return the indexes of 2 pointers (remember to increment the indexes by 1 because of the requirement). Here is the solution:</p><img width='700' height='350' src='/images/leetcode/twosumsorted.png' alt='two sum ii' />",
+    },
+    {
+      id: 11,
+      title: "Top K Frequent Elements",
+      date: "3/14/2023",
+      imgURL: "/images/leetcode/topkfrequentelements.png",
+      author: "Phillip Nguyen",
+      content:
+        "<p>Welcome to Top K Frequent Elements problem! This problem is a Medium array/hashing problem from Leetcode. For this problem, given an integer array nums and an integer k, we need to return the k most frequent elements. You may return the answer in any order. We have multiple approaches for this problem. For me, I use Bucket Sort and hash maps. We initialize 2 hash maps; one is to count the frequency of an element (in [1,1,1,2,2,3], we have {1: 3, 2: 2, 3: 1}), and one is to store the element with the same frequency (in the mentioned list, we have 3 separated key - val: {1: [3], 2: [2], 3: [1]}). Then, we go from right to left for the second hash map to find the elements with highest k frequencies. We are done with the problem! Below is the solution.</p><img width='700' height='450' src='/images/leetcode/topksolution.png' alt='top k freq el' />",
     },
   ];
 
