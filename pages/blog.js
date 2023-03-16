@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "../styles/blog.module.css";
 import Navbar from "../components/navbar";
 import Head from "next/head";
-import { Chip, Skeleton } from "@mui/material";
+import { Chip, Skeleton, Typography } from "@mui/material";
 
 export default function Blog() {
   const [blogData, setBlogData] = useState(null);
@@ -69,23 +69,34 @@ export default function Blog() {
                               style={{
                                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
                                 backgroundPosition: `${bgPos}`,
+                                // paddingTop: "140px",
                               }}
                               className={styles.blogitem}
                               key={id}
                             >
                               <div className={styles.blogchip}>
                                 <Chip
-                                  style={{ backgroundColor: "#a2a8d3" }}
+                                  style={{ backgroundColor: "#ffcc00" }}
                                   label={`#${type}`}
                                 />
                               </div>
-                              <Link href={`/blog/${id}`}>
-                                <div className={styles.linkblog}>{title}</div>
-                                <br />
-                                <small className={styles.linkdate}>
-                                  {date}
-                                </small>
-                              </Link>
+                              <div className={styles.blogitemtitle}>
+                                <Link href={`/blog/${id}`}>
+                                  <Typography
+                                    variant="h6"
+                                    className={styles.linkblog}
+                                  >
+                                    {title}
+                                  </Typography>
+                                  <br />
+                                  <Typography
+                                    variant="subtitle2"
+                                    className={styles.linkdate}
+                                  >
+                                    {date}
+                                  </Typography>
+                                </Link>
+                              </div>
                             </li>
                           ) : (
                             <Skeleton
@@ -100,40 +111,58 @@ export default function Blog() {
                   )}
                   {toggleTab == false && type == "interview" && (
                     <>
-                      {blogs.map(({ id, date, title, imgURL, bgPos }) => (
-                        <>
-                          {isLoaded ? (
-                            <li
-                              style={{
-                                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
-                                backgroundPosition: `${bgPos}`,
-                              }}
-                              className={styles.blogitem}
-                              key={id}
-                            >
-                              <div className={styles.blogchip}>
-                                <Chip
-                                  style={{ backgroundColor: "#ffcab0" }}
-                                  label={`#${type}`}
-                                />
-                              </div>
-                              <Link href={`/blog/${id}`}>
-                                <div className={styles.linkblog}>{title}</div>
-                                <br />
-                                <small className={styles.linkdate}>
-                                  {date}
-                                </small>
-                              </Link>
-                            </li>
-                          ) : (
-                            <Skeleton
-                              variant="rectangular"
-                              width={400}
-                              height={300}
-                            />
-                          )}
-                        </>
-                      ))}
+                      {blogs.map(
+                        ({ id, date, title, imgURL, bgPos, dtType }) => (
+                          <>
+                            {isLoaded ? (
+                              <li
+                                style={{
+                                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
+                                  backgroundPosition: `${bgPos}`,
+                                }}
+                                className={styles.blogitem}
+                                key={id}
+                              >
+                                <div className={styles.blogchip}>
+                                  <Chip
+                                    style={{ backgroundColor: "#00b3ff" }}
+                                    label={`#${type}`}
+                                  />
+                                </div>
+                                <div className={styles.blogitemtitle}>
+                                  <Link href={`/blog/${id}`}>
+                                    {dtType?.map((item) => (
+                                      <>
+                                        <Chip
+                                          style={{
+                                            backgroundColor: "#ff6832",
+                                            color: "#fff",
+                                          }}
+                                          label={`#${dtType ? item : null}`}
+                                          size="small"
+                                        />
+                                      </>
+                                    ))}
+                                    <div className={styles.linkblog}>
+                                      {title}
+                                    </div>
+                                    <br />
+                                    <small className={styles.linkdate}>
+                                      {date}
+                                    </small>
+                                  </Link>
+                                </div>
+                              </li>
+                            ) : (
+                              <Skeleton
+                                variant="rectangular"
+                                width={400}
+                                height={300}
+                              />
+                            )}
+                          </>
+                        )
+                      )}
                     </>
                   )}
                 </>

@@ -53,7 +53,7 @@ export default function Blog(req, res) {
           imgURL:
             "https://miro.medium.com/max/1400/1*2x-CAwfeui5YM4148VxgRA.jpeg",
           author: "Phillip Nguyen",
-          type: ["array", "hashing"],
+          dtType: ["array", "hashing"],
         },
         {
           id: 6,
@@ -61,7 +61,7 @@ export default function Blog(req, res) {
           date: "2/16/2023",
           imgURL: "https://i.ytimg.com/vi/51RUl4xe8AE/maxresdefault.jpg",
           author: "Phillip Nguyen",
-          type: ["array", "hashing"],
+          dtType: ["array", "hashing"],
         },
         {
           id: 7,
@@ -69,7 +69,7 @@ export default function Blog(req, res) {
           date: "2/20/2023",
           imgURL: "/images/leetcode/containsduplicate.png",
           author: "Phillip Nguyen",
-          type: ["array", "hashing"],
+          dtType: ["array", "hashing"],
         },
         {
           id: 8,
@@ -78,7 +78,7 @@ export default function Blog(req, res) {
           imgURL:
             "https://miro.medium.com/max/1200/1*EsgoZCXJp7PlMetgT3vJVg.png",
           author: "Phillip Nguyen",
-          type: ["array", "hashing"],
+          dtType: ["array", "hashing"],
         },
         {
           id: 9,
@@ -86,7 +86,7 @@ export default function Blog(req, res) {
           date: "3/10/2023",
           imgURL: "/images/leetcode/validpalindrome.png",
           author: "Phillip Nguyen",
-          type: ["twopointers"],
+          dtType: ["twopointers"],
         },
         {
           id: 10,
@@ -94,7 +94,7 @@ export default function Blog(req, res) {
           date: "3/13/2023",
           imgURL: "/images/leetcode/twosumsorted.png",
           author: "Phillip Nguyen",
-          type: ["twopointers"],
+          dtType: ["twopointers"],
         },
         {
           id: 11,
@@ -102,7 +102,7 @@ export default function Blog(req, res) {
           date: "3/14/2023",
           imgURL: "/images/leetcode/topkfrequentelements.png",
           author: "Phillip Nguyen",
-          type: ["array", "hashing"],
+          dtType: ["array", "hashing"],
         },
         {
           id: 12,
@@ -110,7 +110,7 @@ export default function Blog(req, res) {
           date: "3/15/2023",
           imgURL: "/images/leetcode/3sum.png",
           author: "Phillip Nguyen",
-          type: ["twopointers"],
+          dtType: ["twopointers"],
         },
       ],
     },
