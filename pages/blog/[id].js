@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Suspense, useEffect, useState } from "react";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageList from "@mui/material/ImageList";
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { TabList, TabPanel, TabContext } from "@mui/lab";
 import { DiscussionEmbed } from "disqus-react";
 import { Canvas } from "@react-three/fiber";
@@ -22,6 +22,7 @@ import Tab from "@mui/material/Tab";
 import Overlay from "../../components/overlay";
 import Earth from "../../components/earth";
 import styles from "../../styles/blog.module.css";
+import Navbar from "../../components/navbar";
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -85,12 +86,15 @@ export default function Blogs({ data }) {
     <div
       style={{
         background: colorMode == "dark" ? "#171B26" : "",
-        color: colorMode == "dark" ? "#ccc" : "",
+        color: colorMode == "dark" ? "#f4f9ff" : "",
       }}
     >
       <Head>
         <title>{data.title}</title>
       </Head>
+      {/* <div>
+        <Navbar />
+      </div> */}
       {data ? (
         <>
           <div className={styles.blogsection}>
@@ -126,255 +130,241 @@ export default function Blogs({ data }) {
             )}
           </div>
 
-          <article className={styles.article}>
-            <TabContext value={colorMode}>
-              <TabList onChange={handleColor}>
-                <Tab
-                  style={{ color: colorMode == "dark" ? "#ddd" : "" }}
-                  label={<LightMode />}
-                  value="light"
-                />
-                <Tab
-                  style={{ color: colorMode == "dark" ? "#ddd" : "" }}
-                  label={<DarkMode />}
-                  value="dark"
-                />
-              </TabList>
-            </TabContext>
-            <h1>{data.title}</h1>
-            <div className={styles.date}>
-              Updated on {data.date} by {data.author}
-            </div>
-            {data.content != "" && (
-              <div
-                dangerouslySetInnerHTML={{ __html: data.content }}
-                className={styles.content}
-              ></div>
-            )}
-
-            {data.content == "" && (
-              <div className={styles.content}>
-                <p>
-                  For this blog, I can show you how I created the Earth like
-                  above using ThreeJS. First, according to ThreeJS
-                  documentation, Three.js is a 3D library that tries to make it
-                  as easy as possible to get 3D content on a webpage. Three.js
-                  is often confused with WebGL since more often than not, but
-                  not always, three.js uses WebGL to draw 3D. WebGL is a very
-                  low-level system that only draws points, lines, and triangles.
-                  To do anything useful with WebGL generally requires quite a
-                  bit of code and that is where three.js comes in. It handles
-                  stuff like scenes, lights, shadows, materials, textures, 3d
-                  math, all things that you would d have to write yourself if
-                  you were to use WebGL directly.
-                </p>
-                <p>
-                  First, I installed the necessary libraries to support this
-                  small project:{" "}
-                </p>
-                <ul>
-                  <li>three</li>
-                  <li>@react-three/fiber</li>
-                  <li>@react-three/drei</li>
-                </ul>
-
-                <p>
-                  You can use yarn or npm to install. I will use npm to install
-                  these packages
-                </p>
-
-                <div className={styles.highligher}>
-                  <SyntaxHighlighter
-                    children={` npm i -D three \n npm i -D @react-three/fiber \n npm i -D @react-three/drei`}
-                    language="javascript"
-                    style={dracula}
+          <article
+            className={styles.article}
+            // style={{ backgroundColor: colorMode == "dark" ? "#373b48" : "" }}
+          >
+            <div
+              style={{
+                padding: "30px 50px",
+                backgroundColor: colorMode == "dark" ? "#1e2432" : "",
+                borderRadius: "5px",
+              }}
+            >
+              <TabContext value={colorMode}>
+                <TabList onChange={handleColor}>
+                  <Tab
+                    style={{ color: colorMode == "dark" ? "#ddd" : "" }}
+                    label={<LightMode />}
+                    value="light"
                   />
-                  <p>
-                    Now, since this is a combination of ThreeJS and NextJS, we
-                    can manipulate the code inside <code>/pages/index.js</code>{" "}
-                    file
-                  </p>
-                  <p>
-                    So, every ThreeJS project needs a Canvas component as a
-                    container. Luckily, @react-three/fiber package supports
-                    this. All we have to do is to import{" "}
-                    <code>{"<Canvas />"}</code> component, then wrap around the
-                    code like below:
-                  </p>
-
-                  <SyntaxHighlighter
-                    children={` <Canvas> \n  <Suspense fallback={null}> \n    <Earth /> \n  </Suspense> \n </Canvas>`}
-                    language="javascript"
-                    style={dracula}
+                  <Tab
+                    style={{ color: colorMode == "dark" ? "#ddd" : "" }}
+                    label={<DarkMode />}
+                    value="dark"
                   />
+                </TabList>
+              </TabContext>
+              <h1>{data.title}</h1>
+              <Typography
+                variant="subtitle2"
+                color={colorMode == "dark" ? "#888" : "#aaa"}
+                className={styles.date}
+              >
+                Updated on {data.date} by {data.author}
+              </Typography>
+              {data.content != "" && (
+                <Typography variant="body2">
+                  <div
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                    className={styles.content}
+                  ></div>
+                </Typography>
+              )}
+
+              {data.content == "" && (
+                <div className={styles.content}>
+                  <p>
+                    For this blog, I can show you how I created the Earth like
+                    above using ThreeJS. First, according to ThreeJS
+                    documentation, Three.js is a 3D library that tries to make
+                    it as easy as possible to get 3D content on a webpage.
+                    Three.js is often confused with WebGL since more often than
+                    not, but not always, three.js uses WebGL to draw 3D. WebGL
+                    is a very low-level system that only draws points, lines,
+                    and triangles. To do anything useful with WebGL generally
+                    requires quite a bit of code and that is where three.js
+                    comes in. It handles stuff like scenes, lights, shadows,
+                    materials, textures, 3d math, all things that you would d
+                    have to write yourself if you were to use WebGL directly.
+                  </p>
+                  <p>
+                    First, I installed the necessary libraries to support this
+                    small project:{" "}
+                  </p>
+                  <ul>
+                    <li>three</li>
+                    <li>@react-three/fiber</li>
+                    <li>@react-three/drei</li>
+                  </ul>
 
                   <p>
-                    You can see that I added {"<Suspense />"} component from
-                    React library, because we want to wait for the components
-                    inside the canvas to render properly, since the time to
-                    render might be slow.
-                  </p>
-                  <p>
-                    Next, we want to create a new component called {'"'}Earth
-                    {'"'} inside the <code>/components</code> folder, so we will
-                    create a file called <code>earth.js</code>. Since we will
-                    work with the Earth as the texture of the object, we can
-                    download the texture online through{" "}
-                    <Link
-                      className={styles.solarlink}
-                      href="https://www.solarsystemscope.com/textures/"
-                    >
-                      Solar System Scope
-                    </Link>
+                    You can use yarn or npm to install. I will use npm to
+                    install these packages
                   </p>
 
-                  <p>
-                    To continue, follow the code below inside{" "}
-                    <code>/components/earth.js</code> :
-                  </p>
-                  <SyntaxHighlighter
-                    children={` import React, { useRef } from "react"; \n import { useFrame, useLoader } from "@react-three/fiber"; \n import * as THREE from "three"; \n import { OrbitControls, Stars } from "@react-three/drei"; \n import { TextureLoader } from "three" \n export default function Earth() { \n  const [texture, specular, cloud, normal] = useLoader(TextureLoader, ["/images/threejs/8k_earth_daymap.jpeg", "/images/threejs/8k_earth_specular_map.jpg", "/images/threejs/8k_earth_clouds.jpeg", "/images/threejs/8k_earth_normal_map.jpg", ]); \n  const earthRef = useRef(); \n  const cloudRef = useRef(); 
+                  <div className={styles.highligher}>
+                    <SyntaxHighlighter
+                      children={` npm i -D three \n npm i -D @react-three/fiber \n npm i -D @react-three/drei`}
+                      language="javascript"
+                      style={dracula}
+                    />
+                    <p>
+                      Now, since this is a combination of ThreeJS and NextJS, we
+                      can manipulate the code inside{" "}
+                      <code>/pages/index.js</code> file
+                    </p>
+                    <p>
+                      So, every ThreeJS project needs a Canvas component as a
+                      container. Luckily, @react-three/fiber package supports
+                      this. All we have to do is to import{" "}
+                      <code>{"<Canvas />"}</code> component, then wrap around
+                      the code like below:
+                    </p>
+
+                    <SyntaxHighlighter
+                      children={` <Canvas> \n  <Suspense fallback={null}> \n    <Earth /> \n  </Suspense> \n </Canvas>`}
+                      language="javascript"
+                      style={dracula}
+                    />
+
+                    <p>
+                      You can see that I added {"<Suspense />"} component from
+                      React library, because we want to wait for the components
+                      inside the canvas to render properly, since the time to
+                      render might be slow.
+                    </p>
+                    <p>
+                      Next, we want to create a new component called {'"'}Earth
+                      {'"'} inside the <code>/components</code> folder, so we
+                      will create a file called <code>earth.js</code>. Since we
+                      will work with the Earth as the texture of the object, we
+                      can download the texture online through{" "}
+                      <Link
+                        className={styles.solarlink}
+                        href="https://www.solarsystemscope.com/textures/"
+                      >
+                        Solar System Scope
+                      </Link>
+                    </p>
+
+                    <p>
+                      To continue, follow the code below inside{" "}
+                      <code>/components/earth.js</code> :
+                    </p>
+                    <SyntaxHighlighter
+                      children={` import React, { useRef } from "react"; \n import { useFrame, useLoader } from "@react-three/fiber"; \n import * as THREE from "three"; \n import { OrbitControls, Stars } from "@react-three/drei"; \n import { TextureLoader } from "three" \n export default function Earth() { \n  const [texture, specular, cloud, normal] = useLoader(TextureLoader, ["/images/threejs/8k_earth_daymap.jpeg", "/images/threejs/8k_earth_specular_map.jpg", "/images/threejs/8k_earth_clouds.jpeg", "/images/threejs/8k_earth_normal_map.jpg", ]); \n  const earthRef = useRef(); \n  const cloudRef = useRef(); 
                     \n  useFrame(({ clock }) => { \n   const elapsedTime = clock.getElapsedTime(); \n   earthRef.current.rotation.y = elapsedTime / 8; \n   cloudRef.current.rotation.y = elapsedTime / 6; \n  });
                     \n  return ( \n   <> \n      <pointLight color="#fff" intensity={2} position={[2, 0, 4]} /> \n      <Stars radius={400} depth={50} count={20000} factor={5} fade={true} /> \n      <mesh ref={cloudRef}> \n       <sphereGeometry args={2.05, 64, 64} /> \n       <meshPhongMaterial \n        map={cloud} opacity={0.4} depthWrite={true} transparent={true} side={THREE.DoubleSide} \n       /> \n      </mesh> \n      <mesh ref={earthRef}> \n       <spehereGeometry args={[2, 64, 64]} /> \n       <meshPhongMaterial specularMap={specular} /> \n       <meshStandardMaterial \n        map={texture} \n        normalMap={normal} \n        metalness={0.4} \n        roughness={0.7} \n       /> \n       <OrbitControls enableZoom={false} enableRotate={true} /> \n      </mesh> \n    </> \n  ); \n }`}
-                    language="javascript"
-                    style={dracula}
-                  />
-                  <p></p>
+                      language="javascript"
+                      style={dracula}
+                    />
+                    <p></p>
+                    <p>
+                      As you can see, we need to use several components for our{" "}
+                      {'"'}Earth{'"'} to work. First, we need to download and
+                      put the .jpg and .jpeg files for the earth{"'"}s textures
+                      inside <code>/public/images</code> folder. Then, we use{" "}
+                      <code>useLoader</code> hook from{" "}
+                      <code>@react-three/fiber</code> to load the textures.
+                      Next, we can see that I used the <code>useFrame</code>{" "}
+                      hook to render on every frame (we want the earth to spin
+                      infinitely, correct?) The code inside{" "}
+                      <code>useFrame</code> hook will execute the code which
+                      helps our Earth rotate in the horizontal direction with
+                      the speed of <code>elapsedTime / 8</code> (You can play
+                      around with this by changing the value of the
+                      denominator.) Same for the <code>cloudRef</code>.
+                    </p>
+                    <p>
+                      For more information, please visit the references below
+                      for further details. Now, we can import our Earth
+                      component inside <code>index.js</code> file. Well done!!!
+                      It works.
+                    </p>
+                  </div>
+
+                  <h2>References</h2>
                   <p>
-                    As you can see, we need to use several components for our{" "}
-                    {'"'}Earth{'"'} to work. First, we need to download and put
-                    the .jpg and .jpeg files for the earth{"'"}s textures inside{" "}
-                    <code>/public/images</code> folder. Then, we use{" "}
-                    <code>useLoader</code> hook from{" "}
-                    <code>@react-three/fiber</code> to load the textures. Next,
-                    we can see that I used the <code>useFrame</code> hook to
-                    render on every frame (we want the earth to spin infinitely,
-                    correct?) The code inside <code>useFrame</code> hook will
-                    execute the code which helps our Earth rotate in the
-                    horizontal direction with the speed of{" "}
-                    <code>elapsedTime / 8</code> (You can play around with this
-                    by changing the value of the denominator.) Same for the{" "}
-                    <code>cloudRef</code>.
+                    <Link
+                      className={styles.solarlink}
+                      href="https://threejs.org/manual/#en/fundamentals"
+                    >
+                      ThreeJS Fundamentals
+                    </Link>
                   </p>
                   <p>
-                    For more information, please visit the references below for
-                    further details. Now, we can import our Earth component
-                    inside <code>index.js</code> file. Well done!!! It works.
+                    <Link
+                      className={styles.solarlink}
+                      href="https://www.youtube.com/watch?v=ymavtyRpT0E"
+                    >
+                      ThreeJS Tutorial
+                    </Link>
                   </p>
                 </div>
-
-                <h2>References</h2>
-                <p>
-                  <Link
-                    className={styles.solarlink}
-                    href="https://threejs.org/manual/#en/fundamentals"
-                  >
-                    ThreeJS Fundamentals
-                  </Link>
-                </p>
-                <p>
-                  <Link
-                    className={styles.solarlink}
-                    href="https://www.youtube.com/watch?v=ymavtyRpT0E"
-                  >
-                    ThreeJS Tutorial
-                  </Link>
-                </p>
-              </div>
-            )}
-            {data.threeJS && <div className={styles.threeJS}></div>}
-            {data.songList ? (
-              <>
-                <TabContext value={isAlbum}>
-                  <Box sx={{ borderBottom: 1, borderColor: "#aaa" }}>
-                    <TabList onChange={handleAlbum} aria-label="Album or Song?">
-                      <Tab
+              )}
+              {data.threeJS && <div className={styles.threeJS}></div>}
+              {data.songList ? (
+                <>
+                  <TabContext value={isAlbum}>
+                    <Box sx={{ borderBottom: 1, borderColor: "#aaa" }}>
+                      <TabList
+                        onChange={handleAlbum}
+                        aria-label="Album or Song?"
+                      >
+                        <Tab
+                          style={{ color: colorMode == "dark" ? "#ddd" : "" }}
+                          label="Playlists"
+                          value="1"
+                        />
+                        <Tab
+                          style={{ color: colorMode == "dark" ? "#ddd" : "" }}
+                          label="Songs"
+                          value="2"
+                        />
+                      </TabList>
+                    </Box>
+                    <TabPanel value="1">
+                      <ul className={styles.playList}>
+                        {data.playList.map((item, i) => (
+                          <li key={i} className={styles.playItem}>
+                            <div
+                              dangerouslySetInnerHTML={{ __html: item.html }}
+                              className={styles.embedPlaylist}
+                            ></div>
+                          </li>
+                        ))}
+                      </ul>
+                    </TabPanel>
+                    <TabPanel value="2">
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        inputProps={{ "aria-label": "controlled" }}
                         style={{ color: colorMode == "dark" ? "#ddd" : "" }}
-                        label="Playlists"
-                        value="1"
-                      />
-                      <Tab
+                      />{" "}
+                      K-POP
+                      <Checkbox
+                        checked={checkedEnglish}
+                        onChange={handleChangeEnglish}
+                        inputProps={{ "aria-label": "controlled" }}
                         style={{ color: colorMode == "dark" ? "#ddd" : "" }}
-                        label="Songs"
-                        value="2"
-                      />
-                    </TabList>
-                  </Box>
-                  <TabPanel value="1">
-                    <ul className={styles.playList}>
-                      {data.playList.map((item, i) => (
-                        <li key={i} className={styles.playItem}>
-                          <div
-                            dangerouslySetInnerHTML={{ __html: item.html }}
-                            className={styles.embedPlaylist}
-                          ></div>
-                        </li>
-                      ))}
-                    </ul>
-                  </TabPanel>
-                  <TabPanel value="2">
-                    <Checkbox
-                      checked={checked}
-                      onChange={handleChange}
-                      inputProps={{ "aria-label": "controlled" }}
-                      style={{ color: colorMode == "dark" ? "#ddd" : "" }}
-                    />{" "}
-                    K-POP
-                    <Checkbox
-                      checked={checkedEnglish}
-                      onChange={handleChangeEnglish}
-                      inputProps={{ "aria-label": "controlled" }}
-                      style={{ color: colorMode == "dark" ? "#ddd" : "" }}
-                    />{" "}
-                    US-UK
-                    <Checkbox
-                      checked={checkedVietnamese}
-                      onChange={handleChangeVietnamese}
-                      inputProps={{ "aria-label": "controlled" }}
-                      style={{ color: colorMode == "dark" ? "#ddd" : "" }}
-                    />{" "}
-                    V-Music
-                    <ul className={styles.songList}>
-                      {((checked && checkedEnglish && checkedVietnamese) ||
-                        (!checked &&
-                          !checkedEnglish &&
-                          !checkedVietnamese)) && (
-                        <>
-                          {data.songList.map((item, i) => (
-                            <li key={i} className={styles.songItem}>
-                              <div className={styles.imgButton}>
-                                <img
-                                  src={item.img}
-                                  alt={item.title}
-                                  className={styles.songImg}
-                                />
-                                <div className={styles.songPlayButton}>
-                                  <Link href={item.link}>
-                                    <PlayCircleFilled />
-                                  </Link>
-                                </div>
-                              </div>
-                              <div className={styles.songContent}>
-                                <div className={styles.songTitleSinger}>
-                                  <div className={styles.songTitle}>
-                                    {item.title}
-                                  </div>
-                                  <div className={styles.songSingers}>
-                                    {item.singers}
-                                  </div>
-                                </div>
-                                <div></div>
-                              </div>
-                            </li>
-                          ))}
-                        </>
-                      )}
-
-                      {!checked && checkedEnglish && !checkedVietnamese && (
-                        <>
-                          {data.songList
-                            .filter((item) => item.category == "English")
-                            .map((item, i) => (
+                      />{" "}
+                      US-UK
+                      <Checkbox
+                        checked={checkedVietnamese}
+                        onChange={handleChangeVietnamese}
+                        inputProps={{ "aria-label": "controlled" }}
+                        style={{ color: colorMode == "dark" ? "#ddd" : "" }}
+                      />{" "}
+                      V-Music
+                      <ul className={styles.songList}>
+                        {((checked && checkedEnglish && checkedVietnamese) ||
+                          (!checked &&
+                            !checkedEnglish &&
+                            !checkedVietnamese)) && (
+                          <>
+                            {data.songList.map((item, i) => (
                               <li key={i} className={styles.songItem}>
                                 <div className={styles.imgButton}>
                                   <img
@@ -401,197 +391,232 @@ export default function Blogs({ data }) {
                                 </div>
                               </li>
                             ))}
-                        </>
-                      )}
+                          </>
+                        )}
 
-                      {checked && !checkedEnglish && !checkedVietnamese && (
-                        <>
-                          {data.songList
-                            .filter((item) => item.category == "Korean")
-                            .map((item, i) => (
-                              <li key={i} className={styles.songItem}>
-                                <div className={styles.imgButton}>
-                                  <img
-                                    src={item.img}
-                                    alt={item.title}
-                                    className={styles.songImg}
-                                  />
-                                  <div className={styles.songPlayButton}>
-                                    <Link href={item.link}>
-                                      <PlayCircleFilled />
-                                    </Link>
-                                  </div>
-                                </div>
-                                <div className={styles.songContent}>
-                                  <div className={styles.songTitleSinger}>
-                                    <div className={styles.songTitle}>
-                                      {item.title}
-                                    </div>
-                                    <div className={styles.songSingers}>
-                                      {item.singers}
+                        {!checked && checkedEnglish && !checkedVietnamese && (
+                          <>
+                            {data.songList
+                              .filter((item) => item.category == "English")
+                              .map((item, i) => (
+                                <li key={i} className={styles.songItem}>
+                                  <div className={styles.imgButton}>
+                                    <img
+                                      src={item.img}
+                                      alt={item.title}
+                                      className={styles.songImg}
+                                    />
+                                    <div className={styles.songPlayButton}>
+                                      <Link href={item.link}>
+                                        <PlayCircleFilled />
+                                      </Link>
                                     </div>
                                   </div>
-                                  <div></div>
-                                </div>
-                              </li>
-                            ))}
-                        </>
-                      )}
+                                  <div className={styles.songContent}>
+                                    <div className={styles.songTitleSinger}>
+                                      <div className={styles.songTitle}>
+                                        {item.title}
+                                      </div>
+                                      <div className={styles.songSingers}>
+                                        {item.singers}
+                                      </div>
+                                    </div>
+                                    <div></div>
+                                  </div>
+                                </li>
+                              ))}
+                          </>
+                        )}
 
-                      {!checked && !checkedEnglish && checkedVietnamese && (
-                        <>
-                          {data.songList
-                            .filter((item) => item.category == "Vietnamese")
-                            .map((item, i) => (
-                              <li key={i} className={styles.songItem}>
-                                <div className={styles.imgButton}>
-                                  <img
-                                    src={item.img}
-                                    alt={item.title}
-                                    className={styles.songImg}
-                                  />
-                                  <div className={styles.songPlayButton}>
-                                    <Link href={item.link}>
-                                      <PlayCircleFilled />
-                                    </Link>
-                                  </div>
-                                </div>
-                                <div className={styles.songContent}>
-                                  <div className={styles.songTitleSinger}>
-                                    <div className={styles.songTitle}>
-                                      {item.title}
-                                    </div>
-                                    <div className={styles.songSingers}>
-                                      {item.singers}
+                        {checked && !checkedEnglish && !checkedVietnamese && (
+                          <>
+                            {data.songList
+                              .filter((item) => item.category == "Korean")
+                              .map((item, i) => (
+                                <li key={i} className={styles.songItem}>
+                                  <div className={styles.imgButton}>
+                                    <img
+                                      src={item.img}
+                                      alt={item.title}
+                                      className={styles.songImg}
+                                    />
+                                    <div className={styles.songPlayButton}>
+                                      <Link href={item.link}>
+                                        <PlayCircleFilled />
+                                      </Link>
                                     </div>
                                   </div>
-                                  <div></div>
-                                </div>
-                              </li>
-                            ))}
-                        </>
-                      )}
+                                  <div className={styles.songContent}>
+                                    <div className={styles.songTitleSinger}>
+                                      <div className={styles.songTitle}>
+                                        {item.title}
+                                      </div>
+                                      <div className={styles.songSingers}>
+                                        {item.singers}
+                                      </div>
+                                    </div>
+                                    <div></div>
+                                  </div>
+                                </li>
+                              ))}
+                          </>
+                        )}
 
-                      {!checked && checkedEnglish && checkedVietnamese && (
-                        <>
-                          {data.songList
-                            .filter((item) => item.category != "Korean")
-                            .map((item, i) => (
-                              <li key={i} className={styles.songItem}>
-                                <div className={styles.imgButton}>
-                                  <img
-                                    src={item.img}
-                                    alt={item.title}
-                                    className={styles.songImg}
-                                  />
-                                  <div className={styles.songPlayButton}>
-                                    <Link href={item.link}>
-                                      <PlayCircleFilled />
-                                    </Link>
-                                  </div>
-                                </div>
-                                <div className={styles.songContent}>
-                                  <div className={styles.songTitleSinger}>
-                                    <div className={styles.songTitle}>
-                                      {item.title}
-                                    </div>
-                                    <div className={styles.songSingers}>
-                                      {item.singers}
+                        {!checked && !checkedEnglish && checkedVietnamese && (
+                          <>
+                            {data.songList
+                              .filter((item) => item.category == "Vietnamese")
+                              .map((item, i) => (
+                                <li key={i} className={styles.songItem}>
+                                  <div className={styles.imgButton}>
+                                    <img
+                                      src={item.img}
+                                      alt={item.title}
+                                      className={styles.songImg}
+                                    />
+                                    <div className={styles.songPlayButton}>
+                                      <Link href={item.link}>
+                                        <PlayCircleFilled />
+                                      </Link>
                                     </div>
                                   </div>
-                                  <div></div>
-                                </div>
-                              </li>
-                            ))}
-                        </>
-                      )}
+                                  <div className={styles.songContent}>
+                                    <div className={styles.songTitleSinger}>
+                                      <div className={styles.songTitle}>
+                                        {item.title}
+                                      </div>
+                                      <div className={styles.songSingers}>
+                                        {item.singers}
+                                      </div>
+                                    </div>
+                                    <div></div>
+                                  </div>
+                                </li>
+                              ))}
+                          </>
+                        )}
 
-                      {checked && checkedEnglish && !checkedVietnamese && (
-                        <>
-                          {data.songList
-                            .filter((item) => item.category != "Vietnamese")
-                            .map((item, i) => (
-                              <li key={i} className={styles.songItem}>
-                                <div className={styles.imgButton}>
-                                  <img
-                                    src={item.img}
-                                    alt={item.title}
-                                    className={styles.songImg}
-                                  />
-                                  <div className={styles.songPlayButton}>
-                                    <Link href={item.link}>
-                                      <PlayCircleFilled />
-                                    </Link>
-                                  </div>
-                                </div>
-                                <div className={styles.songContent}>
-                                  <div className={styles.songTitleSinger}>
-                                    <div className={styles.songTitle}>
-                                      {item.title}
-                                    </div>
-                                    <div className={styles.songSingers}>
-                                      {item.singers}
+                        {!checked && checkedEnglish && checkedVietnamese && (
+                          <>
+                            {data.songList
+                              .filter((item) => item.category != "Korean")
+                              .map((item, i) => (
+                                <li key={i} className={styles.songItem}>
+                                  <div className={styles.imgButton}>
+                                    <img
+                                      src={item.img}
+                                      alt={item.title}
+                                      className={styles.songImg}
+                                    />
+                                    <div className={styles.songPlayButton}>
+                                      <Link href={item.link}>
+                                        <PlayCircleFilled />
+                                      </Link>
                                     </div>
                                   </div>
-                                  <div></div>
-                                </div>
-                              </li>
-                            ))}
-                        </>
-                      )}
+                                  <div className={styles.songContent}>
+                                    <div className={styles.songTitleSinger}>
+                                      <div className={styles.songTitle}>
+                                        {item.title}
+                                      </div>
+                                      <div className={styles.songSingers}>
+                                        {item.singers}
+                                      </div>
+                                    </div>
+                                    <div></div>
+                                  </div>
+                                </li>
+                              ))}
+                          </>
+                        )}
 
-                      {checked && !checkedEnglish && checkedVietnamese && (
-                        <>
-                          {data.songList
-                            .filter((item) => item.category != "English")
-                            .map((item, i) => (
-                              <li key={i} className={styles.songItem}>
-                                <div className={styles.imgButton}>
-                                  <img
-                                    src={item.img}
-                                    alt={item.title}
-                                    className={styles.songImg}
-                                  />
-                                  <div className={styles.songPlayButton}>
-                                    <Link href={item.link}>
-                                      <PlayCircleFilled />
-                                    </Link>
-                                  </div>
-                                </div>
-                                <div className={styles.songContent}>
-                                  <div className={styles.songTitleSinger}>
-                                    <div className={styles.songTitle}>
-                                      {item.title}
-                                    </div>
-                                    <div className={styles.songSingers}>
-                                      {item.singers}
+                        {checked && checkedEnglish && !checkedVietnamese && (
+                          <>
+                            {data.songList
+                              .filter((item) => item.category != "Vietnamese")
+                              .map((item, i) => (
+                                <li key={i} className={styles.songItem}>
+                                  <div className={styles.imgButton}>
+                                    <img
+                                      src={item.img}
+                                      alt={item.title}
+                                      className={styles.songImg}
+                                    />
+                                    <div className={styles.songPlayButton}>
+                                      <Link href={item.link}>
+                                        <PlayCircleFilled />
+                                      </Link>
                                     </div>
                                   </div>
-                                  <div></div>
-                                </div>
-                              </li>
-                            ))}
-                        </>
-                      )}
-                    </ul>
-                  </TabPanel>
-                </TabContext>
-              </>
-            ) : null}
+                                  <div className={styles.songContent}>
+                                    <div className={styles.songTitleSinger}>
+                                      <div className={styles.songTitle}>
+                                        {item.title}
+                                      </div>
+                                      <div className={styles.songSingers}>
+                                        {item.singers}
+                                      </div>
+                                    </div>
+                                    <div></div>
+                                  </div>
+                                </li>
+                              ))}
+                          </>
+                        )}
 
-            <p>
-              Follow me on{" "}
-              <Link href="https://www.instagram.com/philnguyen2901/">
-                <span className={styles.instagramImg}>
-                  <img
-                    width="30"
-                    height="30"
-                    src="/images/social/instagram.png"
-                    style={{ textAlign: "end" }}
-                  />
-                </span>
-              </Link>
-            </p>
+                        {checked && !checkedEnglish && checkedVietnamese && (
+                          <>
+                            {data.songList
+                              .filter((item) => item.category != "English")
+                              .map((item, i) => (
+                                <li key={i} className={styles.songItem}>
+                                  <div className={styles.imgButton}>
+                                    <img
+                                      src={item.img}
+                                      alt={item.title}
+                                      className={styles.songImg}
+                                    />
+                                    <div className={styles.songPlayButton}>
+                                      <Link href={item.link}>
+                                        <PlayCircleFilled />
+                                      </Link>
+                                    </div>
+                                  </div>
+                                  <div className={styles.songContent}>
+                                    <div className={styles.songTitleSinger}>
+                                      <div className={styles.songTitle}>
+                                        {item.title}
+                                      </div>
+                                      <div className={styles.songSingers}>
+                                        {item.singers}
+                                      </div>
+                                    </div>
+                                    <div></div>
+                                  </div>
+                                </li>
+                              ))}
+                          </>
+                        )}
+                      </ul>
+                    </TabPanel>
+                  </TabContext>
+                </>
+              ) : null}
+
+              <p>
+                Follow me on{" "}
+                <Link href="https://www.instagram.com/philnguyen2901/">
+                  <span className={styles.instagramImg}>
+                    <img
+                      width="30"
+                      height="30"
+                      src="/images/social/instagram.png"
+                      style={{ textAlign: "end" }}
+                    />
+                  </span>
+                </Link>
+              </p>
+            </div>
           </article>
           <div className={styles.imglist}>
             {img ? (
@@ -625,11 +650,19 @@ export default function Blogs({ data }) {
         </>
       ) : null}
       <div className={styles.commentsection}>
-        <DiscussionEmbed
-          style={{ color: colorMode == "dark" ? "#ddd" : "#1a1a1a" }}
-          shortname={shortName}
-          config={disqusConfig}
-        />
+        <div
+          style={{
+            padding: "20px",
+            backgroundColor: colorMode == "dark" ? "#1e2432" : "",
+            borderRadius: "5px",
+          }}
+        >
+          <DiscussionEmbed
+            style={{ color: colorMode == "dark" ? "#ddd" : "#1a1a1a" }}
+            shortname={shortName}
+            config={disqusConfig}
+          />
+        </div>
       </div>
       <div className={styles.backbutton}>
         <Link href="/blog">

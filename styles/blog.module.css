@@ -114,8 +114,6 @@
 
 .article .date {
     padding: 10px 0;
-    font-size: 1em;
-    letter-spacing: 3px;
 }
 
 .article .content {
@@ -226,7 +224,7 @@
 }
 
 .commentsection {
-    padding: 20px;
+    padding: 30px 15%;
 }
 
 .solarlink {
