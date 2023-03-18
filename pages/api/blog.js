@@ -112,6 +112,14 @@ export default function Blog(req, res) {
           author: "Phillip Nguyen",
           dtType: ["twopointers"],
         },
+        {
+          id: 13,
+          title: "Container with Most Water",
+          date: "3/18/2023",
+          imgURL: "/images/leetcode/containerwithmostwater.png",
+          author: "Phillip Nguyen",
+          dtType: ["twopointers"],
+        },
       ],
     },
   ]);

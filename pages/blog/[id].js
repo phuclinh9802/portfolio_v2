@@ -690,6 +690,7 @@ export const getStaticPaths = () => {
       { params: { id: "10" } },
       { params: { id: "11" } },
       { params: { id: "12" } },
+      { params: { id: "13" } },
     ],
     fallback: false,
   };
@@ -1099,6 +1100,15 @@ export async function getStaticProps({ params }) {
       author: "Phillip Nguyen",
       content:
         "<p>Welcome to 3Sum problem! In this problem, we are given an integer array 'nums', and we need to return all the triplets such that three indexes of those triplets are different, and they sum up to 0. Also, note that the solution does not contain duplicates.</p><p>For this problem, we will apply Two Sum II problem that we solved in my previous blog, where we have 2 pointers to check for current sum. First, we need to sort the array to apply Two Sum II. Then, we proceed to the for loop. We need to check for duplicates as well: if the current element is the same as the adjacent and previous element, skip it. Else, we can go to the nested while loop with condition being the same as Two Sum: j and k. if the temporary sum < 0 or > 0, we can move left pointer to the right or right pointer to the left. If the current sum = 0, then we add to the output list, then increment the left pointer by 1. There is one catch to this. To optimize the problem, we can check immediately for the duplicates by using while loop, and continually move the left pointer to the right when current element in j has the same value as the previous one. We are done with this problem!</p><img width='700' height='600' src='/images/leetcode/3sumsolution.png' alt='3Sum' />",
+    },
+    {
+      id: 13,
+      title: "Container with Most Water",
+      date: "3/18/2023",
+      imgURL: "/images/leetcode/containerwithmostwater.png",
+      author: "Phillip Nguyen",
+      content:
+        "<p>Welcome to Container with Most Water problem! In this problem,  we are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]). Find two lines that together with the x-axis form a container, such that the container contains the most water. Return the maximum amount of water a container can store.</p><p>We can use two pointers method to solve it. First, initialize a result variable maxArea to constantly update if tempArea > maxArea. Temporary area will be the difference between 2 elements at current left and right pointers multiplied by the min height between 2 elements. Then, we have 2 conditions: <ul><li>if height at left pointer < height at right pointer, then move left pointer to the right by 1</li><li>else if height at left pointer >= height at right pointer, then move right pointer to the left by 1.</li></ul>We keep going through the loop until 2 pointers meet each other. We are done!</p><img src='/images/leetcode/cwmwsolution.png' width='700' height='350' alt='Container with Most Water' />",
     },
   ];
 
