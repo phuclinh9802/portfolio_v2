@@ -120,6 +120,14 @@ export default function Blog(req, res) {
           author: "Phillip Nguyen",
           dtType: ["twopointers"],
         },
+        {
+          id: 14,
+          title: "Product of Array Except Self",
+          date: "3/20/2023",
+          imgURL: "/images/leetcode/productexceptself.png",
+          author: "Phillip Nguyen",
+          dtType: ["array", "hashing"],
+        },
       ],
     },
   ]);

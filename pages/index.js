@@ -79,16 +79,16 @@ export default function Index() {
                 </>
               </div>
             </Paper> */}
-            <section class={styles.resumesection}>
-              <h2 class={styles.sectiontitle}>Experience</h2>
-              <div class={styles.resumeitem}>
-                <h3 class={styles.resumetitle}>
+            <section className={styles.resumesection}>
+              <h2 className={styles.sectiontitle}>Experience</h2>
+              <div className={styles.resumeitem}>
+                <h3 className={styles.resumetitle}>
                   Software Engineering Intern, PortalX
                 </h3>
-                <p class={styles.resumesubtitle}>
+                <p className={styles.resumesubtitle}>
                   May 2022 - Oct 2022 | VinAI, Hanoi, Vietnam
                 </p>
-                <ul class={styles.resumedetails}>
+                <ul className={styles.resumedetails}>
                   <li>
                     Built a feature for PortalX dashboard to allow customer,
                     admin, and annotators to manage and annotate using different
@@ -103,13 +103,15 @@ export default function Index() {
                   <li>Leveraged Knowledge: React, Redux, Python, PostgreSQL</li>
                 </ul>
               </div>
-              <div class={styles.resumeitem}>
-                <h3 class={styles.resumetitle}>Graduate Research Assistant</h3>
-                <p class={styles.resumesubtitle}>
+              <div className={styles.resumeitem}>
+                <h3 className={styles.resumetitle}>
+                  Graduate Research Assistant
+                </h3>
+                <p className={styles.resumesubtitle}>
                   March 2020 - May 2022 | University of Nebraska-Lincoln,
                   Lincoln, NE
                 </p>
-                <ul class={styles.resumedetails}>
+                <ul className={styles.resumedetails}>
                   <li>
                     Lead the team to create software to help automate into Excel
                     by comparing points among different biological conditions at
@@ -143,12 +145,12 @@ export default function Index() {
                   </li>
                 </ul>
               </div>
-              <div class={styles.resumeitem}>
-                <h3 class={styles.resumetitle}>.NET Engineering Intern</h3>
-                <p class={styles.resumesubtitle}>
+              <div className={styles.resumeitem}>
+                <h3 className={styles.resumetitle}>.NET Engineering Intern</h3>
+                <p className={styles.resumesubtitle}>
                   May 2019 - Aug 2019 | SAVIS Technology Group, Hanoi, Vietnam
                 </p>
-                <ul class={styles.resumedetails}>
+                <ul className={styles.resumedetails}>
                   <li>
                     Built an API to generate PDF file of the Business e-Invoice
                     from the company’s client.
