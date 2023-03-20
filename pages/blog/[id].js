@@ -1007,6 +1007,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/25h0TqC9H3BcMA7KjK5nHK?si=acc0e1fb2bcd48b2",
           category: "Vietnamese",
         },
+        {
+          title: "Có hẹn với thanh xuân",
+          singers: "MONSTAR",
+          img: "/images/songs/cohenvoithanhxuan.png",
+          link: "https://open.spotify.com/track/54UNNgtE3zzERwTuWSQLqd?si=4a1f26de95464af8",
+          category: "Vietnamese",
+        },
       ],
     },
     {
