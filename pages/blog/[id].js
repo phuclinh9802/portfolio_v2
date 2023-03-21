@@ -1015,6 +1015,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/54UNNgtE3zzERwTuWSQLqd?si=4a1f26de95464af8",
           category: "Vietnamese",
         },
+        {
+          title: "A Champion from the Ashes",
+          singers: "Third Age",
+          img: "/images/songs/achampionfromtheashes.png",
+          link: "https://open.spotify.com/track/1O3e3Mo21mwupNgCeZk9p0?si=e9203661ef884c9f",
+          category: "English",
+        },
       ],
     },
     {
