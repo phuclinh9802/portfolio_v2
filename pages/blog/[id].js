@@ -1022,6 +1022,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/1O3e3Mo21mwupNgCeZk9p0?si=e9203661ef884c9f",
           category: "English",
         },
+        {
+          title: "Phố Đã Lên Đèn",
+          singers: "Huyền Tâm Môn",
+          img: "/images/songs/phodalenden.png",
+          link: "https://open.spotify.com/track/47Y12sZlWlug3AceKoS5Hh?si=7aec813c2a244355",
+          category: "Vietnamese",
+        },
       ],
     },
     {
