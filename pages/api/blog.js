@@ -128,6 +128,14 @@ export default function Blog(req, res) {
           author: "Phillip Nguyen",
           dtType: ["array", "hashing"],
         },
+        {
+          id: 15,
+          title: "Valid Parentheses",
+          date: "3/23/2023",
+          imgURL: "/images/leetcode/validparentheses.png",
+          author: "Phillip Nguyen",
+          dtType: ["hashing", "stack"],
+        },
       ],
     },
   ]);

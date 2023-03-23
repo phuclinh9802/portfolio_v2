@@ -692,6 +692,7 @@ export const getStaticPaths = () => {
       { params: { id: "12" } },
       { params: { id: "13" } },
       { params: { id: "14" } },
+      { params: { id: "15" } },
     ],
     fallback: false,
   };
@@ -1140,6 +1141,15 @@ export async function getStaticProps({ params }) {
       author: "Phillip Nguyen",
       content:
         "<p>Welcome to Product of Array Except Self problem! In this problem, we are given an array of numbers, and we are required to return an 'answer' array such that answer[i] is equal to the product of all the elements of nums except nums[i]. The problem also requires us to write the code in linear time O(n).</p><p>For this problem, we can use 2 lists 'prefix' and 'postfix' containing the product from previous elements and next elements from current position. For example, we have the list [1,2,3,4]. Then the prefix will be [1, 2, 6, 24], where: <ul><li>prefix[0] = 1 since there is no numbers before that</li><li>prefix[1] = 2, since previously we only have 1 as the previous number.</li><li>prefix[2] = 6, since we have 2 elements before current position: 1 and 2. We take the product of 3 elements and push to prefix list. </li><li>prefix[3] = 24, since the product of previous 3 elements are 1 * 2 * 3 = 6. We multiply with current element, then 6 * 4 = 24. </li></ul>Same with postfix, where postfix = [24,24,12,4]. After that, we go through the loop with length of original array. Append the product of prefix[i+1] and postfix[i-1] to the output array if current number is not from the start and the end of the array. If the element is from the start of the list, append postfix[i + 1] to the list. Otherwise, if the element is from the end of the list, append prefix[i - 1] to the list. We are done! </p><img src='/images/leetcode/prodexceptselfsolution.png' alt='product except self' width='700' height='600' /><p>Credit: <a style='text-decoration: underline' href='https://neetcode.io'>neetcode.io</a></p>",
+    },
+    {
+      id: 15,
+      title: "Valid Parentheses",
+      date: "3/23/2023",
+      imgURL: "/images/leetcode/validparentheses.png",
+      author: "Phillip Nguyen",
+      content:
+        "<p>Welcome to Valid Parentheses problem! In this problem, we are given a string s containing the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.</p><p>There are 3 main conditions: <ul><li>Open brackets must be closed by the same type of brackets</li><li>Open brackets must be closed in the correct order.</li><li>Every close bracket has a corresponding open bracket of the same type.</li></ul></p><p>To solve this problem, we can use a data structure called 'stack', where stack is appended when the character is an opening bracket, and pop if it is a closing bracket. We should also use hash map with (key - value) = (closing bracket : opening bracket), such as {']': '['}. We then proceed to the loop through every character of the string. Check if current character is an opening bracket, then add it to the stack. Otherwise, check if the stack is currently empty (meaning there are no opening bracket, but the current character is a closing bracket), or if the opening bracket matching to the current closing bracket is not matching the current opening bracket inside the stack, then return false. Else return true. We are done!</p><img src='/images/leetcode/validparenthesessolution.png' alt='valid parentheses' width='700' height='400'/>",
     },
   ];
 
