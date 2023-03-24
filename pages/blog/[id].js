@@ -1030,6 +1030,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/47Y12sZlWlug3AceKoS5Hh?si=7aec813c2a244355",
           category: "Vietnamese",
         },
+        {
+          title: "An Thần",
+          singers: "Low G",
+          img: "/images/songs/anthan.png",
+          link: "https://open.spotify.com/track/5T6j0rfpCDBzAxC8Fpd0N7?si=42b23eb216de41ce",
+          category: "Vietnamese",
+        },
       ],
     },
     {
