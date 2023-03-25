@@ -1037,6 +1037,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/5T6j0rfpCDBzAxC8Fpd0N7?si=42b23eb216de41ce",
           category: "Vietnamese",
         },
+        {
+          title: "She Neva Knows",
+          singers: "Justatee",
+          img: "/images/songs/shenevaknows.png",
+          link: "https://open.spotify.com/track/0NyrI1tMvqcK3vU5z9DMdI?si=f0bdf2a01be442e7",
+          category: "Vietnamese",
+        },
       ],
     },
     {
