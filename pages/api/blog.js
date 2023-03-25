@@ -17,7 +17,7 @@ export default function Blog(req, res) {
         {
           id: 2,
           title: "My Favorite Songs on Spotify",
-          date: "02/28/2023",
+          date: "03/25/2023",
           author: "Phillip Nguyen",
           imgURL: "/images/spotify.png",
           content: "",
