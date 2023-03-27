@@ -1044,6 +1044,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/0NyrI1tMvqcK3vU5z9DMdI?si=f0bdf2a01be442e7",
           category: "Vietnamese",
         },
+        {
+          title: "So Far Away",
+          singers: "Martin Garrix",
+          img: "/images/songs/sofaraway.png",
+          link: "https://open.spotify.com/track/0OlnLZY4cmQzT6ZGttvWBM?si=7911837037ae4dbb",
+          category: "English",
+        },
       ],
     },
     {
