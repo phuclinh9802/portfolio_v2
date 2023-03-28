@@ -158,7 +158,7 @@
 
 .songList {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     list-style-type: none;
     padding: 50px;
@@ -170,7 +170,8 @@
 
 .songItem {
     margin-bottom: 20px;
-    width: 100%;
+    width: 250px;
+
 }
 
 .songTitle {
