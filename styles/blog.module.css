@@ -10,6 +10,16 @@
     padding: 0;
 
 } */
+.chipsearch {
+    display: flex; 
+    justify-content: space-between;
+}
+.search {
+    display: grid;
+    place-items: center;
+    padding: 30px;
+}
+
 .bloglist {
     width: 100%;
     list-style-type: none;

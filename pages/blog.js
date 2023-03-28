@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import styles from "../styles/blog.module.css";
 import Navbar from "../components/navbar";
 import Head from "next/head";
-import { Chip, Skeleton, Typography } from "@mui/material";
+import { Chip, Skeleton, Typography, TextField } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+
+import styles from "../styles/blog.module.css";
 
 export default function Blog() {
   const [blogData, setBlogData] = useState(null);
@@ -43,17 +45,26 @@ export default function Blog() {
       </div>
 
       <div className={styles.blogsection}>
-        <div className={styles.hashtaglist}>
-          <Chip
-            style={{ zIndex: 1 }}
-            onClick={() => setToggleTab(true)}
-            label={"#general"}
-          ></Chip>
-          <Chip
-            style={{ zIndex: 1 }}
-            onClick={() => setToggleTab(false)}
-            label={"#interviewprep"}
-          ></Chip>
+        <div className={styles.chipsearch}>
+          <div className={styles.hashtaglist}>
+            <Chip
+              style={{ zIndex: 1 }}
+              onClick={() => setToggleTab(true)}
+              label={"#general"}
+            ></Chip>
+            <Chip
+              style={{ zIndex: 1 }}
+              onClick={() => setToggleTab(false)}
+              label={"#interviewprep"}
+            ></Chip>
+          </div>
+          <div className={styles.search}>
+            <TextField
+              id="outlined-basic"
+              variant="standard"
+              label={<SearchIcon />}
+            />
+          </div>
         </div>
         <ul className={styles.bloglist}>
           {blogData ? (
