@@ -1051,6 +1051,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/0OlnLZY4cmQzT6ZGttvWBM?si=7911837037ae4dbb",
           category: "English",
         },
+        {
+          title: "Tạm Biệt Nhé",
+          singers: "Lynk Lee",
+          img: "/images/songs/tambietnhe.png",
+          link: "https://open.spotify.com/track/1SAMe41ZkT2W4zJ4qdqEdM?si=7f5438d72eef476b",
+          category: "Vietnamese",
+        },
       ],
     },
     {
