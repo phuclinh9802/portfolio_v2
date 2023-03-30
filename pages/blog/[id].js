@@ -693,6 +693,7 @@ export const getStaticPaths = () => {
       { params: { id: "13" } },
       { params: { id: "14" } },
       { params: { id: "15" } },
+      { params: { id: "16" } },
     ],
     fallback: false,
   };
@@ -1177,7 +1178,16 @@ export async function getStaticProps({ params }) {
       imgURL: "/images/leetcode/validparentheses.png",
       author: "Phillip Nguyen",
       content:
-        "<p>Welcome to Valid Parentheses problem! In this problem, we are given a string s containing the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.</p><p>There are 3 main conditions: <ul><li>Open brackets must be closed by the same type of brackets</li><li>Open brackets must be closed in the correct order.</li><li>Every close bracket has a corresponding open bracket of the same type.</li></ul></p><p>To solve this problem, we can use a data structure called 'stack', where stack is appended when the character is an opening bracket, and pop if it is a closing bracket. We should also use hash map with (key - value) = (closing bracket : opening bracket), such as {']': '['}. We then proceed to the loop through every character of the string. Check if current character is an opening bracket, then add it to the stack. Otherwise, check if the stack is currently empty (meaning there are no opening bracket, but the current character is a closing bracket), or if the opening bracket matching to the current closing bracket is not matching the current opening bracket inside the stack, then return false. Else return true. We are done!</p><img src='/images/leetcode/validparenthesessolution.png' alt='valid parentheses' width='700' height='400'/>",
+        "<p>Welcome to Valid Parentheses problem! In this problem, we are given a string s containing the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.</p><p>There are 3 main conditions: <ul><li>Open brackets must be closed by the same type of brackets</li><li>Open brackets must be closed in the correct order.</li><li>Every close bracket has a corresponding open bracket of the same type.</li></ul></p><p>To solve this problem, we can use a data structure called 'stack', where stack is appended when the character is an opening bracket, and pop if it is a closing bracket. We should also use hash map with (key - value) = (closing bracket : opening bracket), such as {']': '['}. We then proceed to the loop through every character of the string. Check if current character is an opening bracket, then add it to the stack. Otherwise, check if the stack is currently empty (meaning there are no opening bracket, but the current character is a closing bracket), or if the opening bracket matching to the current closing bracket is not matching the current opening bracket inside the stack, then return false. Else return true. We are done!</p><img src='/images/leetcode/validparenthesessolution.png' alt='valid parentheses' width='700' height='400'/><p>Credit: <a style='text-decoration: underline' href='https://neetcode.io'>neetcode.io</a></p>",
+    },
+    {
+      id: 16,
+      title: "Min Stack",
+      date: "3/30/2023",
+      imgURL: "/images/leetcode/minstack.png",
+      author: "Phillip Nguyen",
+      content:
+        "<p>Welcome to Min Stack problem! In this problem, we are changing the gear a bit, where we are required to design a stack that supports push, pop, top, and retrieving the minimum element in constant time O(1).</p><p>The most important piece of information here is we have to implement the solution in O(1) for each function. Therefore, we can use stack to solve this problem. We need 3 variables for this MinStack class: one stack to store the current pushed element, one stack to store current min value in current stack element, and one min variable to store current min value. The first method is void push(int val): pushes the element val onto the stack. For  this method, we first need to check if the stack is empty. If so, we append the value to the 'minStack' stack, and set min val to that value. Otherwise, append the value to the main stack, set minimum value to the current minimum value and the value to be added, and append that current min value to the 'minStack' to indicate the min value for a specific stack position.</p><p>Next, we have void pop() function, which removes the element on the top of the stack. For this problem, we can just popo the current stack and minStack, and set current min value to the latest value inside minStack after being popped.</p><p>Next, we got int top(): gets the top element of the stack, which we can just return the latest element in the stack.</p><p>And last but not least, int getMin() function: retrieves the minimum element in the stack, which we can just return the current min value. We are done!</p><img src='/images/leetcode/minstacksolution.png' alt='min stack' width='700' height='800' /><p>Credit: <a style='text-decoration: underline' href='https://neetcode.io'>neetcode.io</a></p>",
     },
   ];
 

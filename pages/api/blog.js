@@ -136,6 +136,14 @@ export default function Blog(req, res) {
           author: "Phillip Nguyen",
           dtType: ["hashing", "stack"],
         },
+        {
+          id: 16,
+          title: "Min Stack",
+          date: "3/30/2023",
+          imgURL: "/images/leetcode/minstack.png",
+          author: "Phillip Nguyen",
+          dtType: ["stack"],
+        },
       ],
     },
   ]);
