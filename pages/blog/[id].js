@@ -1059,6 +1059,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/1SAMe41ZkT2W4zJ4qdqEdM?si=7f5438d72eef476b",
           category: "Vietnamese",
         },
+        {
+          title: "Love Scenario",
+          singers: "iKON",
+          img: "/images/songs/lovescenario.png",
+          link: "https://open.spotify.com/track/3d3ELsqKlQ7WA0a10Isu3l?si=80da3282d4db4451",
+          category: "Korean",
+        },
       ],
     },
     {
