@@ -715,7 +715,7 @@ export async function getStaticProps({ params }) {
     {
       id: 2,
       title: "My Favorite Songs for 2023",
-      date: "03/25/2023",
+      date: "04/06/2023",
       author: "Phillip Nguyen",
       imgURL: "/images/spotify.png",
       content:
@@ -1065,6 +1065,13 @@ export async function getStaticProps({ params }) {
           singers: "iKON",
           img: "/images/songs/lovescenario.png",
           link: "https://open.spotify.com/track/3d3ELsqKlQ7WA0a10Isu3l?si=80da3282d4db4451",
+          category: "Korean",
+        },
+        {
+          title: "If You",
+          singers: "Big Bang",
+          img: "/images/songs/ifyou.png",
+          link: "https://open.spotify.com/track/4kaY4LbdbomICC25gYGGtn?si=3d6ed8bda3d840a0",
           category: "Korean",
         },
       ],
