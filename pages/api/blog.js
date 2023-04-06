@@ -144,6 +144,14 @@ export default function Blog(req, res) {
           author: "Phillip Nguyen",
           dtType: ["stack"],
         },
+        {
+          id: 17,
+          title: "Binary Search",
+          date: "4/5/2023",
+          imgURL: "/images/leetcode/binarysearch.png",
+          author: "Phillip Nguyen",
+          dtType: ["twopointers", "binarysearch"],
+        },
       ],
     },
   ]);

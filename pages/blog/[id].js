@@ -694,6 +694,7 @@ export const getStaticPaths = () => {
       { params: { id: "14" } },
       { params: { id: "15" } },
       { params: { id: "16" } },
+      { params: { id: "17" } },
     ],
     fallback: false,
   };
@@ -1195,6 +1196,15 @@ export async function getStaticProps({ params }) {
       author: "Phillip Nguyen",
       content:
         "<p>Welcome to Min Stack problem! In this problem, we are changing the gear a bit, where we are required to design a stack that supports push, pop, top, and retrieving the minimum element in constant time O(1).</p><p>The most important piece of information here is we have to implement the solution in O(1) for each function. Therefore, we can use stack to solve this problem. We need 3 variables for this MinStack class: one stack to store the current pushed element, one stack to store current min value in current stack element, and one min variable to store current min value. The first method is void push(int val): pushes the element val onto the stack. For  this method, we first need to check if the stack is empty. If so, we append the value to the 'minStack' stack, and set min val to that value. Otherwise, append the value to the main stack, set minimum value to the current minimum value and the value to be added, and append that current min value to the 'minStack' to indicate the min value for a specific stack position.</p><p>Next, we have void pop() function, which removes the element on the top of the stack. For this problem, we can just popo the current stack and minStack, and set current min value to the latest value inside minStack after being popped.</p><p>Next, we got int top(): gets the top element of the stack, which we can just return the latest element in the stack.</p><p>And last but not least, int getMin() function: retrieves the minimum element in the stack, which we can just return the current min value. We are done!</p><img src='/images/leetcode/minstacksolution.png' alt='min stack' width='700' height='800' /><p>Credit: <a style='text-decoration: underline' href='https://neetcode.io'>neetcode.io</a></p>",
+    },
+    {
+      id: 17,
+      title: "Binary Search",
+      date: "4/5/2023",
+      imgURL: "/images/leetcode/binarysearch.png",
+      author: "Phillip Nguyen",
+      content:
+        "<p>Welcome to Binary Search problem! This is one of the most basic but important problem when it comes to data structures and algorithm. Normally, to search for an element in the list, we use for loop to iterate through the entire list until we find what we want. However, for this algorithm, we can apply 'Divide and Conquer' concept with 2 pointers left and right representing left most position and rightmost position. We use mid position to compare with the target value. We keep doing that until left and right pointers meet. If none is found, we return -1, else we return the mid index. We are done.</p><img src='/images/leetcode/binarysearchsolution.png' width='700' height='600' alt='binary search' /><p>Credit: <a style='text-decoration: underline' href='https://neetcode.io'>neetcode.io</a></p>",
     },
   ];
 
