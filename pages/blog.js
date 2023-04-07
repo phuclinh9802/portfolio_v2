@@ -11,6 +11,10 @@ export default function Blog() {
   const [blogData, setBlogData] = useState(null);
   const [toggleTab, setToggleTab] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [filter, setFilter] = useState("");
+  const [generalData, setGeneralData] = useState({ type: "", blogs: [] });
+  const [interviewData, setInterviewData] = useState([]);
+
   useEffect(() => {
     fetch("api/blog")
       .then((res) => res.json())
@@ -22,8 +26,45 @@ export default function Blog() {
       setTimeout(() => {
         setIsLoaded(true);
       }, 2000);
+      setGeneralData(blogData[0]);
+      setInterviewData(blogData[1]);
     }
   }, [blogData]);
+
+  useEffect(() => {
+    if (blogData) {
+      if (filter) {
+        setGeneralData({
+          ...generalData,
+          blogs: generalData.blogs.filter((item) =>
+            item.title.toLowerCase().includes(filter.toLowerCase())
+          ),
+        });
+      } else {
+        setGeneralData(blogData[0]);
+      }
+    }
+  }, [filter, blogData, generalData]);
+
+  useEffect(() => {
+    if (blogData) {
+      if (filter) {
+        setInterviewData({
+          ...interviewData,
+          blogs: interviewData.blogs.filter((item) =>
+            item.title.toLowerCase().includes(filter.toLowerCase())
+          ),
+        });
+      } else {
+        setInterviewData(blogData[1]);
+      }
+    }
+  }, [filter, interviewData]);
+
+  const handleSearch = (e) => {
+    setFilter(e.target.value);
+  };
+
   return (
     <div>
       <Head>
@@ -63,121 +104,120 @@ export default function Blog() {
               id="outlined-basic"
               variant="standard"
               label={<SearchIcon />}
+              onChange={(e) => handleSearch(e)}
             />
           </div>
         </div>
         <ul className={styles.bloglist}>
-          {blogData ? (
+          {blogData && generalData && interviewData ? (
             <>
-              {blogData.map(({ type, blogs }) => (
+              {/* {generalData.map(({ type, blogs }) => ( */}
+              {/* <> */}
+              {toggleTab == true && generalData && (
                 <>
-                  {toggleTab == true && type == "general" && (
-                    <>
-                      {blogs.map(({ id, date, title, imgURL, bgPos }) => (
-                        <>
-                          {isLoaded ? (
-                            <li
-                              style={{
-                                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
-                                backgroundPosition: `${bgPos}`,
-                                // paddingTop: "140px",
-                              }}
-                              className={styles.blogitem}
-                              key={id}
-                            >
-                              <div className={styles.blogchip}>
-                                <Chip
-                                  style={{ backgroundColor: "#ffcc00" }}
-                                  label={`#${type}`}
-                                />
-                              </div>
-                              <div className={styles.blogitemtitle}>
-                                <Link href={`/blog/${id}`}>
-                                  <Typography
-                                    variant="h6"
-                                    className={styles.linkblog}
-                                  >
-                                    {title}
-                                  </Typography>
-                                  <br />
-                                  <Typography
-                                    variant="subtitle2"
-                                    className={styles.linkdate}
-                                  >
-                                    {date}
-                                  </Typography>
-                                </Link>
-                              </div>
-                            </li>
-                          ) : (
-                            <Skeleton
-                              variant="rectangular"
-                              width={400}
-                              height={300}
-                            />
-                          )}
-                        </>
-                      ))}
-                    </>
-                  )}
-                  {toggleTab == false && type == "interview" && (
-                    <>
-                      {blogs.map(
-                        ({ id, date, title, imgURL, bgPos, dtType }) => (
-                          <>
-                            {isLoaded ? (
-                              <li
-                                style={{
-                                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
-                                  backgroundPosition: `${bgPos}`,
-                                }}
-                                className={styles.blogitem}
-                                key={id}
-                              >
-                                <div className={styles.blogchip}>
-                                  <Chip
-                                    style={{ backgroundColor: "#00b3ff" }}
-                                    label={`#${type}`}
-                                  />
-                                </div>
-                                <div className={styles.blogitemtitle}>
-                                  <Link href={`/blog/${id}`}>
-                                    {dtType?.map((item) => (
-                                      <>
-                                        <Chip
-                                          style={{
-                                            backgroundColor: "#ff6832",
-                                            color: "#fff",
-                                          }}
-                                          label={`#${dtType ? item : null}`}
-                                          size="small"
-                                        />
-                                      </>
-                                    ))}
-                                    <div className={styles.linkblog}>
-                                      {title}
-                                    </div>
-                                    <br />
-                                    <small className={styles.linkdate}>
-                                      {date}
-                                    </small>
-                                  </Link>
-                                </div>
-                              </li>
-                            ) : (
-                              <Skeleton
-                                variant="rectangular"
-                                width={400}
-                                height={300}
+                  {generalData.blogs?.map(
+                    ({ id, date, title, imgURL, bgPos }) => (
+                      <>
+                        {isLoaded ? (
+                          <li
+                            style={{
+                              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
+                              backgroundPosition: `${bgPos}`,
+                              // paddingTop: "140px",
+                            }}
+                            className={styles.blogitem}
+                            key={id}
+                          >
+                            <div className={styles.blogchip}>
+                              <Chip
+                                style={{ backgroundColor: "#ffcc00" }}
+                                label={`#${generalData.type}`}
                               />
-                            )}
-                          </>
-                        )
-                      )}
-                    </>
+                            </div>
+                            <div className={styles.blogitemtitle}>
+                              <Link href={`/blog/${id}`}>
+                                <Typography
+                                  variant="h6"
+                                  className={styles.linkblog}
+                                >
+                                  {title}
+                                </Typography>
+                                <br />
+                                <Typography
+                                  variant="subtitle2"
+                                  className={styles.linkdate}
+                                >
+                                  {date}
+                                </Typography>
+                              </Link>
+                            </div>
+                          </li>
+                        ) : (
+                          <Skeleton
+                            variant="rectangular"
+                            width={400}
+                            height={300}
+                          />
+                        )}
+                      </>
+                    )
                   )}
                 </>
-              ))}
+              )}
+              {toggleTab == false && interviewData && (
+                <>
+                  {interviewData.blogs?.map(
+                    ({ id, date, title, imgURL, bgPos, dtType }) => (
+                      <>
+                        {isLoaded ? (
+                          <li
+                            style={{
+                              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${imgURL}')`,
+                              backgroundPosition: `${bgPos}`,
+                            }}
+                            className={styles.blogitem}
+                            key={id}
+                          >
+                            <div className={styles.blogchip}>
+                              <Chip
+                                style={{ backgroundColor: "#00b3ff" }}
+                                label={`#${interviewData.type}`}
+                              />
+                            </div>
+                            <div className={styles.blogitemtitle}>
+                              <Link href={`/blog/${id}`}>
+                                {dtType?.map((item) => (
+                                  <>
+                                    <Chip
+                                      style={{
+                                        backgroundColor: "#ff6832",
+                                        color: "#fff",
+                                      }}
+                                      label={`#${dtType ? item : null}`}
+                                      size="small"
+                                    />
+                                  </>
+                                ))}
+                                <div className={styles.linkblog}>{title}</div>
+                                <br />
+                                <small className={styles.linkdate}>
+                                  {date}
+                                </small>
+                              </Link>
+                            </div>
+                          </li>
+                        ) : (
+                          <Skeleton
+                            variant="rectangular"
+                            width={400}
+                            height={300}
+                          />
+                        )}
+                      </>
+                    )
+                  )}
+                </>
+              )}
             </>
           ) : null}
         </ul>
