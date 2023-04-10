@@ -1074,6 +1074,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/4kaY4LbdbomICC25gYGGtn?si=3d6ed8bda3d840a0",
           category: "Korean",
         },
+        {
+          title: "As Long As You Love Me",
+          singers: "Backstreet Boys",
+          img: "/images/songs/aslongasyouloveme.png",
+          link: "https://open.spotify.com/track/00WvmRXTkPBZNhhRK3xfdy?si=e18cc3725e0545f6",
+          category: "English",
+        },
       ],
     },
     {
