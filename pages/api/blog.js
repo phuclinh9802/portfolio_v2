@@ -152,6 +152,14 @@ export default function Blog(req, res) {
           author: "Phillip Nguyen",
           dtType: ["twopointers", "binarysearch"],
         },
+        {
+          id: 18,
+          title: "Search a 2D Matrix",
+          date: "4/12/2023",
+          imgURL: "/images/leetcode/searcha2dmatrix.png",
+          author: "Phillip Nguyen",
+          dtType: ["twopointers", "binarysearch"],
+        },
       ],
     },
   ]);

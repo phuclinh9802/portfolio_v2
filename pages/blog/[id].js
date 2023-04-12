@@ -695,6 +695,7 @@ export const getStaticPaths = () => {
       { params: { id: "15" } },
       { params: { id: "16" } },
       { params: { id: "17" } },
+      { params: { id: "18" } },
     ],
     fallback: false,
   };
@@ -1219,6 +1220,15 @@ export async function getStaticProps({ params }) {
       author: "Phillip Nguyen",
       content:
         "<p>Welcome to Binary Search problem! This is one of the most basic but important problem when it comes to data structures and algorithm. Normally, to search for an element in the list, we use for loop to iterate through the entire list until we find what we want. However, for this algorithm, we can apply 'Divide and Conquer' concept with 2 pointers left and right representing left most position and rightmost position. We use mid position to compare with the target value. We keep doing that until left and right pointers meet. If none is found, we return -1, else we return the mid index. We are done.</p><img src='/images/leetcode/binarysearchsolution.png' width='700' height='600' alt='binary search' /><p>Credit: <a style='text-decoration: underline' href='https://neetcode.io'>neetcode.io</a></p>",
+    },
+    {
+      id: 18,
+      title: "Search a 2D Matrix",
+      date: "4/12/2023",
+      imgURL: "/images/leetcode/searcha2dmatrix.png",
+      author: "Phillip Nguyen",
+      content:
+        "<p>Welcome to Search a 2D Matrix problem. In this problem, we will try to solve using binary search approach with a 2D list. You are given an m x n integer matrix matrix with the following two properties: Each row is sorted in non-decreasing order. The first integer of each row is greater than the last integer of the previous row. Given an integer target, return true if target is in matrix or false otherwise. You must write a solution in O(log(m * n)) time complexity.</p><p>So, we know that each row is non-decreasing, then, we can find the row that the target value exists first, then use binary search to find that target. For this, set top = 0, bottom = len(matrix) as 2 pointers for position of top row and bottom row. Then, we take mid as usual. If target >= matrix[mid][0] and target <= matrix[mid][len(matrix[0])], then we can return row; if target < mtrix[mid][0], proceed to prev row: bottom = mid - 1; else: top = mid + 1</p><p>After that, we are able to find the row that contains the target. We do normal binary search in that particular row. We are done!</p><img src='/images/leetcode/search2d1.png' width='700' height='350'/><img src='/images/leetcode/search2d2.png' width='700' height='600'/><p>Credit: <a style='text-decoration: underline' href='https://neetcode.io'>neetcode.io</a></p>",
     },
   ];
 
