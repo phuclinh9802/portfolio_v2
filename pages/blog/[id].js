@@ -1082,6 +1082,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/00WvmRXTkPBZNhhRK3xfdy?si=e18cc3725e0545f6",
           category: "English",
         },
+        {
+          title: "Lạ Lùng",
+          singers: "Vũ",
+          img: "/images/songs/lalung.png",
+          link: "https://open.spotify.com/track/5Bti0azlFhMattVY76qFr9?si=d8ca28263d534348",
+          category: "Vietnamese",
+        },
       ],
     },
     {
