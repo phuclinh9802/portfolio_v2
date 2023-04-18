@@ -1090,6 +1090,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/5Bti0azlFhMattVY76qFr9?si=d8ca28263d534348",
           category: "Vietnamese",
         },
+        {
+          title: "Eyes, Nose, Lips",
+          singers: "TAEYANG",
+          img: "/images/songs/eyesnoselips.png",
+          link: "https://open.spotify.com/track/0lYtIvI7bO51PZSeK22Mbz?si=83a86d24adec4f48",
+          category: "Korean",
+        },
       ],
     },
     {
