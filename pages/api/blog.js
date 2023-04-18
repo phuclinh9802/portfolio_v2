@@ -160,6 +160,14 @@ export default function Blog(req, res) {
           author: "Phillip Nguyen",
           dtType: ["twopointers", "binarysearch"],
         },
+        {
+          id: 19,
+          title: "Best Time to Buy and Sell Stock",
+          date: "4/17/2023",
+          imgURL: "/images/leetcode/buysellstock.png",
+          author: "Phillip Nguyen",
+          dtType: ["twopointers", "slidingwindow"],
+        },
       ],
     },
   ]);

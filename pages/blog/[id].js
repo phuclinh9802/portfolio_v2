@@ -696,6 +696,7 @@ export const getStaticPaths = () => {
       { params: { id: "16" } },
       { params: { id: "17" } },
       { params: { id: "18" } },
+      { params: { id: "19" } },
     ],
     fallback: false,
   };
@@ -1236,6 +1237,15 @@ export async function getStaticProps({ params }) {
       author: "Phillip Nguyen",
       content:
         "<p>Welcome to Search a 2D Matrix problem. In this problem, we will try to solve using binary search approach with a 2D list. You are given an m x n integer matrix matrix with the following two properties: Each row is sorted in non-decreasing order. The first integer of each row is greater than the last integer of the previous row. Given an integer target, return true if target is in matrix or false otherwise. You must write a solution in O(log(m * n)) time complexity.</p><p>So, we know that each row is non-decreasing, then, we can find the row that the target value exists first, then use binary search to find that target. For this, set top = 0, bottom = len(matrix) as 2 pointers for position of top row and bottom row. Then, we take mid as usual. If target >= matrix[mid][0] and target <= matrix[mid][len(matrix[0])], then we can return row; if target < mtrix[mid][0], proceed to prev row: bottom = mid - 1; else: top = mid + 1</p><p>After that, we are able to find the row that contains the target. We do normal binary search in that particular row. We are done!</p><img src='/images/leetcode/search2d1.png' width='700' height='350'/><img src='/images/leetcode/search2d2.png' width='700' height='600'/><p>Credit: <a style='text-decoration: underline' href='https://neetcode.io'>neetcode.io</a></p>",
+    },
+    {
+      id: 19,
+      title: "Best Time to Buy and Sell Stock",
+      date: "4/17/2023",
+      imgURL: "/images/leetcode/buysellstock.png",
+      author: "Phillip Nguyen",
+      content:
+        "<p>Welcome to Best Time to Buy and Sell Stock. In this problem, we are given an array prices where prices[i] is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock. Return the maximum profit we can achieve from this transaction. If we cannot achieve any profit, return 0.</p><p>We will use sliding window algorithm/technique for this problem, which we will have 2 pointers 'buy' and 'sell' indicating the day to buy and day to sell inside the prices list. So, while the sell pointer has not reached the end of the list yet, or the final day to trade, then if price at the buying day < price at selling day, then we will update the result as the maximum between the current result and the difference between selling and buying day. Otherwise, we continue moving buy to sell, and increment selling day. We solved the problem!</p><img src='/images/leetcode/buysellstocksolution.png' width='700' height='400' /><p>Credit: <a style='text-decoration: underline' href='https://neetcode.io'>neetcode.io</a></p>",
     },
   ];
 
