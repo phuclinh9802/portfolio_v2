@@ -1097,6 +1097,13 @@ export async function getStaticProps({ params }) {
           link: "https://open.spotify.com/track/0lYtIvI7bO51PZSeK22Mbz?si=83a86d24adec4f48",
           category: "Korean",
         },
+        {
+          title: "Scared to Be Lonely",
+          singers: "Martin Garrix, Dua Lipa",
+          img: "/images/songs/scaredtobelonely.png",
+          link: "https://open.spotify.com/track/3ebXMykcMXOcLeJ9xZ17XH?si=4fab467800fe4719",
+          category: "Korean",
+        },
       ],
     },
     {
