@@ -717,7 +717,7 @@ export async function getStaticProps({ params }) {
     {
       id: 2,
       title: "My Favorite Songs for 2023",
-      date: "04/06/2023",
+      date: "05/04/2023",
       author: "Phillip Nguyen",
       imgURL: "/images/spotify.png",
       content:
@@ -1102,6 +1102,13 @@ export async function getStaticProps({ params }) {
           singers: "Martin Garrix, Dua Lipa",
           img: "/images/songs/scaredtobelonely.png",
           link: "https://open.spotify.com/track/3ebXMykcMXOcLeJ9xZ17XH?si=4fab467800fe4719",
+          category: "English",
+        },
+        {
+          title: "Bad Boy",
+          singers: "Big Bang",
+          img: "/images/songs/badboy.png",
+          link: "https://open.spotify.com/track/7GLlnuHjYIKy3YR59ziaQe?si=1540378d82d24487",
           category: "Korean",
         },
       ],
